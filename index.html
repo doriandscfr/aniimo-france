@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ===== SEO : balises principales ===== -->
+  <title>Discord Aniimo France — La communauté française d'Aniimo | discord.gg/aniimofr</title>
+  <meta name="description" content="Rejoignez le Discord Aniimo France, le serveur communautaire francophone du jeu Aniimo : entraide, guides FR, événements, recherche de coéquipiers et toute l'actualité du jeu. Invitation : discord.gg/aniimofr">
+  <meta name="keywords" content="discord aniimo france, discord aniimo fr, aniimo france discord, serveur discord aniimo, communauté aniimo francophone, aniimo fr, discord.gg/aniimofr">
+  <link rel="canonical" href="https://aniimo-france.fr/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#8FD3F4">
+
+  <!-- ===== Open Graph (partage Discord / réseaux sociaux) ===== -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aniimo France">
+  <meta property="og:title" content="Discord Aniimo France — La communauté française d'Aniimo">
+  <meta property="og:description" content="Le serveur Discord francophone du jeu Aniimo : entraide, guides, événements et recherche de coéquipiers. Rejoignez-nous sur discord.gg/aniimofr">
+  <meta property="og:url" content="https://aniimo-france.fr/">
+  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+
+  <!-- ===== Twitter Card ===== -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Discord Aniimo France — La communauté française d'Aniimo">
+  <meta name="twitter:description" content="Le serveur Discord francophone du jeu Aniimo. Invitation : discord.gg/aniimofr">
+  <meta name="twitter:image" content="https://aniimo-france.fr/banniere.png">
+
+  <!-- ===== Données structurées : site + FAQ (résultats enrichis Google) ===== -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "name": "Aniimo France",
+        "alternateName": ["Discord Aniimo France", "Discord Aniimo FR", "Aniimo FR"],
+        "url": "https://aniimo-france.fr/",
+        "inLanguage": "fr-FR",
+        "description": "Serveur Discord communautaire francophone dédié au jeu Aniimo."
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Comment rejoindre le Discord Aniimo France ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Il suffit de cliquer sur le lien d'invitation discord.gg/aniimofr depuis un navigateur ou l'application Discord. L'accès est gratuit et ouvert à tous les joueurs francophones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le serveur Aniimo France est-il officiel ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Non, Aniimo France est un serveur communautaire créé par des fans. Il n'est pas affilié à Pawprint Studio ni à Kingsglory. C'est un espace d'entraide et de partage entre joueurs francophones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Qu'est-ce que le jeu Aniimo ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aniimo est un RPG free-to-play en monde ouvert de capture de créatures, développé par Pawprint Studio et édité par Kingsglory. On y explore le continent d'Idyll en tissant des liens avec des créatures appelées Aniimo. Le jeu est prévu sur PC, consoles et mobile."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Que trouve-t-on sur le Discord Aniimo FR ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "De l'entraide entre joueurs, des guides en français, l'actualité du jeu traduite, des événements communautaires, des concours et des salons pour trouver des coéquipiers en coopération."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Le Discord est-il accessible avant la sortie du jeu ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Oui ! Le serveur est déjà actif : on y suit les annonces, les bêtas et on s'y prépare ensemble pour le lancement d'Aniimo."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
+  <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --ciel:#8FD3F4;
+      --ciel-clair:#D9F0FC;
+      --nuit:#22355C;
+      --nuit-douce:#4A5C82;
+      --corail:#FF6F61;
+      --soleil:#FFC94D;
+      --prairie:#58C08A;
+      --nuage:#FFFFFF;
+      --brume:#F3FAFF;
+      --blurple:#5865F2;
+      --blurple-fonce:#4752C4;
+      --radius:22px;
+    }
+    *{margin:0;padding:0;box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Nunito',system-ui,sans-serif;
+      color:var(--nuit);
+      background:var(--brume);
+      line-height:1.65;
+      overflow-x:hidden;
+    }
+    h1,h2,h3{font-family:'Fredoka',sans-serif;line-height:1.2}
+    a{color:inherit}
+    .conteneur{max-width:1060px;margin:0 auto;padding:0 24px}
+
+    /* ===== HERO : ciel d'Idyll ===== */
+    .hero{
+      position:relative;
+      background:linear-gradient(180deg,var(--ciel) 0%,var(--ciel-clair) 78%,var(--brume) 100%);
+      padding:72px 0 150px;
+      text-align:center;
+      overflow:hidden;
+    }
+    .hero-contenu{position:relative;z-index:3}
+    .surtitre{
+      display:inline-block;
+      font-family:'Fredoka',sans-serif;
+      font-weight:600;
+      font-size:.95rem;
+      letter-spacing:.12em;
+      text-transform:uppercase;
+      background:var(--nuage);
+      color:var(--nuit);
+      padding:8px 20px;
+      border-radius:999px;
+      box-shadow:0 4px 14px rgba(34,53,92,.12);
+      margin-bottom:26px;
+    }
+    .surtitre .point{color:var(--corail)}
+    h1{
+      font-size:clamp(2.1rem,5.4vw,3.6rem);
+      font-weight:700;
+      max-width:820px;
+      margin:0 auto 18px;
+    }
+    h1 .accent{color:var(--corail)}
+    .hero p.accroche{
+      font-size:clamp(1.05rem,2vw,1.25rem);
+      color:var(--nuit-douce);
+      max-width:640px;
+      margin:0 auto 36px;
+      font-weight:600;
+    }
+    .bouton-discord{
+      display:inline-flex;
+      align-items:center;
+      gap:12px;
+      background:var(--blurple);
+      color:#fff;
+      text-decoration:none;
+      font-family:'Fredoka',sans-serif;
+      font-weight:600;
+      font-size:1.15rem;
+      padding:16px 34px;
+      border-radius:999px;
+      box-shadow:0 10px 26px rgba(88,101,242,.38);
+      transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+    }
+    .bouton-discord:hover{background:var(--blurple-fonce);transform:translateY(-3px);box-shadow:0 14px 32px rgba(88,101,242,.45)}
+    .bouton-discord svg{width:26px;height:26px;fill:#fff}
+    .sous-bouton{margin-top:14px;font-size:.92rem;color:var(--nuit-douce);font-weight:600}
+    .sous-bouton code{
+      font-family:'Nunito',monospace;
+      background:rgba(255,255,255,.7);
+      padding:3px 10px;
+      border-radius:8px;
+      font-weight:800;
+    }
+
+    /* Îles flottantes (signature) */
+    .ile{position:absolute;z-index:1;opacity:.95;animation:flotter 7s ease-in-out infinite}
+    .ile-1{width:170px;left:4%;top:16%;animation-delay:0s}
+    .ile-2{width:120px;right:6%;top:10%;animation-delay:-2.5s}
+    .ile-3{width:95px;right:16%;bottom:14%;animation-delay:-4.5s}
+    .nuage-svg{position:absolute;z-index:0;opacity:.85;animation:deriver 26s linear infinite}
+    .nuage-1{width:150px;left:-160px;top:24%}
+    .nuage-2{width:110px;left:-120px;top:58%;animation-delay:-13s;animation-duration:34s}
+    @keyframes flotter{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
+    @keyframes deriver{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 320px))}}
+    @media (prefers-reduced-motion:reduce){
+      .ile,.nuage-svg{animation:none}
+      .bouton-discord{transition:none}
+    }
+    @media (max-width:700px){
+      .ile-1{width:110px;top:6%}
+      .ile-2{width:80px}
+      .ile-3{display:none}
+    }
+
+    /* ===== SECTIONS ===== */
+    section{padding:72px 0}
+    .titre-section{
+      text-align:center;
+      font-size:clamp(1.6rem,3.4vw,2.3rem);
+      font-weight:600;
+      margin-bottom:14px;
+    }
+    .intro-section{
+      text-align:center;
+      color:var(--nuit-douce);
+      max-width:640px;
+      margin:0 auto 48px;
+      font-weight:600;
+    }
+
+    /* Cartes atouts */
+    .grille-atouts{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+      gap:22px;
+    }
+    .carte{
+      background:var(--nuage);
+      border-radius:var(--radius);
+      padding:30px 26px;
+      box-shadow:0 6px 22px rgba(34,53,92,.08);
+      border-top:5px solid var(--soleil);
+      transition:transform .18s ease;
+    }
+    .carte:nth-child(2){border-top-color:var(--corail)}
+    .carte:nth-child(3){border-top-color:var(--prairie)}
+    .carte:nth-child(4){border-top-color:var(--blurple)}
+    .carte:hover{transform:translateY(-5px)}
+    .carte .emoji{font-size:2rem;display:block;margin-bottom:12px}
+    .carte h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
+    .carte p{font-size:.96rem;color:var(--nuit-douce)}
+
+    /* Le jeu */
+    .bloc-jeu{
+      background:var(--nuage);
+      border-radius:var(--radius);
+      padding:44px 40px;
+      box-shadow:0 6px 22px rgba(34,53,92,.08);
+      display:grid;
+      grid-template-columns:1fr;
+      gap:18px;
+    }
+    .bloc-jeu p{color:var(--nuit-douce);font-weight:600}
+    .etiquettes{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .etiquette{
+      font-family:'Fredoka',sans-serif;
+      font-size:.85rem;
+      font-weight:500;
+      background:var(--ciel-clair);
+      color:var(--nuit);
+      padding:6px 16px;
+      border-radius:999px;
+    }
+
+    /* FAQ */
+    .faq details{
+      background:var(--nuage);
+      border-radius:16px;
+      padding:20px 26px;
+      margin-bottom:14px;
+      box-shadow:0 4px 16px rgba(34,53,92,.07);
+    }
+    .faq summary{
+      font-family:'Fredoka',sans-serif;
+      font-weight:600;
+      font-size:1.05rem;
+      cursor:pointer;
+      list-style:none;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:16px;
+    }
+    .faq summary::-webkit-details-marker{display:none}
+    .faq summary::after{
+      content:"+";
+      font-size:1.5rem;
+      color:var(--corail);
+      transition:transform .2s ease;
+      flex-shrink:0;
+    }
+    .faq details[open] summary::after{transform:rotate(45deg)}
+    .faq details p{margin-top:12px;color:var(--nuit-douce);font-weight:600}
+
+    /* Bandeau final */
+    .bandeau-final{
+      background:linear-gradient(135deg,var(--nuit) 0%,#31497E 100%);
+      border-radius:var(--radius);
+      text-align:center;
+      padding:56px 30px;
+      color:#fff;
+    }
+    .bandeau-final h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;margin-bottom:12px}
+    .bandeau-final p{color:#C4D3F2;font-weight:600;margin-bottom:28px}
+
+    footer{
+      text-align:center;
+      padding:36px 24px 46px;
+      font-size:.85rem;
+      color:var(--nuit-douce);
+    }
+    footer .mention{max-width:620px;margin:0 auto 10px}
+    footer a{color:var(--blurple);font-weight:700;text-decoration:none}
+    footer a:hover{text-decoration:underline}
+
+    .bouton-discord:focus-visible,.faq summary:focus-visible,footer a:focus-visible{
+      outline:3px solid var(--corail);
+      outline-offset:3px;
+      border-radius:8px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= HERO ================= -->
+  <header class="hero">
+    <!-- Nuages dérivants -->
+    <svg class="nuage-svg nuage-1" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="40" cy="40" rx="34" ry="18" fill="#fff"/><ellipse cx="72" cy="34" rx="28" ry="16" fill="#fff"/><ellipse cx="58" cy="24" rx="22" ry="14" fill="#fff"/>
+    </svg>
+    <svg class="nuage-svg nuage-2" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <ellipse cx="40" cy="40" rx="34" ry="18" fill="#fff"/><ellipse cx="72" cy="34" rx="28" ry="16" fill="#fff"/><ellipse cx="58" cy="24" rx="22" ry="14" fill="#fff"/>
+    </svg>
+
+    <!-- Îles flottantes stylisées (signature du site) -->
+    <svg class="ile ile-1" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
+      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#58C08A"/>
+      <circle cx="70" cy="58" r="12" fill="#6BD69B"/>
+      <circle cx="125" cy="55" r="15" fill="#6BD69B"/>
+      <rect x="122" y="40" width="6" height="14" rx="3" fill="#8A5A38"/>
+    </svg>
+    <svg class="ile ile-2" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
+      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#FFC94D"/>
+      <circle cx="100" cy="55" r="13" fill="#FFD97A"/>
+    </svg>
+    <svg class="ile ile-3" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
+      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#FF9C8F"/>
+    </svg>
+
+    <div class="conteneur hero-contenu">
+      <span class="surtitre">Aniimo France <span class="point">●</span> Communauté FR</span>
+      <h1>Le Discord de la communauté <span class="accent">française</span> d'Aniimo</h1>
+      <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, du premier jour de la bêta jusqu'au lancement.</p>
+      <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
+        <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+        Rejoindre le serveur
+      </a>
+      <p class="sous-bouton">Invitation directe : <code>discord.gg/aniimofr</code> — gratuit et ouvert à tous</p>
+    </div>
+  </header>
+
+  <!-- ================= ATOUTS ================= -->
+  <main>
+    <section id="serveur">
+      <div class="conteneur">
+        <h2 class="titre-section">Pourquoi rejoindre Aniimo France ?</h2>
+        <p class="intro-section">Un seul objectif : réunir toute la communauté francophone d'Aniimo au même endroit.</p>
+        <div class="grille-atouts">
+          <div class="carte">
+            <span class="emoji" aria-hidden="true">📚</span>
+            <h3>Entraide &amp; guides FR</h3>
+            <p>Des guides rédigés en français, des astuces de capture et des réponses à toutes vos questions sur le jeu.</p>
+          </div>
+          <div class="carte">
+            <span class="emoji" aria-hidden="true">🎉</span>
+            <h3>Événements &amp; concours</h3>
+            <p>Animations communautaires, concours et soirées jeux pour faire vivre le serveur avant et après la sortie.</p>
+          </div>
+          <div class="carte">
+            <span class="emoji" aria-hidden="true">📰</span>
+            <h3>Actus traduites</h3>
+            <p>Toute l'actualité d'Aniimo (annonces, bêtas, patch notes) relayée et traduite en français dès sa publication.</p>
+          </div>
+          <div class="carte">
+            <span class="emoji" aria-hidden="true">🤝</span>
+            <h3>Coéquipiers coop</h3>
+            <p>Des salons dédiés pour trouver des joueurs francophones et explorer Idyll en coopération.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= LE JEU ================= -->
+    <section id="jeu">
+      <div class="conteneur">
+        <h2 class="titre-section">Aniimo, c'est quoi ?</h2>
+        <div class="bloc-jeu">
+          <p>Aniimo est un <strong>RPG free-to-play en monde ouvert</strong> de capture de créatures, développé par Pawprint Studio et édité par Kingsglory. Vous y incarnez un Éclaireur qui explore le continent d'Idyll, tisse des liens avec des créatures appelées Aniimo grâce au système de Tissage (Twine), et peut même prendre le contrôle de ses créatures pour explorer, nager, voler et combattre autrement.</p>
+          <p>Le jeu est attendu en <strong>2026</strong> sur PC (Steam, Epic Games Store), PlayStation, Xbox et mobile (iOS, Android), jouable en solo comme en coopération en ligne.</p>
+          <div class="etiquettes">
+            <span class="etiquette">Free-to-play</span>
+            <span class="etiquette">Monde ouvert</span>
+            <span class="etiquette">Capture de créatures</span>
+            <span class="etiquette">Coop en ligne</span>
+            <span class="etiquette">PC · Consoles · Mobile</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= FAQ ================= -->
+    <section id="faq" class="faq">
+      <div class="conteneur">
+        <h2 class="titre-section">Questions fréquentes</h2>
+        <p class="intro-section">Tout ce qu'il faut savoir sur le serveur Discord Aniimo FR.</p>
+
+        <details>
+          <summary>Comment rejoindre le Discord Aniimo France ?</summary>
+          <p>Cliquez simplement sur le lien d'invitation <a href="https://discord.gg/aniimofr" rel="noopener">discord.gg/aniimofr</a> depuis votre navigateur ou l'application Discord. L'accès est gratuit et ouvert à tous les joueurs francophones.</p>
+        </details>
+        <details>
+          <summary>Le serveur Aniimo France est-il officiel ?</summary>
+          <p>Non, Aniimo France est un serveur communautaire créé par des fans. Il n'est affilié ni à Pawprint Studio ni à Kingsglory. C'est un espace d'entraide et de partage entre joueurs francophones.</p>
+        </details>
+        <details>
+          <summary>Le Discord est-il déjà actif avant la sortie du jeu ?</summary>
+          <p>Oui ! Le serveur est déjà en place : on y suit les annonces et les bêtas, on partage les découvertes et on se prépare ensemble au lancement d'Aniimo.</p>
+        </details>
+        <details>
+          <summary>Que trouve-t-on sur le serveur ?</summary>
+          <p>De l'entraide entre joueurs, des guides en français, l'actualité du jeu traduite, des événements communautaires, des concours et des salons pour trouver des coéquipiers en coopération.</p>
+        </details>
+        <details>
+          <summary>Sur quelles plateformes Aniimo sera-t-il disponible ?</summary>
+          <p>Aniimo est annoncé sur PC (Steam et Epic Games Store), PlayStation, Xbox ainsi que sur mobile (iOS et Android), en free-to-play.</p>
+        </details>
+      </div>
+    </section>
+
+    <!-- ================= CTA FINAL ================= -->
+    <section>
+      <div class="conteneur">
+        <div class="bandeau-final">
+          <h2>Prêt à explorer Idyll avec nous ?</h2>
+          <p>La communauté française d'Aniimo vous attend. Une seule adresse à retenir.</p>
+          <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
+            <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+            Rejoindre discord.gg/aniimofr
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p class="mention">Aniimo France est un serveur communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
+    <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
+  </footer>
+
+</body>
+</html>
