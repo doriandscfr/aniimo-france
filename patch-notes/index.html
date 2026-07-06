@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Patch notes Aniimo en français — Aniimo France</title>
+  <meta name="description" content="Toutes les mises à jour d'Aniimo traduites et résumées en français : équilibrages, nouveautés, corrections. Les patch notes FR par la communauté Aniimo France.">
+  <link rel="canonical" href="https://aniimo-france.fr/patch-notes/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B1230">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aniimo France">
+  <meta property="og:title" content="Patch notes Aniimo en français — Aniimo France">
+  <meta property="og:description" content="Toutes les mises à jour d'Aniimo traduites et résumées en français par la communauté.">
+  <meta property="og:url" content="https://aniimo-france.fr/patch-notes/">
+  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    .liste-notes{position:relative;z-index:1;display:flex;flex-direction:column;gap:18px;max-width:820px;margin:0 auto;padding:0 24px 20px}
+    .note-item{
+      display:block;text-decoration:none;
+      background:var(--carte);border:1px solid var(--bordure);border-radius:var(--radius);
+      padding:26px 28px;
+      transition:transform .15s ease, border-color .15s ease, box-shadow .15s ease;
+    }
+    .note-item:hover{transform:translateY(-4px);border-color:rgba(120,150,255,.5);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+    .note-haut{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:10px}
+    .note-version{
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.15rem;
+      color:var(--blanc);
+    }
+    .note-date{font-size:.85rem;font-weight:700;color:var(--texte-doux)}
+    .note-titre{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;color:var(--texte);margin-bottom:10px}
+    .note-resume{display:flex;gap:8px;flex-wrap:wrap}
+  </style>
+</head>
+<body>
+  <div class="lueur lueur-bleue" aria-hidden="true"></div>
+  <div class="lueur lueur-rouge" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="marque" href="../">
+        <img src="../favicon.png" alt="Logo Aniimo France" width="38" height="38">
+        <span>Aniimo <span class="fr">France</span></span>
+      </a>
+      <nav class="nav-liens" aria-label="Navigation principale">
+        <a href="../">Accueil</a>
+        <a href="./" class="actif">Patch notes</a>
+        <a href="../aniimopedia/">Aniimopédia</a>
+        <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="entete-page">
+      <p class="fil"><a href="../">Accueil</a> › Patch notes</p>
+      <h1><span class="souligne">Patch notes Aniimo — en français</span></h1>
+      <p>Chaque mise à jour d'Aniimo traduite, résumée et archivée par la communauté. Équilibrages, nouveautés, corrections : tout est là.</p>
+    </div>
+
+    <div class="liste-notes">
+
+      <!-- ============================================================
+           POUR AJOUTER UN PATCH NOTE :
+           1. Dupliquez un fichier .html du dossier patch-notes
+           2. Ajoutez un bloc <a> ci-dessous, EN PREMIER (le plus récent en haut)
+           ============================================================ -->
+
+      <a class="note-item" href="2026-07-02-exemple.html">
+        <div class="note-haut">
+          <span class="note-version">Version 1.0.2</span>
+          <span class="chip chip-version">2 juillet 2026</span>
+          <span class="chip chip-nouveau">Exemple</span>
+        </div>
+        <p class="note-titre">Équilibrage de Scorchhowl, corrections de bugs et optimisations</p>
+        <div class="note-resume">
+          <span class="chip chip-buff">2 buffs</span>
+          <span class="chip chip-nerf">1 nerf</span>
+          <span class="chip chip-ajuste">3 ajustements</span>
+          <span class="chip chip-correctif">11 correctifs</span>
+        </div>
+      </a>
+
+      <!-- FIN DE LA LISTE -->
+
+    </div>
+  </main>
+
+  <footer>
+    <p class="mention">Aniimo France est un site communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
+    <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
+  </footer>
+</body>
+</html>

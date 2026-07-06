@@ -1,0 +1,171 @@
+/* ============================================================
+   ANIIMO FRANCE — Design System v3 "Nuit d'Idyll"
+   Feuille de style partagée : patch notes + aniimopédia
+   ============================================================ */
+:root{
+  /* Nuit d'Idyll */
+  --nuit-profonde:#0B1230;
+  --nuit:#111A3E;
+  --encre:#182350;
+  --carte:#141F4A;
+  --bordure:rgba(120,150,255,.18);
+
+  /* Tricolore lumineux */
+  --bleu-fr:#4D7CFF;
+  --bleu-glow:rgba(77,124,255,.45);
+  --rouge-fr:#FF4D5E;
+  --rouge-glow:rgba(255,77,94,.4);
+  --blanc:#F4F7FF;
+
+  --or:#FFC94D;
+  --vert:#3BE38A;
+  --texte:#E8EDFF;
+  --texte-doux:#A9B4D8;
+  --blurple:#5865F2;
+  --blurple-fonce:#4752C4;
+  --radius:20px;
+
+  /* Types de créatures */
+  --type-feu:#FF6B4A;
+  --type-eau:#4D9FFF;
+  --type-plante:#58C08A;
+  --type-terre:#C98E4A;
+  --type-glace:#7FD8F0;
+  --type-vent:#9AE6C8;
+  --type-foudre:#FFD34D;
+  --type-tenebres:#9B6BFF;
+  --type-lumiere:#FFF3B0;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:'Nunito',system-ui,sans-serif;
+  color:var(--texte);
+  background:var(--nuit-profonde);
+  line-height:1.7;
+  overflow-x:hidden;
+}
+h1,h2,h3,h4{font-family:'Fredoka',sans-serif;line-height:1.25}
+a{color:inherit}
+.conteneur{max-width:1120px;margin:0 auto;padding:0 24px}
+
+/* ===== Lueurs d'ambiance ===== */
+.lueur{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+.lueur-bleue{width:520px;height:520px;background:var(--bleu-glow);top:-180px;left:-160px;opacity:.45}
+.lueur-rouge{width:460px;height:460px;background:var(--rouge-glow);top:35%;right:-180px;opacity:.35}
+
+/* ===== NAV ===== */
+header.nav{
+  position:sticky;top:0;z-index:50;
+  background:rgba(11,18,48,.85);
+  backdrop-filter:blur(12px);
+  border-bottom:1px solid var(--bordure);
+}
+.nav-inner{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:14px 24px;max-width:1120px;margin:0 auto;
+}
+.marque{display:flex;align-items:center;gap:12px;text-decoration:none}
+.marque img{width:38px;height:38px;border-radius:50%}
+.marque span{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.12rem}
+.marque .fr{background:linear-gradient(90deg,var(--bleu-fr),var(--blanc),var(--rouge-fr));-webkit-background-clip:text;background-clip:text;color:transparent}
+.nav-liens{display:flex;gap:24px;align-items:center;font-weight:700;font-size:.94rem}
+.nav-liens a{text-decoration:none;color:var(--texte-doux);transition:color .15s}
+.nav-liens a:hover,.nav-liens a.actif{color:var(--blanc)}
+.nav-cta{
+  background:var(--blurple);color:#fff !important;
+  padding:9px 20px;border-radius:999px;
+  font-family:'Fredoka',sans-serif;font-weight:600;
+  box-shadow:0 0 18px rgba(88,101,242,.5);
+  transition:transform .15s, box-shadow .15s;
+}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(88,101,242,.7)}
+@media (max-width:820px){.nav-liens a:not(.nav-cta){display:none}}
+
+/* ===== En-tête de page ===== */
+.entete-page{position:relative;z-index:1;padding:60px 0 40px;text-align:center}
+.entete-page .fil{
+  font-size:.85rem;font-weight:700;color:var(--texte-doux);margin-bottom:14px;
+}
+.entete-page .fil a{color:var(--bleu-fr);text-decoration:none}
+.entete-page .fil a:hover{text-decoration:underline}
+.entete-page h1{font-size:clamp(1.7rem,3.6vw,2.5rem);font-weight:700}
+.souligne{position:relative;display:inline-block}
+.souligne::after{
+  content:"";position:absolute;left:8%;right:8%;bottom:-8px;height:4px;border-radius:4px;
+  background:linear-gradient(90deg,var(--bleu-fr),var(--blanc),var(--rouge-fr));
+  opacity:.85;
+}
+.entete-page p{color:var(--texte-doux);font-weight:600;max-width:640px;margin:22px auto 0}
+
+/* ===== Chips diff (le langage visuel des patch notes) ===== */
+.chip{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Fredoka',sans-serif;font-size:.78rem;font-weight:600;
+  padding:4px 13px;border-radius:999px;white-space:nowrap;
+}
+.chip-buff{background:rgba(59,227,138,.12);border:1px solid rgba(59,227,138,.5);color:var(--vert)}
+.chip-nerf{background:rgba(255,77,94,.12);border:1px solid rgba(255,77,94,.5);color:var(--rouge-fr)}
+.chip-ajuste{background:rgba(255,201,77,.12);border:1px solid rgba(255,201,77,.5);color:var(--or)}
+.chip-nouveau{background:rgba(77,124,255,.12);border:1px solid rgba(77,124,255,.55);color:var(--bleu-fr)}
+.chip-correctif{background:rgba(155,107,255,.12);border:1px solid rgba(155,107,255,.5);color:var(--type-tenebres)}
+.chip-version{background:var(--encre);border:1px solid var(--bordure);color:var(--texte)}
+
+/* Diff avant → après */
+.diff{display:inline-flex;align-items:center;gap:8px;font-weight:800;font-size:.92rem}
+.diff .avant{color:var(--texte-doux);text-decoration:line-through;text-decoration-thickness:2px}
+.diff .fleche{color:var(--texte-doux)}
+.diff .apres-buff{color:var(--vert)}
+.diff .apres-nerf{color:var(--rouge-fr)}
+.diff .apres-neutre{color:var(--blanc)}
+
+/* ===== Cartes génériques ===== */
+.carte{
+  background:var(--carte);
+  border:1px solid var(--bordure);
+  border-radius:var(--radius);
+  padding:26px 24px;
+  transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
+}
+.carte:hover{border-color:rgba(120,150,255,.4)}
+
+/* ===== Badges de type ===== */
+.type{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:600;
+  padding:3px 12px;border-radius:999px;
+}
+.type::before{content:"";width:8px;height:8px;border-radius:50%;background:currentColor;box-shadow:0 0 6px currentColor}
+.type-feu{color:var(--type-feu);background:rgba(255,107,74,.1);border:1px solid rgba(255,107,74,.4)}
+.type-eau{color:var(--type-eau);background:rgba(77,159,255,.1);border:1px solid rgba(77,159,255,.4)}
+.type-plante{color:var(--type-plante);background:rgba(88,192,138,.1);border:1px solid rgba(88,192,138,.4)}
+.type-terre{color:var(--type-terre);background:rgba(201,142,74,.1);border:1px solid rgba(201,142,74,.4)}
+.type-glace{color:var(--type-glace);background:rgba(127,216,240,.1);border:1px solid rgba(127,216,240,.4)}
+.type-vent{color:var(--type-vent);background:rgba(154,230,200,.1);border:1px solid rgba(154,230,200,.4)}
+.type-foudre{color:var(--type-foudre);background:rgba(255,211,77,.1);border:1px solid rgba(255,211,77,.4)}
+.type-tenebres{color:var(--type-tenebres);background:rgba(155,107,255,.1);border:1px solid rgba(155,107,255,.4)}
+.type-lumiere{color:var(--type-lumiere);background:rgba(255,243,176,.1);border:1px solid rgba(255,243,176,.4)}
+
+.role{
+  display:inline-flex;align-items:center;
+  font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;
+  padding:3px 11px;border-radius:999px;
+  background:var(--encre);border:1px solid var(--bordure);color:var(--texte-doux);
+}
+
+/* ===== Footer ===== */
+footer{
+  position:relative;z-index:1;
+  text-align:center;padding:38px 24px 46px;
+  font-size:.84rem;color:var(--texte-doux);
+  border-top:1px solid var(--bordure);
+  margin-top:60px;
+}
+footer .mention{max-width:640px;margin:0 auto 10px}
+footer a{color:var(--bleu-fr);font-weight:800;text-decoration:none}
+footer a:hover{text-decoration:underline}
+
+/* Accessibilité focus */
+a:focus-visible,button:focus-visible,input:focus-visible{
+  outline:3px solid var(--rouge-fr);outline-offset:3px;border-radius:8px;
+}

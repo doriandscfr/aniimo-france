@@ -310,6 +310,8 @@
       background:rgba(255,201,77,.15);border:1px solid rgba(255,201,77,.45);color:var(--or);
       padding:4px 12px;border-radius:999px;
     }
+    .carte-venir{transition:transform .16s ease, border-color .16s ease}
+    .carte-venir:hover{transform:translateY(-5px);border-color:var(--bleu-fr)}
     .carte-venir h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
     .carte-venir p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
 
@@ -383,12 +385,14 @@
   <header class="nav">
     <div class="nav-inner">
       <a class="marque" href="#">
-        <img src="favicon.png" alt="Logo Aniimo France" width="40" height="40">
+        <img src="favicon-192.png" alt="Logo Aniimo France" width="40" height="40">
         <span>Aniimo <span class="fr">France</span></span>
       </a>
       <nav class="nav-liens" aria-label="Navigation principale">
         <a href="#serveur">Le serveur</a>
         <a href="#jeu">Le jeu</a>
+        <a href="patch-notes/">Patch notes</a>
+        <a href="aniimopedia/">Aniimopédia</a>
         <a href="#faq">FAQ</a>
         <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
       </nav>
@@ -471,19 +475,19 @@
     <!-- ================= À VENIR ================= -->
     <section id="a-venir">
       <div class="conteneur">
-        <h2 class="titre-section"><span class="souligne">Bientôt sur Aniimo France</span></h2>
-        <p class="intro-section">Le site va grandir avec la communauté.</p>
+        <h2 class="titre-section"><span class="souligne">Explorer Aniimo France</span></h2>
+        <p class="intro-section">Le site grandit avec la communauté — découvrez les premières sections.</p>
         <div class="grille-venir">
-          <div class="carte-venir">
-            <span class="tag">Bientôt</span>
+          <a class="carte-venir" href="patch-notes/" style="text-decoration:none;display:block">
+            <span class="tag">Bêta</span>
             <h3>📋 Patch notes en français</h3>
             <p>Toutes les mises à jour d'Aniimo traduites, résumées et archivées : équilibrages, nouveautés, corrections — consultables à tout moment.</p>
-          </div>
-          <div class="carte-venir">
-            <span class="tag">Bientôt</span>
+          </a>
+          <a class="carte-venir" href="aniimopedia/" style="text-decoration:none;display:block">
+            <span class="tag">Bêta</span>
             <h3>📖 Aniimopédia FR</h3>
             <p>Une base de données communautaire des créatures : attributs, évolutions, localisations et stratégies, le tout en français.</p>
-          </div>
+          </a>
         </div>
       </div>
     </section>

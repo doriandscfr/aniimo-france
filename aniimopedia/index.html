@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aniimopédia — Base de données des Aniimo en français | Aniimo France</title>
+  <meta name="description" content="L'Aniimopédia d'Aniimo France : la base de données communautaire des créatures Aniimo en français. Types, rôles, statistiques et stratégies.">
+  <link rel="canonical" href="https://aniimo-france.fr/aniimopedia/">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B1230">
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aniimo France">
+  <meta property="og:title" content="Aniimopédia — Base de données des Aniimo en français">
+  <meta property="og:description" content="Types, rôles, statistiques : la base de données communautaire des créatures Aniimo, en français.">
+  <meta property="og:url" content="https://aniimo-france.fr/aniimopedia/">
+  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    .outils{position:relative;z-index:1;max-width:1120px;margin:0 auto 26px;padding:0 24px}
+    .barre-outils{
+      background:var(--carte);border:1px solid var(--bordure);border-radius:var(--radius);
+      padding:22px 24px;
+    }
+    .champ-recherche{
+      width:100%;
+      background:var(--encre);border:1px solid var(--bordure);border-radius:12px;
+      padding:12px 18px;color:var(--texte);font-family:'Nunito',sans-serif;
+      font-weight:700;font-size:.95rem;margin-bottom:18px;
+    }
+    .champ-recherche::placeholder{color:var(--texte-doux)}
+    .champ-recherche:focus{outline:none;border-color:var(--bleu-fr)}
+    .groupe-filtres{margin-bottom:14px}
+    .groupe-filtres:last-child{margin-bottom:0}
+    .groupe-filtres .libelle{
+      font-family:'Fredoka',sans-serif;font-size:.75rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--texte-doux);
+      margin-bottom:8px;
+    }
+    .rangee-filtres{display:flex;gap:8px;flex-wrap:wrap}
+    .filtre{
+      cursor:pointer;user-select:none;
+      font-family:'Fredoka',sans-serif;font-size:.8rem;font-weight:600;
+      padding:5px 15px;border-radius:999px;
+      background:var(--encre);border:1px solid var(--bordure);color:var(--texte-doux);
+      transition:all .12s ease;
+    }
+    .filtre:hover{color:var(--blanc);border-color:rgba(120,150,255,.5)}
+    .filtre.actif{background:rgba(77,124,255,.18);border-color:var(--bleu-fr);color:var(--blanc)}
+    .compteur{font-size:.85rem;font-weight:700;color:var(--texte-doux);text-align:right;margin-top:12px}
+
+    /* Grille de créatures */
+    .grille-crea{
+      position:relative;z-index:1;
+      display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:18px;
+      max-width:1120px;margin:0 auto;padding:0 24px;
+    }
+    .crea{
+      position:relative;overflow:hidden;cursor:pointer;
+      background:var(--carte);border:1px solid var(--bordure);border-radius:var(--radius);
+      padding:22px 18px 20px;text-align:center;
+      transition:transform .16s ease, border-color .16s ease, box-shadow .16s ease;
+    }
+    .crea::before{
+      content:"";position:absolute;top:0;left:0;right:0;height:4px;
+      background:var(--accent,var(--bleu-fr));
+      box-shadow:0 0 14px var(--accent,var(--bleu-fr));
+    }
+    .crea:hover{transform:translateY(-6px);border-color:rgba(120,150,255,.5);box-shadow:0 14px 34px rgba(0,0,0,.45)}
+    .crea .avatar{
+      width:86px;height:86px;margin:4px auto 14px;border-radius:50%;
+      background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.14), transparent 60%), var(--encre);
+      border:1px solid var(--bordure);
+      display:flex;align-items:center;justify-content:center;
+      font-size:2.1rem;
+      overflow:hidden;
+    }
+    .crea .avatar img{width:100%;height:100%;object-fit:cover}
+    .crea h3{font-size:1.05rem;font-weight:600;margin-bottom:10px}
+    .crea .badges{display:flex;gap:6px;justify-content:center;flex-wrap:wrap}
+    .vide{
+      grid-column:1/-1;text-align:center;padding:60px 20px;
+      color:var(--texte-doux);font-weight:700;
+    }
+
+    /* Fiche détaillée (modale) */
+    .voile{
+      position:fixed;inset:0;z-index:100;
+      background:rgba(5,9,26,.8);backdrop-filter:blur(6px);
+      display:none;align-items:center;justify-content:center;padding:24px;
+    }
+    .voile.ouvert{display:flex}
+    .fiche{
+      width:min(560px,100%);max-height:88vh;overflow-y:auto;
+      background:var(--nuit);border:1px solid rgba(120,150,255,.35);border-radius:var(--radius);
+      padding:32px 32px 28px;position:relative;
+    }
+    .fiche .fermer{
+      position:absolute;top:14px;right:16px;cursor:pointer;
+      background:var(--encre);border:1px solid var(--bordure);color:var(--texte);
+      width:34px;height:34px;border-radius:50%;font-size:1.1rem;font-weight:800;
+    }
+    .fiche .tete{display:flex;align-items:center;gap:16px;margin-bottom:16px}
+    .fiche .avatar{
+      width:74px;height:74px;border-radius:50%;flex-shrink:0;
+      background:var(--encre);border:1px solid var(--bordure);
+      display:flex;align-items:center;justify-content:center;font-size:1.9rem;overflow:hidden;
+    }
+    .fiche .avatar img{width:100%;height:100%;object-fit:cover}
+    .fiche h2{font-size:1.5rem;font-weight:700}
+    .fiche .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px}
+    .fiche .description{color:var(--texte-doux);font-weight:600;font-size:.96rem;margin:14px 0 20px}
+    .fiche .titre-stats{
+      font-family:'Fredoka',sans-serif;font-size:.78rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--texte-doux);margin-bottom:10px;
+    }
+    .barres{display:flex;flex-direction:column;gap:10px}
+    .barre-stat{display:grid;grid-template-columns:64px 1fr 42px;align-items:center;gap:12px}
+    .barre-stat .nom{font-family:'Fredoka',sans-serif;font-size:.78rem;font-weight:600;color:var(--texte-doux)}
+    .barre-stat .valeur{font-weight:800;font-size:.88rem;text-align:right}
+    .piste{height:9px;border-radius:999px;background:var(--encre);overflow:hidden}
+    .remplissage{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--bleu-fr),var(--rouge-fr))}
+  </style>
+</head>
+<body>
+  <div class="lueur lueur-bleue" aria-hidden="true"></div>
+  <div class="lueur lueur-rouge" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="marque" href="../">
+        <img src="../favicon.png" alt="Logo Aniimo France" width="38" height="38">
+        <span>Aniimo <span class="fr">France</span></span>
+      </a>
+      <nav class="nav-liens" aria-label="Navigation principale">
+        <a href="../">Accueil</a>
+        <a href="../patch-notes/">Patch notes</a>
+        <a href="./" class="actif">Aniimopédia</a>
+        <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="entete-page">
+      <p class="fil"><a href="../">Accueil</a> › Aniimopédia</p>
+      <h1><span class="souligne">Aniimopédia</span></h1>
+      <p>La base de données communautaire des créatures d'Idyll — types, rôles et statistiques, le tout en français.</p>
+    </div>
+
+    <div class="outils">
+      <div class="barre-outils">
+        <input type="search" id="recherche" class="champ-recherche" placeholder="🔍 Rechercher un Aniimo par son nom..." aria-label="Rechercher un Aniimo">
+        <div class="groupe-filtres">
+          <div class="libelle">Type</div>
+          <div class="rangee-filtres" id="filtres-types"></div>
+        </div>
+        <div class="groupe-filtres">
+          <div class="libelle">Rôle</div>
+          <div class="rangee-filtres" id="filtres-roles"></div>
+        </div>
+        <div class="compteur" id="compteur"></div>
+      </div>
+    </div>
+
+    <div class="grille-crea" id="grille"></div>
+  </main>
+
+  <!-- Fiche détaillée -->
+  <div class="voile" id="voile" role="dialog" aria-modal="true">
+    <div class="fiche" id="fiche"></div>
+  </div>
+
+  <footer>
+    <p class="mention">Aniimo France est un site communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
+    <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
+  </footer>
+
+  <script>
+  /* ============================================================
+     BASE DE DONNÉES DES ANIIMO
+     Pour ajouter une créature : copiez un bloc {...}, et remplissez.
+     - types : Feu, Eau, Plante, Terre, Glace, Vent, Foudre, Ténèbres, Lumière
+     - roles : DPS, Tank, Soin, Support
+     - emoji : utilisé tant qu'il n'y a pas d'image (champ image: "nom-fichier.png"
+       à placer dans le dossier aniimopedia/images/)
+     - stats sur 200
+     Les données ci-dessous sont des EXEMPLES à remplacer par les vraies valeurs.
+     ============================================================ */
+  const CREATURES = [
+    {
+      nom: "Scorchhowl", types: ["Feu"], roles: ["DPS"], emoji: "🔥", image: "",
+      description: "Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.",
+      stats: { PV: 120, ATK: 165, DEF: 95, VIT: 140 }
+    },
+    {
+      nom: "Glacy", types: ["Glace"], roles: ["Soin"], emoji: "❄️", image: "",
+      description: "Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.",
+      stats: { PV: 140, ATK: 80, DEF: 110, VIT: 105 }
+    },
+    {
+      nom: "Leafy", types: ["Plante"], roles: ["Support"], emoji: "🌿", image: "",
+      description: "Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.",
+      stats: { PV: 130, ATK: 85, DEF: 125, VIT: 95 }
+    },
+    {
+      nom: "Geoclaw", types: ["Terre"], roles: ["Tank"], emoji: "🪨", image: "",
+      description: "Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.",
+      stats: { PV: 190, ATK: 100, DEF: 180, VIT: 55 }
+    },
+    {
+      nom: "Fulminis", types: ["Foudre"], roles: ["DPS"], emoji: "⚡", image: "",
+      description: "Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.",
+      stats: { PV: 105, ATK: 155, DEF: 85, VIT: 175 }
+    },
+    {
+      nom: "Luminelle", types: ["Lumière"], roles: ["Soin", "Support"], emoji: "✨", image: "",
+      description: "Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.",
+      stats: { PV: 125, ATK: 75, DEF: 100, VIT: 120 }
+    },
+    {
+      nom: "Droopie", types: ["Eau"], roles: ["Tank"], emoji: "💧", image: "",
+      description: "Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.",
+      stats: { PV: 175, ATK: 90, DEF: 150, VIT: 70 }
+    },
+    {
+      nom: "Somniwing", types: ["Ténèbres"], roles: ["Support"], emoji: "🌙", image: "",
+      description: "Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.",
+      stats: { PV: 110, ATK: 95, DEF: 90, VIT: 135 }
+    }
+  ];
+  /* ===================== FIN DE LA BASE ===================== */
+
+  const TYPES = ["Feu","Eau","Plante","Terre","Glace","Vent","Foudre","Ténèbres","Lumière"];
+  const ROLES = ["DPS","Tank","Soin","Support"];
+  const ACCENTS = {
+    "Feu":"var(--type-feu)","Eau":"var(--type-eau)","Plante":"var(--type-plante)",
+    "Terre":"var(--type-terre)","Glace":"var(--type-glace)","Vent":"var(--type-vent)",
+    "Foudre":"var(--type-foudre)","Ténèbres":"var(--type-tenebres)","Lumière":"var(--type-lumiere)"
+  };
+  const classeType = t => "type-" + t.normalize("NFD").replace(/[\u0300-\u036f]/g,"").toLowerCase();
+
+  const etat = { recherche: "", types: new Set(), roles: new Set() };
+
+  function creerFiltres(liste, cible, ensemble){
+    const zone = document.getElementById(cible);
+    liste.forEach(val => {
+      const b = document.createElement("button");
+      b.className = "filtre"; b.type = "button"; b.textContent = val;
+      b.addEventListener("click", () => {
+        ensemble.has(val) ? ensemble.delete(val) : ensemble.add(val);
+        b.classList.toggle("actif");
+        rendre();
+      });
+      zone.appendChild(b);
+    });
+  }
+  creerFiltres(TYPES, "filtres-types", etat.types);
+  creerFiltres(ROLES, "filtres-roles", etat.roles);
+
+  document.getElementById("recherche").addEventListener("input", e => {
+    etat.recherche = e.target.value.trim().toLowerCase();
+    rendre();
+  });
+
+  function filtrer(){
+    return CREATURES.filter(c => {
+      if (etat.recherche && !c.nom.toLowerCase().includes(etat.recherche)) return false;
+      if (etat.types.size && !c.types.some(t => etat.types.has(t))) return false;
+      if (etat.roles.size && !c.roles.some(r => etat.roles.has(r))) return false;
+      return true;
+    });
+  }
+
+  function avatarHTML(c){
+    return c.image
+      ? `<img src="images/${c.image}" alt="${c.nom}" loading="lazy">`
+      : c.emoji;
+  }
+
+  function rendre(){
+    const grille = document.getElementById("grille");
+    const resultats = filtrer();
+    grille.innerHTML = "";
+    resultats.forEach((c, i) => {
+      const el = document.createElement("article");
+      el.className = "crea";
+      el.style.setProperty("--accent", ACCENTS[c.types[0]] || "var(--bleu-fr)");
+      el.innerHTML = `
+        <div class="avatar">${avatarHTML(c)}</div>
+        <h3>${c.nom}</h3>
+        <div class="badges">
+          ${c.types.map(t => `<span class="type ${classeType(t)}">${t}</span>`).join("")}
+          ${c.roles.map(r => `<span class="role">${r}</span>`).join("")}
+        </div>`;
+      el.addEventListener("click", () => ouvrirFiche(c));
+      grille.appendChild(el);
+    });
+    if (!resultats.length){
+      grille.innerHTML = `<p class="vide">Aucun Aniimo ne correspond à ta recherche 🕵️</p>`;
+    }
+    document.getElementById("compteur").textContent =
+      resultats.length + " Aniimo affiché" + (resultats.length > 1 ? "s" : "") + " sur " + CREATURES.length;
+  }
+
+  function ouvrirFiche(c){
+    const fiche = document.getElementById("fiche");
+    const maxStat = 200;
+    fiche.innerHTML = `
+      <button class="fermer" aria-label="Fermer">✕</button>
+      <div class="tete">
+        <div class="avatar">${avatarHTML(c)}</div>
+        <div>
+          <h2>${c.nom}</h2>
+          <div class="badges">
+            ${c.types.map(t => `<span class="type ${classeType(t)}">${t}</span>`).join("")}
+            ${c.roles.map(r => `<span class="role">${r}</span>`).join("")}
+          </div>
+        </div>
+      </div>
+      <p class="description">${c.description}</p>
+      <div class="titre-stats">Statistiques</div>
+      <div class="barres">
+        ${Object.entries(c.stats).map(([nom, val]) => `
+          <div class="barre-stat">
+            <span class="nom">${nom}</span>
+            <div class="piste"><div class="remplissage" style="width:${Math.min(100, val / maxStat * 100)}%"></div></div>
+            <span class="valeur">${val}</span>
+          </div>`).join("")}
+      </div>`;
+    fiche.querySelector(".fermer").addEventListener("click", fermerFiche);
+    document.getElementById("voile").classList.add("ouvert");
+    document.body.style.overflow = "hidden";
+  }
+  function fermerFiche(){
+    document.getElementById("voile").classList.remove("ouvert");
+    document.body.style.overflow = "";
+  }
+  document.getElementById("voile").addEventListener("click", e => {
+    if (e.target.id === "voile") fermerFiche();
+  });
+  document.addEventListener("keydown", e => { if (e.key === "Escape") fermerFiche(); });
+
+  rendre();
+  </script>
+</body>
+</html>

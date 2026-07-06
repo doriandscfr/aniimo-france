@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- ====== À PERSONNALISER POUR CHAQUE NOTE : title, description, canonical, og:title ====== -->
+  <title>Patch note Aniimo 1.0.2 en français (2 juillet 2026) — Aniimo France</title>
+  <meta name="description" content="Patch note Aniimo version 1.0.2 traduit en français : équilibrage de Scorchhowl, corrections de bugs et optimisations. Résumé complet par Aniimo France.">
+  <link rel="canonical" href="https://aniimo-france.fr/patch-notes/2026-07-02-exemple.html">
+  <meta name="robots" content="index, follow">
+  <meta name="theme-color" content="#0B1230">
+  <meta property="og:type" content="article">
+  <meta property="og:locale" content="fr_FR">
+  <meta property="og:site_name" content="Aniimo France">
+  <meta property="og:title" content="Patch note Aniimo 1.0.2 en français — Aniimo France">
+  <meta property="og:description" content="Équilibrage de Scorchhowl, corrections de bugs et optimisations : le patch note traduit et résumé en français.">
+  <meta property="og:url" content="https://aniimo-france.fr/patch-notes/2026-07-02-exemple.html">
+  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+  <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../assets/site.css">
+  <style>
+    .note{position:relative;z-index:1;max-width:860px;margin:0 auto;padding:0 24px}
+
+    /* Bandeau version */
+    .bandeau-version{
+      background:linear-gradient(135deg,var(--carte) 0%,var(--encre) 100%);
+      border:1px solid var(--bordure);border-radius:var(--radius);
+      padding:34px 34px;margin-bottom:26px;
+    }
+    .bandeau-version .ligne{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:12px}
+    .bandeau-version h1{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:700}
+    .bandeau-version .resume-chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+
+    /* Sections */
+    .section-note{margin-bottom:26px}
+    .section-note > h2{
+      font-size:1.25rem;font-weight:600;margin-bottom:16px;
+      display:flex;align-items:center;gap:12px;
+    }
+    .section-note > h2::before{
+      content:"";width:5px;height:24px;border-radius:4px;
+      background:linear-gradient(180deg,var(--bleu-fr),var(--rouge-fr));
+    }
+
+    /* Carte créature (équilibrage) */
+    .carte-crea{
+      background:var(--carte);border:1px solid var(--bordure);border-radius:var(--radius);
+      padding:26px 28px;margin-bottom:16px;
+    }
+    .carte-crea .tete{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+    .carte-crea .tete h3{font-size:1.2rem;font-weight:600}
+    .grille-stats{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:12px;margin-bottom:6px}
+    .stat{
+      background:var(--encre);border:1px solid var(--bordure);border-radius:12px;
+      padding:12px 14px;
+    }
+    .stat .nom{font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--texte-doux);margin-bottom:4px}
+    .stat.buff{border-color:rgba(59,227,138,.45)}
+    .stat.nerf{border-color:rgba(255,77,94,.45)}
+
+    /* Compétence modifiée */
+    .competence{
+      border:1px solid var(--bordure);border-radius:14px;
+      padding:16px 18px;margin-top:12px;background:rgba(24,35,80,.45);
+    }
+    .competence.buff{border-color:rgba(59,227,138,.4)}
+    .competence.nerf{border-color:rgba(255,77,94,.4)}
+    .competence.nouveau{border-color:rgba(77,124,255,.5)}
+    .competence .haut{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+    .competence .haut h4{font-size:1rem;font-weight:600}
+    .competence p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
+    .competence p strong{color:var(--blanc)}
+
+    /* Listes simples (correctifs, nouveautés) */
+    .liste-simple{list-style:none;display:flex;flex-direction:column;gap:10px}
+    .liste-simple li{
+      background:var(--carte);border:1px solid var(--bordure);border-radius:12px;
+      padding:13px 18px;font-weight:600;color:var(--texte-doux);font-size:.95rem;
+      display:flex;gap:12px;align-items:baseline;
+    }
+    .liste-simple li::before{content:"◆";color:var(--bleu-fr);font-size:.7rem;flex-shrink:0}
+    .liste-simple li strong{color:var(--blanc)}
+
+    /* Note de la rédaction */
+    .encart-redac{
+      border-left:4px solid var(--bleu-fr);
+      background:rgba(77,124,255,.08);
+      border-radius:0 14px 14px 0;
+      padding:16px 20px;margin:18px 0;
+      font-size:.94rem;font-weight:600;color:var(--texte-doux);
+    }
+    .encart-redac strong{color:var(--blanc)}
+
+    .pied-note{
+      display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;
+      margin-top:34px;padding-top:24px;border-top:1px solid var(--bordure);
+    }
+    .lien-retour{
+      font-family:'Fredoka',sans-serif;font-weight:600;text-decoration:none;
+      color:var(--texte);padding:12px 24px;border-radius:999px;
+      border:1px solid var(--bordure);background:var(--encre);
+      transition:border-color .15s;
+    }
+    .lien-retour:hover{border-color:var(--bleu-fr)}
+    .source-officielle{font-size:.85rem;color:var(--texte-doux);font-weight:600}
+    .source-officielle a{color:var(--bleu-fr)}
+  </style>
+</head>
+<body>
+  <div class="lueur lueur-bleue" aria-hidden="true"></div>
+  <div class="lueur lueur-rouge" aria-hidden="true"></div>
+
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="marque" href="../">
+        <img src="../favicon.png" alt="Logo Aniimo France" width="38" height="38">
+        <span>Aniimo <span class="fr">France</span></span>
+      </a>
+      <nav class="nav-liens" aria-label="Navigation principale">
+        <a href="../">Accueil</a>
+        <a href="./" class="actif">Patch notes</a>
+        <a href="../aniimopedia/">Aniimopédia</a>
+        <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="entete-page">
+      <p class="fil"><a href="../">Accueil</a> › <a href="./">Patch notes</a> › Version 1.0.2</p>
+    </div>
+
+    <article class="note">
+
+      <!-- ===== BANDEAU VERSION ===== -->
+      <div class="bandeau-version">
+        <div class="ligne">
+          <h1>Version 1.0.2</h1>
+          <span class="chip chip-version">📅 2 juillet 2026</span>
+          <span class="chip chip-nouveau">EXEMPLE — à remplacer par un vrai patch note</span>
+        </div>
+        <p style="color:var(--texte-doux);font-weight:600">Équilibrage de Scorchhowl, corrections de bugs et optimisations de performance.</p>
+        <div class="resume-chips">
+          <span class="chip chip-buff">▲ 2 buffs</span>
+          <span class="chip chip-nerf">▼ 1 nerf</span>
+          <span class="chip chip-ajuste">⟳ 3 ajustements</span>
+          <span class="chip chip-correctif">🔧 11 correctifs</span>
+        </div>
+      </div>
+
+      <div class="encart-redac">
+        <strong>📝 Note d'Aniimo France :</strong> cette page est une traduction communautaire non officielle du patch note publié par Pawprint Studio. En cas de doute, la version officielle fait foi.
+      </div>
+
+      <!-- ===== ÉQUILIBRAGE ===== -->
+      <section class="section-note">
+        <h2>Équilibrage des Aniimo</h2>
+
+        <div class="carte-crea">
+          <div class="tete">
+            <h3>Scorchhowl</h3>
+            <span class="type type-feu">Feu</span>
+            <span class="role">DPS</span>
+            <span class="chip chip-ajuste">Ajusté</span>
+          </div>
+
+          <div class="grille-stats">
+            <div class="stat nerf">
+              <div class="nom">PV</div>
+              <span class="diff"><span class="avant">920</span> <span class="fleche">→</span> <span class="apres-nerf">880</span></span>
+            </div>
+            <div class="stat buff">
+              <div class="nom">Attaque</div>
+              <span class="diff"><span class="avant">245</span> <span class="fleche">→</span> <span class="apres-buff">260</span></span>
+            </div>
+            <div class="stat buff">
+              <div class="nom">Vitesse</div>
+              <span class="diff"><span class="avant">104</span> <span class="fleche">→</span> <span class="apres-buff">110</span></span>
+            </div>
+          </div>
+
+          <div class="competence buff">
+            <div class="haut">
+              <h4>🔥 Flammes ardentes</h4>
+              <span class="chip chip-buff">Buff</span>
+            </div>
+            <p>Les dégâts infligés aux cibles brûlées passent de <strong>15 %</strong> à <strong>18 %</strong> supplémentaires.</p>
+          </div>
+
+          <div class="competence nerf">
+            <div class="haut">
+              <h4>💫 Étoile filante (Ultime)</h4>
+              <span class="chip chip-nerf">Nerf</span>
+            </div>
+            <p>Temps de recharge : <span class="diff"><span class="avant">120 s</span> <span class="fleche">→</span> <span class="apres-nerf">135 s</span></span></p>
+          </div>
+
+          <div class="competence nouveau">
+            <div class="haut">
+              <h4>✨ Élan brûlant</h4>
+              <span class="chip chip-nouveau">Nouveau</span>
+            </div>
+            <p>Nouveau passif : après un esquive parfaite, la prochaine attaque inflige <strong>+25 %</strong> de dégâts.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== CORRECTIFS ===== -->
+      <section class="section-note">
+        <h2>Corrections de bugs</h2>
+        <ul class="liste-simple">
+          <li>Correction d'un affichage incorrect des indices d'Aniimo dans la zone de <strong>Driftwise Meadow</strong> (Russet Highlands).</li>
+          <li>Correction d'un problème rare empêchant l'affichage de la liste des serveurs à la connexion.</li>
+          <li>Correction d'un problème d'affichage avec la tenue <strong>Nuit étoilée</strong>.</li>
+          <li>Correction d'un bug où un Aniimo dispatché pouvait disparaître en déplaçant le camping-car dans le Homeland.</li>
+        </ul>
+      </section>
+
+      <!-- ===== OPTIMISATIONS ===== -->
+      <section class="section-note">
+        <h2>Optimisations</h2>
+        <ul class="liste-simple">
+          <li>Optimisation d'un problème rare de gel sur certains appareils <strong>iOS</strong> à l'entrée/sortie du Sanctum.</li>
+        </ul>
+      </section>
+
+      <div class="pied-note">
+        <a class="lien-retour" href="./">← Tous les patch notes</a>
+        <p class="source-officielle">Source : <a href="https://www.aniimo.com/main" rel="noopener">annonce officielle Aniimo</a></p>
+      </div>
+
+    </article>
+  </main>
+
+  <footer>
+    <p class="mention">Aniimo France est un site communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
+    <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
+  </footer>
+</body>
+</html>
