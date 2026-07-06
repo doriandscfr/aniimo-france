@@ -4,15 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===== SEO : balises principales ===== -->
+  <!-- ===== SEO : balises principales (inchangées) ===== -->
   <title>Discord Aniimo France — La communauté française d'Aniimo | discord.gg/aniimofr</title>
   <meta name="description" content="Rejoignez le Discord Aniimo France, le serveur communautaire francophone du jeu Aniimo : entraide, guides FR, événements, recherche de coéquipiers et toute l'actualité du jeu. Invitation : discord.gg/aniimofr">
   <meta name="keywords" content="discord aniimo france, discord aniimo fr, aniimo france discord, serveur discord aniimo, communauté aniimo francophone, aniimo fr, discord.gg/aniimofr">
   <link rel="canonical" href="https://aniimo-france.fr/">
   <meta name="robots" content="index, follow">
-  <meta name="theme-color" content="#8FD3F4">
+  <meta name="theme-color" content="#0B1230">
 
-  <!-- ===== Open Graph (partage Discord / réseaux sociaux) ===== -->
+  <!-- ===== Open Graph ===== -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Aniimo France">
@@ -27,7 +27,7 @@
   <meta name="twitter:description" content="Le serveur Discord francophone du jeu Aniimo. Invitation : discord.gg/aniimofr">
   <meta name="twitter:image" content="https://aniimo-france.fr/banniere.png">
 
-  <!-- ===== Données structurées : site + FAQ (résultats enrichis Google) ===== -->
+  <!-- ===== Données structurées (inchangées) ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
@@ -96,300 +96,352 @@
 
   <style>
     :root{
-      --ciel:#8FD3F4;
-      --ciel-clair:#D9F0FC;
-      --nuit:#22355C;
-      --nuit-douce:#4A5C82;
-      --corail:#FF6F61;
-      --soleil:#FFC94D;
-      --prairie:#58C08A;
-      --nuage:#FFFFFF;
-      --brume:#F3FAFF;
+      /* Nuit d'Idyll */
+      --nuit-profonde:#0B1230;
+      --nuit:#111A3E;
+      --encre:#182350;
+      --carte:#141F4A;
+      --bordure:rgba(120,150,255,.18);
+
+      /* Tricolore lumineux */
+      --bleu-fr:#4D7CFF;
+      --bleu-glow:rgba(77,124,255,.45);
+      --rouge-fr:#FF4D5E;
+      --rouge-glow:rgba(255,77,94,.4);
+      --blanc:#F4F7FF;
+
+      --or:#FFC94D;
+      --texte:#E8EDFF;
+      --texte-doux:#A9B4D8;
       --blurple:#5865F2;
       --blurple-fonce:#4752C4;
-      --radius:22px;
+      --radius:20px;
     }
     *{margin:0;padding:0;box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{
       font-family:'Nunito',system-ui,sans-serif;
-      color:var(--nuit);
-      background:var(--brume);
-      line-height:1.65;
+      color:var(--texte);
+      background:var(--nuit-profonde);
+      line-height:1.7;
       overflow-x:hidden;
     }
-    h1,h2,h3{font-family:'Fredoka',sans-serif;line-height:1.2}
+    h1,h2,h3{font-family:'Fredoka',sans-serif;line-height:1.25}
     a{color:inherit}
-    .conteneur{max-width:1060px;margin:0 auto;padding:0 24px}
+    .conteneur{max-width:1120px;margin:0 auto;padding:0 24px}
 
-    /* ===== HERO : ciel d'Idyll ===== */
-    .hero{
-      position:relative;
-      background:linear-gradient(180deg,var(--ciel) 0%,var(--ciel-clair) 78%,var(--brume) 100%);
-      padding:72px 0 150px;
-      text-align:center;
-      overflow:hidden;
+    /* ===== Lueurs d'ambiance ===== */
+    .lueur{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
+    .lueur-bleue{width:520px;height:520px;background:var(--bleu-glow);top:-180px;left:-160px;opacity:.5}
+    .lueur-rouge{width:460px;height:460px;background:var(--rouge-glow);top:30%;right:-180px;opacity:.4}
+    .lueur-bleue-2{width:400px;height:400px;background:var(--bleu-glow);bottom:-140px;left:30%;opacity:.3}
+
+    /* Pétales flottants (rouge/blanc/bleu, clin d'œil à la bannière) */
+    .petale{position:fixed;width:8px;height:8px;border-radius:50% 0 50% 50%;opacity:.55;pointer-events:none;z-index:0;animation:tomber linear infinite}
+    @keyframes tomber{
+      0%{transform:translateY(-4vh) rotate(0deg)}
+      100%{transform:translateY(104vh) rotate(360deg)}
     }
-    .hero-contenu{position:relative;z-index:3}
+    @media (prefers-reduced-motion:reduce){.petale{display:none}}
+
+    /* ===== Header nav ===== */
+    header.nav{
+      position:sticky;top:0;z-index:50;
+      background:rgba(11,18,48,.82);
+      backdrop-filter:blur(12px);
+      border-bottom:1px solid var(--bordure);
+    }
+    .nav-inner{
+      display:flex;align-items:center;justify-content:space-between;
+      padding:14px 24px;max-width:1120px;margin:0 auto;
+    }
+    .marque{display:flex;align-items:center;gap:12px;text-decoration:none}
+    .marque img{width:40px;height:40px;border-radius:50%}
+    .marque span{font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.15rem}
+    .marque .fr{background:linear-gradient(90deg,var(--bleu-fr),var(--blanc),var(--rouge-fr));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .nav-liens{display:flex;gap:26px;align-items:center;font-weight:700;font-size:.95rem}
+    .nav-liens a{text-decoration:none;color:var(--texte-doux);transition:color .15s}
+    .nav-liens a:hover{color:var(--blanc)}
+    .nav-cta{
+      background:var(--blurple);color:#fff !important;
+      padding:9px 20px;border-radius:999px;
+      font-family:'Fredoka',sans-serif;font-weight:600;
+      box-shadow:0 0 18px rgba(88,101,242,.5);
+      transition:transform .15s, box-shadow .15s;
+    }
+    .nav-cta:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(88,101,242,.7)}
+    @media (max-width:760px){.nav-liens a:not(.nav-cta){display:none}}
+
+    /* ===== HERO ===== */
+    .hero{position:relative;z-index:1;padding:84px 0 90px}
+    .hero-grille{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
+    @media (max-width:900px){.hero-grille{grid-template-columns:1fr;gap:40px}}
     .surtitre{
-      display:inline-block;
-      font-family:'Fredoka',sans-serif;
-      font-weight:600;
-      font-size:.95rem;
-      letter-spacing:.12em;
-      text-transform:uppercase;
-      background:var(--nuage);
-      color:var(--nuit);
-      padding:8px 20px;
-      border-radius:999px;
-      box-shadow:0 4px 14px rgba(34,53,92,.12);
-      margin-bottom:26px;
+      display:inline-flex;align-items:center;gap:10px;
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:.85rem;
+      letter-spacing:.14em;text-transform:uppercase;
+      color:var(--texte);
+      background:var(--encre);
+      border:1px solid var(--bordure);
+      padding:8px 18px;border-radius:999px;margin-bottom:24px;
     }
-    .surtitre .point{color:var(--corail)}
-    h1{
-      font-size:clamp(2.1rem,5.4vw,3.6rem);
-      font-weight:700;
-      max-width:820px;
-      margin:0 auto 18px;
+    .drapeau{display:inline-flex;width:22px;height:14px;border-radius:3px;overflow:hidden;box-shadow:0 0 8px rgba(255,255,255,.25)}
+    .drapeau i{flex:1}
+    .drapeau i:nth-child(1){background:#2B5BD7}
+    .drapeau i:nth-child(2){background:#fff}
+    .drapeau i:nth-child(3){background:#E63946}
+    h1{font-size:clamp(2rem,4.6vw,3.15rem);font-weight:700;margin-bottom:18px}
+    h1 .grad{
+      background:linear-gradient(90deg,var(--bleu-fr) 0%,var(--blanc) 50%,var(--rouge-fr) 100%);
+      -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    h1 .accent{color:var(--corail)}
-    .hero p.accroche{
-      font-size:clamp(1.05rem,2vw,1.25rem);
-      color:var(--nuit-douce);
-      max-width:640px;
-      margin:0 auto 36px;
-      font-weight:600;
-    }
+    .accroche{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--texte-doux);font-weight:600;max-width:520px;margin-bottom:34px}
+    .boutons{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
     .bouton-discord{
-      display:inline-flex;
-      align-items:center;
-      gap:12px;
-      background:var(--blurple);
-      color:#fff;
-      text-decoration:none;
-      font-family:'Fredoka',sans-serif;
-      font-weight:600;
-      font-size:1.15rem;
-      padding:16px 34px;
-      border-radius:999px;
-      box-shadow:0 10px 26px rgba(88,101,242,.38);
-      transition:transform .18s ease,box-shadow .18s ease,background .18s ease;
+      display:inline-flex;align-items:center;gap:12px;
+      background:var(--blurple);color:#fff;text-decoration:none;
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.08rem;
+      padding:15px 30px;border-radius:999px;
+      box-shadow:0 0 24px rgba(88,101,242,.55);
+      transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
-    .bouton-discord:hover{background:var(--blurple-fonce);transform:translateY(-3px);box-shadow:0 14px 32px rgba(88,101,242,.45)}
-    .bouton-discord svg{width:26px;height:26px;fill:#fff}
-    .sous-bouton{margin-top:14px;font-size:.92rem;color:var(--nuit-douce);font-weight:600}
+    .bouton-discord:hover{background:var(--blurple-fonce);transform:translateY(-3px);box-shadow:0 0 34px rgba(88,101,242,.8)}
+    .bouton-discord svg{width:24px;height:24px;fill:#fff}
+    .bouton-secondaire{
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;
+      color:var(--texte);text-decoration:none;
+      padding:14px 26px;border-radius:999px;
+      border:1px solid var(--bordure);background:rgba(24,35,80,.6);
+      transition:border-color .15s, background .15s;
+    }
+    .bouton-secondaire:hover{border-color:var(--bleu-fr);background:var(--encre)}
+    .sous-bouton{margin-top:16px;font-size:.9rem;color:var(--texte-doux);font-weight:600}
     .sous-bouton code{
-      font-family:'Nunito',monospace;
-      background:rgba(255,255,255,.7);
-      padding:3px 10px;
-      border-radius:8px;
-      font-weight:800;
+      font-family:'Nunito',monospace;font-weight:800;
+      background:var(--encre);border:1px solid var(--bordure);
+      padding:3px 10px;border-radius:8px;color:var(--blanc);
     }
 
-    /* Îles flottantes (signature) */
-    .ile{position:absolute;z-index:1;opacity:.95;animation:flotter 7s ease-in-out infinite}
-    .ile-1{width:170px;left:4%;top:16%;animation-delay:0s}
-    .ile-2{width:120px;right:6%;top:10%;animation-delay:-2.5s}
-    .ile-3{width:95px;right:16%;bottom:14%;animation-delay:-4.5s}
-    .nuage-svg{position:absolute;z-index:0;opacity:.85;animation:deriver 26s linear infinite}
-    .nuage-1{width:150px;left:-160px;top:24%}
-    .nuage-2{width:110px;left:-120px;top:58%;animation-delay:-13s;animation-duration:34s}
-    @keyframes flotter{0%,100%{transform:translateY(0)}50%{transform:translateY(-16px)}}
-    @keyframes deriver{from{transform:translateX(0)}to{transform:translateX(calc(100vw + 320px))}}
-    @media (prefers-reduced-motion:reduce){
-      .ile,.nuage-svg{animation:none}
-      .bouton-discord{transition:none}
+    /* Visuel hero : la bannière communautaire dans un cadre lumineux */
+    .hero-visuel{position:relative}
+    .hero-visuel::before{
+      content:"";position:absolute;inset:-3px;border-radius:calc(var(--radius) + 4px);
+      background:linear-gradient(135deg,var(--bleu-fr),transparent 30%,transparent 70%,var(--rouge-fr));
+      opacity:.8;
     }
-    @media (max-width:700px){
-      .ile-1{width:110px;top:6%}
-      .ile-2{width:80px}
-      .ile-3{display:none}
+    .hero-visuel img{
+      position:relative;display:block;width:100%;height:auto;
+      border-radius:var(--radius);
+      box-shadow:0 20px 60px rgba(0,0,0,.55), 0 0 40px rgba(77,124,255,.15);
     }
+    .badge-flottant{
+      position:absolute;bottom:-16px;right:20px;
+      background:var(--encre);border:1px solid var(--bordure);
+      border-radius:14px;padding:10px 18px;
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:.9rem;
+      box-shadow:0 8px 24px rgba(0,0,0,.45);
+      display:flex;align-items:center;gap:8px;
+    }
+    .badge-flottant .point{width:9px;height:9px;border-radius:50%;background:#3BE38A;box-shadow:0 0 8px #3BE38A;animation:pulse 2s ease-in-out infinite}
+    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
 
-    /* ===== SECTIONS ===== */
-    section{padding:72px 0}
-    .titre-section{
-      text-align:center;
-      font-size:clamp(1.6rem,3.4vw,2.3rem);
-      font-weight:600;
-      margin-bottom:14px;
+    /* ===== Sections ===== */
+    section{position:relative;z-index:1;padding:76px 0}
+    .titre-section{text-align:center;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;margin-bottom:12px}
+    .souligne{position:relative;display:inline-block}
+    .souligne::after{
+      content:"";position:absolute;left:8%;right:8%;bottom:-8px;height:4px;border-radius:4px;
+      background:linear-gradient(90deg,var(--bleu-fr),var(--blanc),var(--rouge-fr));
+      opacity:.85;
     }
-    .intro-section{
-      text-align:center;
-      color:var(--nuit-douce);
-      max-width:640px;
-      margin:0 auto 48px;
-      font-weight:600;
-    }
+    .intro-section{text-align:center;color:var(--texte-doux);max-width:620px;margin:0 auto 48px;font-weight:600}
 
     /* Cartes atouts */
-    .grille-atouts{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
-      gap:22px;
-    }
+    .grille-atouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:20px}
     .carte{
-      background:var(--nuage);
+      background:var(--carte);
+      border:1px solid var(--bordure);
       border-radius:var(--radius);
-      padding:30px 26px;
-      box-shadow:0 6px 22px rgba(34,53,92,.08);
-      border-top:5px solid var(--soleil);
-      transition:transform .18s ease;
+      padding:28px 24px;
+      transition:transform .18s ease, border-color .18s ease, box-shadow .18s ease;
     }
-    .carte:nth-child(2){border-top-color:var(--corail)}
-    .carte:nth-child(3){border-top-color:var(--prairie)}
-    .carte:nth-child(4){border-top-color:var(--blurple)}
-    .carte:hover{transform:translateY(-5px)}
-    .carte .emoji{font-size:2rem;display:block;margin-bottom:12px}
-    .carte h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
-    .carte p{font-size:.96rem;color:var(--nuit-douce)}
+    .carte:hover{transform:translateY(-6px);border-color:rgba(120,150,255,.45);box-shadow:0 12px 34px rgba(0,0,0,.4)}
+    .carte .icone{
+      width:46px;height:46px;border-radius:12px;
+      display:flex;align-items:center;justify-content:center;
+      font-size:1.4rem;margin-bottom:16px;
+    }
+    .carte:nth-child(1) .icone{background:rgba(77,124,255,.18);box-shadow:inset 0 0 0 1px rgba(77,124,255,.4)}
+    .carte:nth-child(2) .icone{background:rgba(255,77,94,.16);box-shadow:inset 0 0 0 1px rgba(255,77,94,.4)}
+    .carte:nth-child(3) .icone{background:rgba(255,201,77,.14);box-shadow:inset 0 0 0 1px rgba(255,201,77,.4)}
+    .carte:nth-child(4) .icone{background:rgba(88,101,242,.18);box-shadow:inset 0 0 0 1px rgba(88,101,242,.45)}
+    .carte h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
+    .carte p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
 
     /* Le jeu */
     .bloc-jeu{
-      background:var(--nuage);
+      background:linear-gradient(160deg,var(--carte) 0%,var(--encre) 100%);
+      border:1px solid var(--bordure);
       border-radius:var(--radius);
-      padding:44px 40px;
-      box-shadow:0 6px 22px rgba(34,53,92,.08);
-      display:grid;
-      grid-template-columns:1fr;
-      gap:18px;
+      padding:42px 40px;
     }
-    .bloc-jeu p{color:var(--nuit-douce);font-weight:600}
-    .etiquettes{display:flex;flex-wrap:wrap;gap:10px;margin-top:6px}
+    .bloc-jeu p{color:var(--texte-doux);font-weight:600;margin-bottom:14px}
+    .bloc-jeu strong{color:var(--blanc)}
+    .etiquettes{display:flex;flex-wrap:wrap;gap:10px;margin-top:8px}
     .etiquette{
-      font-family:'Fredoka',sans-serif;
-      font-size:.85rem;
-      font-weight:500;
-      background:var(--ciel-clair);
-      color:var(--nuit);
-      padding:6px 16px;
-      border-radius:999px;
+      font-family:'Fredoka',sans-serif;font-size:.82rem;font-weight:500;
+      background:rgba(77,124,255,.14);
+      border:1px solid rgba(120,150,255,.3);
+      color:var(--texte);
+      padding:6px 15px;border-radius:999px;
     }
+
+    /* À venir (teaser patch notes / aniimopédia) */
+    .grille-venir{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+    @media (max-width:760px){.grille-venir{grid-template-columns:1fr}}
+    .carte-venir{
+      position:relative;overflow:hidden;
+      background:var(--carte);border:1px dashed rgba(120,150,255,.35);
+      border-radius:var(--radius);padding:30px 26px;
+    }
+    .carte-venir .tag{
+      position:absolute;top:16px;right:16px;
+      font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;
+      background:rgba(255,201,77,.15);border:1px solid rgba(255,201,77,.45);color:var(--or);
+      padding:4px 12px;border-radius:999px;
+    }
+    .carte-venir h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
+    .carte-venir p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
 
     /* FAQ */
     .faq details{
-      background:var(--nuage);
+      background:var(--carte);
+      border:1px solid var(--bordure);
       border-radius:16px;
-      padding:20px 26px;
-      margin-bottom:14px;
-      box-shadow:0 4px 16px rgba(34,53,92,.07);
+      padding:20px 26px;margin-bottom:14px;
+      transition:border-color .15s;
     }
+    .faq details[open]{border-color:rgba(120,150,255,.45)}
     .faq summary{
-      font-family:'Fredoka',sans-serif;
-      font-weight:600;
-      font-size:1.05rem;
-      cursor:pointer;
-      list-style:none;
-      display:flex;
-      justify-content:space-between;
-      align-items:center;
-      gap:16px;
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.02rem;
+      cursor:pointer;list-style:none;
+      display:flex;justify-content:space-between;align-items:center;gap:16px;
     }
     .faq summary::-webkit-details-marker{display:none}
-    .faq summary::after{
-      content:"+";
-      font-size:1.5rem;
-      color:var(--corail);
-      transition:transform .2s ease;
-      flex-shrink:0;
-    }
+    .faq summary::after{content:"+";font-size:1.5rem;color:var(--rouge-fr);transition:transform .2s ease;flex-shrink:0}
     .faq details[open] summary::after{transform:rotate(45deg)}
-    .faq details p{margin-top:12px;color:var(--nuit-douce);font-weight:600}
+    .faq details p{margin-top:12px;color:var(--texte-doux);font-weight:600}
+    .faq a{color:var(--bleu-fr);font-weight:800}
 
     /* Bandeau final */
     .bandeau-final{
-      background:linear-gradient(135deg,var(--nuit) 0%,#31497E 100%);
+      position:relative;overflow:hidden;
+      background:linear-gradient(135deg,#131C42 0%,#1E2B66 100%);
+      border:1px solid var(--bordure);
       border-radius:var(--radius);
-      text-align:center;
-      padding:56px 30px;
-      color:#fff;
+      text-align:center;padding:56px 30px;
     }
-    .bandeau-final h2{font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;margin-bottom:12px}
-    .bandeau-final p{color:#C4D3F2;font-weight:600;margin-bottom:28px}
+    .bandeau-final::before,
+    .bandeau-final::after{
+      content:"";position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);opacity:.5;
+    }
+    .bandeau-final::before{background:var(--bleu-glow);top:-90px;left:-60px}
+    .bandeau-final::after{background:var(--rouge-glow);bottom:-90px;right:-60px}
+    .bandeau-final h2{position:relative;font-size:clamp(1.4rem,2.8vw,2rem);font-weight:600;margin-bottom:10px;z-index:1}
+    .bandeau-final p{position:relative;color:var(--texte-doux);font-weight:600;margin-bottom:28px;z-index:1}
+    .bandeau-final .bouton-discord{position:relative;z-index:1}
 
     footer{
-      text-align:center;
-      padding:36px 24px 46px;
-      font-size:.85rem;
-      color:var(--nuit-douce);
+      position:relative;z-index:1;
+      text-align:center;padding:38px 24px 46px;
+      font-size:.84rem;color:var(--texte-doux);
+      border-top:1px solid var(--bordure);
     }
-    footer .mention{max-width:620px;margin:0 auto 10px}
-    footer a{color:var(--blurple);font-weight:700;text-decoration:none}
+    footer .mention{max-width:640px;margin:0 auto 10px}
+    footer a{color:var(--bleu-fr);font-weight:800;text-decoration:none}
     footer a:hover{text-decoration:underline}
 
-    .bouton-discord:focus-visible,.faq summary:focus-visible,footer a:focus-visible{
-      outline:3px solid var(--corail);
-      outline-offset:3px;
-      border-radius:8px;
+    .bouton-discord:focus-visible,.bouton-secondaire:focus-visible,.faq summary:focus-visible,footer a:focus-visible,.nav-liens a:focus-visible{
+      outline:3px solid var(--rouge-fr);outline-offset:3px;border-radius:8px;
     }
   </style>
 </head>
 <body>
 
-  <!-- ================= HERO ================= -->
-  <header class="hero">
-    <!-- Nuages dérivants -->
-    <svg class="nuage-svg nuage-1" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <ellipse cx="40" cy="40" rx="34" ry="18" fill="#fff"/><ellipse cx="72" cy="34" rx="28" ry="16" fill="#fff"/><ellipse cx="58" cy="24" rx="22" ry="14" fill="#fff"/>
-    </svg>
-    <svg class="nuage-svg nuage-2" viewBox="0 0 120 60" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <ellipse cx="40" cy="40" rx="34" ry="18" fill="#fff"/><ellipse cx="72" cy="34" rx="28" ry="16" fill="#fff"/><ellipse cx="58" cy="24" rx="22" ry="14" fill="#fff"/>
-    </svg>
+  <!-- Ambiance -->
+  <div class="lueur lueur-bleue" aria-hidden="true"></div>
+  <div class="lueur lueur-rouge" aria-hidden="true"></div>
+  <div class="lueur lueur-bleue-2" aria-hidden="true"></div>
+  <div class="petale" style="left:8%;background:#FF4D5E;animation-duration:14s;animation-delay:0s" aria-hidden="true"></div>
+  <div class="petale" style="left:22%;background:#F4F7FF;animation-duration:18s;animation-delay:-6s" aria-hidden="true"></div>
+  <div class="petale" style="left:41%;background:#4D7CFF;animation-duration:15s;animation-delay:-10s" aria-hidden="true"></div>
+  <div class="petale" style="left:63%;background:#FF4D5E;animation-duration:20s;animation-delay:-3s" aria-hidden="true"></div>
+  <div class="petale" style="left:78%;background:#F4F7FF;animation-duration:16s;animation-delay:-12s" aria-hidden="true"></div>
+  <div class="petale" style="left:92%;background:#4D7CFF;animation-duration:19s;animation-delay:-8s" aria-hidden="true"></div>
 
-    <!-- Îles flottantes stylisées (signature du site) -->
-    <svg class="ile ile-1" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
-      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#58C08A"/>
-      <circle cx="70" cy="58" r="12" fill="#6BD69B"/>
-      <circle cx="125" cy="55" r="15" fill="#6BD69B"/>
-      <rect x="122" y="40" width="6" height="14" rx="3" fill="#8A5A38"/>
-    </svg>
-    <svg class="ile ile-2" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
-      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#FFC94D"/>
-      <circle cx="100" cy="55" r="13" fill="#FFD97A"/>
-    </svg>
-    <svg class="ile ile-3" viewBox="0 0 200 150" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-      <path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#B98A5E"/>
-      <path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#FF9C8F"/>
-    </svg>
-
-    <div class="conteneur hero-contenu">
-      <span class="surtitre">Aniimo France <span class="point">●</span> Communauté FR</span>
-      <h1>Le Discord de la communauté <span class="accent">française</span> d'Aniimo</h1>
-      <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, du premier jour de la bêta jusqu'au lancement.</p>
-      <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
-        <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
-        Rejoindre le serveur
+  <!-- ================= NAV ================= -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="marque" href="#">
+        <img src="favicon-192.png" alt="Logo Aniimo France" width="40" height="40">
+        <span>Aniimo <span class="fr">France</span></span>
       </a>
-      <p class="sous-bouton">Invitation directe : <code>discord.gg/aniimofr</code> — gratuit et ouvert à tous</p>
+      <nav class="nav-liens" aria-label="Navigation principale">
+        <a href="#serveur">Le serveur</a>
+        <a href="#jeu">Le jeu</a>
+        <a href="#faq">FAQ</a>
+        <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
+      </nav>
     </div>
   </header>
 
-  <!-- ================= ATOUTS ================= -->
+  <!-- ================= HERO ================= -->
   <main>
+    <section class="hero">
+      <div class="conteneur hero-grille">
+        <div>
+          <span class="surtitre"><span class="drapeau" aria-hidden="true"><i></i><i></i><i></i></span> Communauté française</span>
+          <h1>Le Discord de la communauté <span class="grad">française</span> d'Aniimo</h1>
+          <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, de la bêta jusqu'au lancement.</p>
+          <div class="boutons">
+            <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
+              <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+              Rejoindre le serveur
+            </a>
+            <a class="bouton-secondaire" href="#serveur">Découvrir ↓</a>
+          </div>
+          <p class="sous-bouton">Invitation directe : <code>discord.gg/aniimofr</code> — gratuit et ouvert à tous</p>
+        </div>
+        <div class="hero-visuel">
+          <img src="banniere.png" alt="Aniimo France — la communauté française réunie" width="1200" height="630">
+          <div class="badge-flottant"><span class="point" aria-hidden="true"></span> Serveur ouvert</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ================= ATOUTS ================= -->
     <section id="serveur">
       <div class="conteneur">
-        <h2 class="titre-section">Pourquoi rejoindre Aniimo France ?</h2>
+        <h2 class="titre-section"><span class="souligne">Pourquoi rejoindre Aniimo France ?</span></h2>
         <p class="intro-section">Un seul objectif : réunir toute la communauté francophone d'Aniimo au même endroit.</p>
         <div class="grille-atouts">
           <div class="carte">
-            <span class="emoji" aria-hidden="true">📚</span>
+            <div class="icone" aria-hidden="true">📚</div>
             <h3>Entraide &amp; guides FR</h3>
             <p>Des guides rédigés en français, des astuces de capture et des réponses à toutes vos questions sur le jeu.</p>
           </div>
           <div class="carte">
-            <span class="emoji" aria-hidden="true">🎉</span>
+            <div class="icone" aria-hidden="true">🎉</div>
             <h3>Événements &amp; concours</h3>
             <p>Animations communautaires, concours et soirées jeux pour faire vivre le serveur avant et après la sortie.</p>
           </div>
           <div class="carte">
-            <span class="emoji" aria-hidden="true">📰</span>
+            <div class="icone" aria-hidden="true">📰</div>
             <h3>Actus traduites</h3>
             <p>Toute l'actualité d'Aniimo (annonces, bêtas, patch notes) relayée et traduite en français dès sa publication.</p>
           </div>
           <div class="carte">
-            <span class="emoji" aria-hidden="true">🤝</span>
+            <div class="icone" aria-hidden="true">🤝</div>
             <h3>Coéquipiers coop</h3>
             <p>Des salons dédiés pour trouver des joueurs francophones et explorer Idyll en coopération.</p>
           </div>
@@ -400,7 +452,8 @@
     <!-- ================= LE JEU ================= -->
     <section id="jeu">
       <div class="conteneur">
-        <h2 class="titre-section">Aniimo, c'est quoi ?</h2>
+        <h2 class="titre-section"><span class="souligne">Aniimo, c'est quoi ?</span></h2>
+        <p class="intro-section">Le prochain grand jeu de capture de créatures.</p>
         <div class="bloc-jeu">
           <p>Aniimo est un <strong>RPG free-to-play en monde ouvert</strong> de capture de créatures, développé par Pawprint Studio et édité par Kingsglory. Vous y incarnez un Éclaireur qui explore le continent d'Idyll, tisse des liens avec des créatures appelées Aniimo grâce au système de Tissage (Twine), et peut même prendre le contrôle de ses créatures pour explorer, nager, voler et combattre autrement.</p>
           <p>Le jeu est attendu en <strong>2026</strong> sur PC (Steam, Epic Games Store), PlayStation, Xbox et mobile (iOS, Android), jouable en solo comme en coopération en ligne.</p>
@@ -415,10 +468,30 @@
       </div>
     </section>
 
+    <!-- ================= À VENIR ================= -->
+    <section id="a-venir">
+      <div class="conteneur">
+        <h2 class="titre-section"><span class="souligne">Bientôt sur Aniimo France</span></h2>
+        <p class="intro-section">Le site va grandir avec la communauté.</p>
+        <div class="grille-venir">
+          <div class="carte-venir">
+            <span class="tag">Bientôt</span>
+            <h3>📋 Patch notes en français</h3>
+            <p>Toutes les mises à jour d'Aniimo traduites, résumées et archivées : équilibrages, nouveautés, corrections — consultables à tout moment.</p>
+          </div>
+          <div class="carte-venir">
+            <span class="tag">Bientôt</span>
+            <h3>📖 Aniimopédia FR</h3>
+            <p>Une base de données communautaire des créatures : attributs, évolutions, localisations et stratégies, le tout en français.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ================= FAQ ================= -->
     <section id="faq" class="faq">
       <div class="conteneur">
-        <h2 class="titre-section">Questions fréquentes</h2>
+        <h2 class="titre-section"><span class="souligne">Questions fréquentes</span></h2>
         <p class="intro-section">Tout ce qu'il faut savoir sur le serveur Discord Aniimo FR.</p>
 
         <details>
