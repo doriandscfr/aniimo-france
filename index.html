@@ -193,10 +193,7 @@
     }
     @keyframes scintiller{0%,100%{opacity:.15}50%{opacity:.85}}
 
-    /* Îles silhouettes */
-    .ile-nuit{position:absolute;animation:leviter var(--d,9s) ease-in-out infinite;animation-delay:var(--delai,0s)}
-    .ile-nuit svg{display:block;filter:drop-shadow(0 0 18px rgba(77,124,255,.25))}
-    @keyframes leviter{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+        @keyframes leviter{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
 
     /* Esprits d'Idyll : orbes lumineux qui dérivent */
     .esprit{
@@ -343,7 +340,7 @@
     @keyframes apparaitre{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 
     @media (prefers-reduced-motion:reduce){
-      .etoile,.esprit,.petale,.ile-nuit,.crea-flottante,.indicateur-scroll .chevron{animation:none !important}
+      .etoile,.esprit,.petale,.crea-flottante,.indicateur-scroll .chevron{animation:none !important}
       .surtitre,h1,.accroche,.boutons,.sous-bouton,.plateformes,.indicateur-scroll{animation:none !important}
       .couche{transition:none}
     }
@@ -498,22 +495,6 @@
 
         <!-- Étoiles (JS) -->
         <div class="couche" id="ciel-etoiles" data-profondeur="10"></div>
-
-        <!-- Îles silhouettes -->
-        <div class="couche" data-profondeur="22">
-          <div class="ile-nuit" style="left:4%;top:16%;--d:11s">
-            <svg width="150" height="110" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0E1839"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#16224E"/><rect x="96" y="36" width="6" height="18" rx="3" fill="#101B40"/><circle cx="99" cy="30" r="14" fill="#1B2A5C"/></svg>
-          </div>
-          <div class="ile-nuit" style="right:5%;top:12%;--d:13s;--delai:-4s">
-            <svg width="110" height="82" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0E1839"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#182755"/></svg>
-          </div>
-          <div class="ile-nuit" style="right:12%;bottom:16%;--d:10s;--delai:-6s">
-            <svg width="86" height="64" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0D1735"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#152350"/></svg>
-          </div>
-          <div class="ile-nuit" style="left:9%;bottom:20%;--d:12s;--delai:-2s">
-            <svg width="70" height="52" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0D1735"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#152350"/></svg>
-          </div>
-        </div>
 
         <!-- Esprits d'Idyll -->
         <div class="couche" data-profondeur="35">
