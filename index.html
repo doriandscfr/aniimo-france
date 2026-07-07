@@ -96,20 +96,16 @@
 
   <style>
     :root{
-      /* Nuit d'Idyll */
       --nuit-profonde:#0B1230;
       --nuit:#111A3E;
       --encre:#182350;
       --carte:#141F4A;
       --bordure:rgba(120,150,255,.18);
-
-      /* Tricolore lumineux */
       --bleu-fr:#4D7CFF;
       --bleu-glow:rgba(77,124,255,.45);
       --rouge-fr:#FF4D5E;
       --rouge-glow:rgba(255,77,94,.4);
       --blanc:#F4F7FF;
-
       --or:#FFC94D;
       --texte:#E8EDFF;
       --texte-doux:#A9B4D8;
@@ -130,27 +126,15 @@
     a{color:inherit}
     .conteneur{max-width:1120px;margin:0 auto;padding:0 24px}
 
-    /* ===== Lueurs d'ambiance ===== */
-    .lueur{position:fixed;border-radius:50%;filter:blur(120px);pointer-events:none;z-index:0}
-    .lueur-bleue{width:520px;height:520px;background:var(--bleu-glow);top:-180px;left:-160px;opacity:.5}
-    .lueur-rouge{width:460px;height:460px;background:var(--rouge-glow);top:30%;right:-180px;opacity:.4}
-    .lueur-bleue-2{width:400px;height:400px;background:var(--bleu-glow);bottom:-140px;left:30%;opacity:.3}
-
-    /* Pétales flottants (rouge/blanc/bleu, clin d'œil à la bannière) */
-    .petale{position:fixed;width:8px;height:8px;border-radius:50% 0 50% 50%;opacity:.55;pointer-events:none;z-index:0;animation:tomber linear infinite}
-    @keyframes tomber{
-      0%{transform:translateY(-4vh) rotate(0deg)}
-      100%{transform:translateY(104vh) rotate(360deg)}
-    }
-    @media (prefers-reduced-motion:reduce){.petale{display:none}}
-
-    /* ===== Header nav ===== */
+    /* ===== NAV ===== */
     header.nav{
-      position:sticky;top:0;z-index:50;
-      background:rgba(11,18,48,.82);
+      position:fixed;top:0;left:0;right:0;z-index:50;
+      background:rgba(11,18,48,.55);
       backdrop-filter:blur(12px);
-      border-bottom:1px solid var(--bordure);
+      border-bottom:1px solid rgba(120,150,255,.12);
+      transition:background .3s;
     }
+    header.nav.opaque{background:rgba(11,18,48,.88);border-bottom-color:var(--bordure)}
     .nav-inner{
       display:flex;align-items:center;justify-content:space-between;
       padding:14px 24px;max-width:1120px;margin:0 auto;
@@ -170,82 +154,201 @@
       transition:transform .15s, box-shadow .15s;
     }
     .nav-cta:hover{transform:translateY(-2px);box-shadow:0 0 26px rgba(88,101,242,.7)}
-    @media (max-width:760px){.nav-liens a:not(.nav-cta){display:none}}
+    @media (max-width:820px){.nav-liens a:not(.nav-cta){display:none}}
 
-    /* ===== HERO ===== */
-    .hero{position:relative;z-index:1;padding:84px 0 90px}
-    .hero-grille{display:grid;grid-template-columns:1.05fr .95fr;gap:56px;align-items:center}
-    @media (max-width:900px){.hero-grille{grid-template-columns:1fr;gap:40px}}
+    /* ============================================================
+       HERO v4 — Scène vivante "Nuit d'Idyll"
+       ============================================================ */
+    .hero{
+      position:relative;
+      min-height:100vh;
+      min-height:100svh;
+      display:flex;align-items:center;justify-content:center;
+      overflow:hidden;
+      background:
+        radial-gradient(ellipse 90% 60% at 50% -10%, #1B2B66 0%, transparent 55%),
+        radial-gradient(ellipse 60% 45% at 12% 88%, rgba(77,124,255,.22) 0%, transparent 60%),
+        radial-gradient(ellipse 60% 45% at 88% 85%, rgba(255,77,94,.16) 0%, transparent 60%),
+        linear-gradient(180deg, #070C22 0%, var(--nuit-profonde) 60%, #0D1638 100%);
+    }
+    .scene{position:absolute;inset:0;pointer-events:none}
+    .couche{position:absolute;inset:-40px;will-change:transform;transition:transform .25s ease-out}
+
+    /* Toile de fond : l'artwork communautaire en filigrane */
+    .toile-fond{
+      position:absolute;inset:0;
+      background:url('banniere.png') center 30% / cover no-repeat;
+      opacity:.10;
+      filter:blur(3px) saturate(1.2);
+      -webkit-mask-image:radial-gradient(ellipse 75% 65% at 50% 45%, #000 30%, transparent 75%);
+      mask-image:radial-gradient(ellipse 75% 65% at 50% 45%, #000 30%, transparent 75%);
+    }
+
+    /* Étoiles (générées en JS) */
+    .etoile{
+      position:absolute;border-radius:50%;background:#fff;
+      animation:scintiller var(--d,3s) ease-in-out infinite;
+      animation-delay:var(--delai,0s);
+      opacity:.7;
+    }
+    @keyframes scintiller{0%,100%{opacity:.15}50%{opacity:.85}}
+
+    /* Îles silhouettes */
+    .ile-nuit{position:absolute;animation:leviter var(--d,9s) ease-in-out infinite;animation-delay:var(--delai,0s)}
+    .ile-nuit svg{display:block;filter:drop-shadow(0 0 18px rgba(77,124,255,.25))}
+    @keyframes leviter{0%,100%{transform:translateY(0)}50%{transform:translateY(-22px)}}
+
+    /* Esprits d'Idyll : orbes lumineux qui dérivent */
+    .esprit{
+      position:absolute;border-radius:50%;
+      background:radial-gradient(circle at 35% 35%, rgba(255,255,255,.9), var(--c,rgba(77,124,255,.85)) 45%, transparent 72%);
+      filter:blur(1px);
+      box-shadow:0 0 18px 4px var(--c,rgba(77,124,255,.5));
+      animation:deriver-esprit var(--d,22s) ease-in-out infinite alternate;
+      animation-delay:var(--delai,0s);
+      opacity:.85;
+    }
+    .esprit::after{
+      content:"";position:absolute;inset:30%;border-radius:50%;
+      background:rgba(255,255,255,.85);filter:blur(2px);
+    }
+    @keyframes deriver-esprit{
+      0%   {transform:translate(0,0) scale(1)}
+      25%  {transform:translate(var(--x1,60px),var(--y1,-50px)) scale(1.12)}
+      50%  {transform:translate(var(--x2,-40px),var(--y2,-110px)) scale(.94)}
+      75%  {transform:translate(var(--x3,80px),var(--y3,-60px)) scale(1.06)}
+      100% {transform:translate(var(--x4,-30px),var(--y4,-140px)) scale(1)}
+    }
+
+    /* Emplacements pour les renders de créatures (assets/creatures/crea-1.png ... )
+       Invisible tant que le fichier n'existe pas — se branche tout seul dès qu'il est ajouté. */
+    .crea-flottante{
+      position:absolute;
+      animation:leviter var(--d,10s) ease-in-out infinite;
+      animation-delay:var(--delai,0s);
+      filter:drop-shadow(0 12px 26px rgba(0,0,0,.5)) drop-shadow(0 0 22px var(--halo,rgba(77,124,255,.35)));
+    }
+    .crea-flottante img{display:block;width:100%;height:auto}
+
+    /* Pétales tricolores */
+    .petale{
+      position:absolute;width:9px;height:9px;border-radius:50% 0 50% 50%;
+      opacity:.6;animation:tomber var(--d,16s) linear infinite;animation-delay:var(--delai,0s);
+      top:-4vh;
+    }
+    @keyframes tomber{
+      0%{transform:translateY(0) rotate(0deg) translateX(0)}
+      50%{transform:translateY(55vh) rotate(200deg) translateX(30px)}
+      100%{transform:translateY(112vh) rotate(400deg) translateX(-20px)}
+    }
+
+    /* Contenu du hero */
+    .hero-contenu{
+      position:relative;z-index:5;text-align:center;
+      padding:110px 24px 90px;max-width:840px;
+    }
     .surtitre{
       display:inline-flex;align-items:center;gap:10px;
       font-family:'Fredoka',sans-serif;font-weight:600;font-size:.85rem;
       letter-spacing:.14em;text-transform:uppercase;
       color:var(--texte);
-      background:var(--encre);
+      background:rgba(24,35,80,.75);
       border:1px solid var(--bordure);
-      padding:8px 18px;border-radius:999px;margin-bottom:24px;
+      backdrop-filter:blur(6px);
+      padding:8px 18px;border-radius:999px;margin-bottom:26px;
+      animation:apparaitre .8s ease both;
     }
     .drapeau{display:inline-flex;width:22px;height:14px;border-radius:3px;overflow:hidden;box-shadow:0 0 8px rgba(255,255,255,.25)}
     .drapeau i{flex:1}
     .drapeau i:nth-child(1){background:#2B5BD7}
     .drapeau i:nth-child(2){background:#fff}
     .drapeau i:nth-child(3){background:#E63946}
-    h1{font-size:clamp(2rem,4.6vw,3.15rem);font-weight:700;margin-bottom:18px}
+    h1{
+      font-size:clamp(2.1rem,5.4vw,3.7rem);font-weight:700;margin-bottom:20px;
+      text-shadow:0 4px 30px rgba(0,0,0,.5);
+      animation:apparaitre .8s ease .12s both;
+    }
     h1 .grad{
       background:linear-gradient(90deg,var(--bleu-fr) 0%,var(--blanc) 50%,var(--rouge-fr) 100%);
       -webkit-background-clip:text;background-clip:text;color:transparent;
     }
-    .accroche{font-size:clamp(1rem,1.6vw,1.15rem);color:var(--texte-doux);font-weight:600;max-width:520px;margin-bottom:34px}
-    .boutons{display:flex;gap:16px;flex-wrap:wrap;align-items:center}
+    .accroche{
+      font-size:clamp(1rem,1.7vw,1.2rem);color:var(--texte-doux);font-weight:600;
+      max-width:620px;margin:0 auto 36px;
+      animation:apparaitre .8s ease .24s both;
+    }
+    .boutons{display:flex;gap:16px;flex-wrap:wrap;align-items:center;justify-content:center;animation:apparaitre .8s ease .36s both}
     .bouton-discord{
       display:inline-flex;align-items:center;gap:12px;
       background:var(--blurple);color:#fff;text-decoration:none;
-      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.08rem;
-      padding:15px 30px;border-radius:999px;
-      box-shadow:0 0 24px rgba(88,101,242,.55);
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:1.12rem;
+      padding:16px 32px;border-radius:999px;
+      box-shadow:0 0 28px rgba(88,101,242,.6);
       transition:transform .18s ease, box-shadow .18s ease, background .18s ease;
     }
-    .bouton-discord:hover{background:var(--blurple-fonce);transform:translateY(-3px);box-shadow:0 0 34px rgba(88,101,242,.8)}
+    .bouton-discord:hover{background:var(--blurple-fonce);transform:translateY(-3px);box-shadow:0 0 40px rgba(88,101,242,.85)}
     .bouton-discord svg{width:24px;height:24px;fill:#fff}
     .bouton-secondaire{
       font-family:'Fredoka',sans-serif;font-weight:600;font-size:1rem;
       color:var(--texte);text-decoration:none;
-      padding:14px 26px;border-radius:999px;
+      padding:15px 28px;border-radius:999px;
       border:1px solid var(--bordure);background:rgba(24,35,80,.6);
+      backdrop-filter:blur(6px);
       transition:border-color .15s, background .15s;
     }
     .bouton-secondaire:hover{border-color:var(--bleu-fr);background:var(--encre)}
-    .sous-bouton{margin-top:16px;font-size:.9rem;color:var(--texte-doux);font-weight:600}
+    .sous-bouton{margin-top:18px;font-size:.9rem;color:var(--texte-doux);font-weight:600;animation:apparaitre .8s ease .48s both}
     .sous-bouton code{
       font-family:'Nunito',monospace;font-weight:800;
-      background:var(--encre);border:1px solid var(--bordure);
+      background:rgba(24,35,80,.8);border:1px solid var(--bordure);
       padding:3px 10px;border-radius:8px;color:var(--blanc);
     }
 
-    /* Visuel hero : la bannière communautaire dans un cadre lumineux */
-    .hero-visuel{position:relative}
-    .hero-visuel::before{
-      content:"";position:absolute;inset:-3px;border-radius:calc(var(--radius) + 4px);
-      background:linear-gradient(135deg,var(--bleu-fr),transparent 30%,transparent 70%,var(--rouge-fr));
-      opacity:.8;
+    /* Badges plateformes */
+    .plateformes{
+      display:flex;gap:10px;flex-wrap:wrap;justify-content:center;
+      margin-top:30px;
+      animation:apparaitre .8s ease .6s both;
     }
-    .hero-visuel img{
-      position:relative;display:block;width:100%;height:auto;
-      border-radius:var(--radius);
-      box-shadow:0 20px 60px rgba(0,0,0,.55), 0 0 40px rgba(77,124,255,.15);
+    .plateforme{
+      font-family:'Fredoka',sans-serif;font-size:.8rem;font-weight:500;
+      color:var(--texte-doux);
+      background:rgba(24,35,80,.6);
+      border:1px solid var(--bordure);
+      backdrop-filter:blur(6px);
+      padding:7px 16px;border-radius:999px;
+      display:inline-flex;align-items:center;gap:7px;
     }
-    .badge-flottant{
-      position:absolute;bottom:-16px;right:20px;
-      background:var(--encre);border:1px solid var(--bordure);
-      border-radius:14px;padding:10px 18px;
-      font-family:'Fredoka',sans-serif;font-weight:600;font-size:.9rem;
-      box-shadow:0 8px 24px rgba(0,0,0,.45);
-      display:flex;align-items:center;gap:8px;
-    }
-    .badge-flottant .point{width:9px;height:9px;border-radius:50%;background:#3BE38A;box-shadow:0 0 8px #3BE38A;animation:pulse 2s ease-in-out infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.45}}
+    .plateforme .puce{width:7px;height:7px;border-radius:50%;background:var(--bleu-fr);box-shadow:0 0 6px var(--bleu-fr)}
+    .plateforme:nth-child(2) .puce{background:var(--blanc);box-shadow:0 0 6px var(--blanc)}
+    .plateforme:nth-child(3) .puce{background:var(--rouge-fr);box-shadow:0 0 6px var(--rouge-fr)}
+    .plateforme:nth-child(4) .puce{background:var(--or);box-shadow:0 0 6px var(--or)}
 
-    /* ===== Sections ===== */
+    /* Indicateur scroll */
+    .indicateur-scroll{
+      position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+      z-index:5;color:var(--texte-doux);
+      display:flex;flex-direction:column;align-items:center;gap:6px;
+      font-family:'Fredoka',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.15em;text-transform:uppercase;
+      text-decoration:none;
+      animation:apparaitre 1s ease 1s both;
+    }
+    .indicateur-scroll .chevron{
+      width:22px;height:22px;border-right:2px solid var(--texte-doux);border-bottom:2px solid var(--texte-doux);
+      transform:rotate(45deg);
+      animation:rebond 1.8s ease-in-out infinite;
+    }
+    @keyframes rebond{0%,100%{transform:rotate(45deg) translate(0,0);opacity:.5}50%{transform:rotate(45deg) translate(6px,6px);opacity:1}}
+
+    @keyframes apparaitre{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+
+    @media (prefers-reduced-motion:reduce){
+      .etoile,.esprit,.petale,.ile-nuit,.crea-flottante,.indicateur-scroll .chevron{animation:none !important}
+      .surtitre,h1,.accroche,.boutons,.sous-bouton,.plateformes,.indicateur-scroll{animation:none !important}
+      .couche{transition:none}
+    }
+
+    /* ===== Sections (inchangées de la v3) ===== */
     section{position:relative;z-index:1;padding:76px 0}
     .titre-section{text-align:center;font-size:clamp(1.5rem,3vw,2.1rem);font-weight:600;margin-bottom:12px}
     .souligne{position:relative;display:inline-block}
@@ -256,7 +359,6 @@
     }
     .intro-section{text-align:center;color:var(--texte-doux);max-width:620px;margin:0 auto 48px;font-weight:600}
 
-    /* Cartes atouts */
     .grille-atouts{display:grid;grid-template-columns:repeat(auto-fit,minmax(235px,1fr));gap:20px}
     .carte{
       background:var(--carte);
@@ -278,7 +380,6 @@
     .carte h3{font-size:1.1rem;font-weight:600;margin-bottom:8px}
     .carte p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
 
-    /* Le jeu */
     .bloc-jeu{
       background:linear-gradient(160deg,var(--carte) 0%,var(--encre) 100%);
       border:1px solid var(--bordure);
@@ -296,7 +397,6 @@
       padding:6px 15px;border-radius:999px;
     }
 
-    /* À venir (teaser patch notes / aniimopédia) */
     .grille-venir{display:grid;grid-template-columns:1fr 1fr;gap:20px}
     @media (max-width:760px){.grille-venir{grid-template-columns:1fr}}
     .carte-venir{
@@ -315,7 +415,6 @@
     .carte-venir h3{font-size:1.15rem;font-weight:600;margin-bottom:8px}
     .carte-venir p{font-size:.94rem;color:var(--texte-doux);font-weight:600}
 
-    /* FAQ */
     .faq details{
       background:var(--carte);
       border:1px solid var(--bordure);
@@ -335,7 +434,6 @@
     .faq details p{margin-top:12px;color:var(--texte-doux);font-weight:600}
     .faq a{color:var(--bleu-fr);font-weight:800}
 
-    /* Bandeau final */
     .bandeau-final{
       position:relative;overflow:hidden;
       background:linear-gradient(135deg,#131C42 0%,#1E2B66 100%);
@@ -370,22 +468,11 @@
 </head>
 <body>
 
-  <!-- Ambiance -->
-  <div class="lueur lueur-bleue" aria-hidden="true"></div>
-  <div class="lueur lueur-rouge" aria-hidden="true"></div>
-  <div class="lueur lueur-bleue-2" aria-hidden="true"></div>
-  <div class="petale" style="left:8%;background:#FF4D5E;animation-duration:14s;animation-delay:0s" aria-hidden="true"></div>
-  <div class="petale" style="left:22%;background:#F4F7FF;animation-duration:18s;animation-delay:-6s" aria-hidden="true"></div>
-  <div class="petale" style="left:41%;background:#4D7CFF;animation-duration:15s;animation-delay:-10s" aria-hidden="true"></div>
-  <div class="petale" style="left:63%;background:#FF4D5E;animation-duration:20s;animation-delay:-3s" aria-hidden="true"></div>
-  <div class="petale" style="left:78%;background:#F4F7FF;animation-duration:16s;animation-delay:-12s" aria-hidden="true"></div>
-  <div class="petale" style="left:92%;background:#4D7CFF;animation-duration:19s;animation-delay:-8s" aria-hidden="true"></div>
-
   <!-- ================= NAV ================= -->
-  <header class="nav">
+  <header class="nav" id="nav">
     <div class="nav-inner">
       <a class="marque" href="#">
-        <img src="favicon-192.png" alt="Logo Aniimo France" width="40" height="40">
+        <img src="favicon.png" alt="Logo Aniimo France" width="40" height="40">
         <span>Aniimo <span class="fr">France</span></span>
       </a>
       <nav class="nav-liens" aria-label="Navigation principale">
@@ -399,28 +486,99 @@
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
   <main>
-    <section class="hero">
-      <div class="conteneur hero-grille">
-        <div>
-          <span class="surtitre"><span class="drapeau" aria-hidden="true"><i></i><i></i><i></i></span> Communauté française</span>
-          <h1>Le Discord de la communauté <span class="grad">française</span> d'Aniimo</h1>
-          <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, de la bêta jusqu'au lancement.</p>
-          <div class="boutons">
-            <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
-              <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
-              Rejoindre le serveur
-            </a>
-            <a class="bouton-secondaire" href="#serveur">Découvrir ↓</a>
-          </div>
-          <p class="sous-bouton">Invitation directe : <code>discord.gg/aniimofr</code> — gratuit et ouvert à tous</p>
+    <!-- ================= HERO : scène vivante ================= -->
+    <section class="hero" id="haut">
+      <div class="scene" aria-hidden="true">
+
+        <!-- Toile de fond : artwork en filigrane -->
+        <div class="couche" data-profondeur="6">
+          <div class="toile-fond"></div>
         </div>
-        <div class="hero-visuel">
-          <img src="banniere.png" alt="Aniimo France — la communauté française réunie" width="1200" height="630">
-          <div class="badge-flottant"><span class="point" aria-hidden="true"></span> Serveur ouvert</div>
+
+        <!-- Étoiles (JS) -->
+        <div class="couche" id="ciel-etoiles" data-profondeur="10"></div>
+
+        <!-- Îles silhouettes -->
+        <div class="couche" data-profondeur="22">
+          <div class="ile-nuit" style="left:4%;top:16%;--d:11s">
+            <svg width="150" height="110" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0E1839"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#16224E"/><rect x="96" y="36" width="6" height="18" rx="3" fill="#101B40"/><circle cx="99" cy="30" r="14" fill="#1B2A5C"/></svg>
+          </div>
+          <div class="ile-nuit" style="right:5%;top:12%;--d:13s;--delai:-4s">
+            <svg width="110" height="82" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0E1839"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#182755"/></svg>
+          </div>
+          <div class="ile-nuit" style="right:12%;bottom:16%;--d:10s;--delai:-6s">
+            <svg width="86" height="64" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0D1735"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#152350"/></svg>
+          </div>
+          <div class="ile-nuit" style="left:9%;bottom:20%;--d:12s;--delai:-2s">
+            <svg width="70" height="52" viewBox="0 0 200 150"><path d="M30 70 Q100 40 170 70 L150 120 Q100 145 50 120 Z" fill="#0D1735"/><path d="M30 70 Q100 40 170 70 Q100 95 30 70 Z" fill="#152350"/></svg>
+          </div>
+        </div>
+
+        <!-- Esprits d'Idyll -->
+        <div class="couche" data-profondeur="35">
+          <div class="esprit" style="left:14%;top:58%;width:16px;height:16px;--c:rgba(77,124,255,.85);--d:24s"></div>
+          <div class="esprit" style="left:26%;top:34%;width:10px;height:10px;--c:rgba(255,255,255,.9);--d:19s;--delai:-7s;--x1:-50px;--y1:-40px;--x2:30px;--y2:-90px"></div>
+          <div class="esprit" style="right:18%;top:52%;width:14px;height:14px;--c:rgba(255,77,94,.85);--d:27s;--delai:-12s"></div>
+          <div class="esprit" style="right:30%;top:28%;width:9px;height:9px;--c:rgba(77,124,255,.85);--d:21s;--delai:-4s;--x1:40px;--y1:-70px"></div>
+          <div class="esprit" style="left:44%;top:70%;width:12px;height:12px;--c:rgba(255,201,77,.8);--d:25s;--delai:-16s"></div>
+          <div class="esprit" style="right:8%;top:70%;width:11px;height:11px;--c:rgba(255,255,255,.85);--d:23s;--delai:-9s"></div>
+        </div>
+
+        <!-- Emplacements créatures : déposer des renders PNG détourés dans
+             assets/creatures/ (crea-1.png à crea-4.png) et ils apparaîtront ici -->
+        <div class="couche" data-profondeur="50">
+          <div class="crea-flottante" style="left:6%;top:32%;width:150px;--d:9s;--halo:rgba(77,124,255,.4)">
+            <img src="assets/creatures/crea-1.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </div>
+          <div class="crea-flottante" style="right:6%;top:26%;width:130px;--d:11s;--delai:-3s;--halo:rgba(255,77,94,.4)">
+            <img src="assets/creatures/crea-2.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </div>
+          <div class="crea-flottante" style="left:12%;bottom:12%;width:110px;--d:10s;--delai:-5s;--halo:rgba(255,201,77,.4)">
+            <img src="assets/creatures/crea-3.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </div>
+          <div class="crea-flottante" style="right:14%;bottom:10%;width:120px;--d:12s;--delai:-7s;--halo:rgba(255,255,255,.35)">
+            <img src="assets/creatures/crea-4.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+          </div>
+        </div>
+
+        <!-- Pétales tricolores -->
+        <div class="couche" data-profondeur="28">
+          <div class="petale" style="left:8%;background:#FF4D5E;--d:15s"></div>
+          <div class="petale" style="left:21%;background:#F4F7FF;--d:19s;--delai:-6s"></div>
+          <div class="petale" style="left:38%;background:#4D7CFF;--d:16s;--delai:-11s"></div>
+          <div class="petale" style="left:57%;background:#FF4D5E;--d:21s;--delai:-3s"></div>
+          <div class="petale" style="left:72%;background:#F4F7FF;--d:17s;--delai:-13s"></div>
+          <div class="petale" style="left:88%;background:#4D7CFF;--d:20s;--delai:-8s"></div>
+          <div class="petale" style="left:47%;background:#F4F7FF;--d:18s;--delai:-15s;width:7px;height:7px"></div>
         </div>
       </div>
+
+      <!-- Contenu -->
+      <div class="hero-contenu">
+        <span class="surtitre"><span class="drapeau" aria-hidden="true"><i></i><i></i><i></i></span> Communauté française</span>
+        <h1>Le Discord de la communauté <span class="grad">française</span> d'Aniimo</h1>
+        <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, de la bêta jusqu'au lancement.</p>
+        <div class="boutons">
+          <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
+            <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
+            Rejoindre le serveur
+          </a>
+          <a class="bouton-secondaire" href="#serveur">Découvrir ↓</a>
+        </div>
+        <p class="sous-bouton">Invitation directe : <code>discord.gg/aniimofr</code> — gratuit et ouvert à tous</p>
+        <div class="plateformes" aria-label="Plateformes du jeu Aniimo">
+          <span class="plateforme"><span class="puce" aria-hidden="true"></span>PC · Steam &amp; Epic</span>
+          <span class="plateforme"><span class="puce" aria-hidden="true"></span>PlayStation</span>
+          <span class="plateforme"><span class="puce" aria-hidden="true"></span>Xbox</span>
+          <span class="plateforme"><span class="puce" aria-hidden="true"></span>iOS &amp; Android</span>
+        </div>
+      </div>
+
+      <a class="indicateur-scroll" href="#serveur" aria-label="Faire défiler vers le contenu">
+        Explorer
+        <span class="chevron" aria-hidden="true"></span>
+      </a>
     </section>
 
     <!-- ================= ATOUTS ================= -->
@@ -472,7 +630,7 @@
       </div>
     </section>
 
-    <!-- ================= À VENIR ================= -->
+    <!-- ================= EXPLORER ================= -->
     <section id="a-venir">
       <div class="conteneur">
         <h2 class="titre-section"><span class="souligne">Explorer Aniimo France</span></h2>
@@ -541,5 +699,58 @@
     <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
   </footer>
 
+  <script>
+  (function(){
+    const reduitMouvement = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    /* ===== Étoiles ===== */
+    const ciel = document.getElementById('ciel-etoiles');
+    if (ciel){
+      const nb = 90;
+      let html = '';
+      for (let i = 0; i < nb; i++){
+        const x = Math.random()*100, y = Math.random()*100;
+        const taille = (Math.random()*2 + 1).toFixed(1);
+        const duree = (Math.random()*4 + 2).toFixed(1);
+        const delai = (Math.random()*-6).toFixed(1);
+        html += `<span class="etoile" style="left:${x}%;top:${y}%;width:${taille}px;height:${taille}px;--d:${duree}s;--delai:${delai}s"></span>`;
+      }
+      ciel.innerHTML = html;
+    }
+
+    /* ===== Parallaxe à la souris ===== */
+    if (!reduitMouvement){
+      const couches = document.querySelectorAll('.couche[data-profondeur]');
+      const hero = document.querySelector('.hero');
+      let cible = {x:0, y:0}, actuel = {x:0, y:0}, actif = false;
+
+      hero.addEventListener('mousemove', e => {
+        const r = hero.getBoundingClientRect();
+        cible.x = (e.clientX - r.left) / r.width - .5;
+        cible.y = (e.clientY - r.top) / r.height - .5;
+        if (!actif){ actif = true; requestAnimationFrame(boucle); }
+      });
+      hero.addEventListener('mouseleave', () => { cible.x = 0; cible.y = 0; });
+
+      function boucle(){
+        actuel.x += (cible.x - actuel.x) * .06;
+        actuel.y += (cible.y - actuel.y) * .06;
+        couches.forEach(c => {
+          const p = parseFloat(c.dataset.profondeur) || 10;
+          c.style.transform = `translate(${(-actuel.x * p).toFixed(1)}px, ${(-actuel.y * p).toFixed(1)}px)`;
+        });
+        if (Math.abs(cible.x - actuel.x) > .001 || Math.abs(cible.y - actuel.y) > .001 || cible.x !== 0 || cible.y !== 0){
+          requestAnimationFrame(boucle);
+        } else { actif = false; }
+      }
+    }
+
+    /* ===== Nav qui s'opacifie au scroll ===== */
+    const nav = document.getElementById('nav');
+    window.addEventListener('scroll', () => {
+      nav.classList.toggle('opaque', window.scrollY > 60);
+    }, {passive:true});
+  })();
+  </script>
 </body>
 </html>
