@@ -225,7 +225,7 @@
       animation-delay:var(--delai,0s);
       filter:drop-shadow(0 12px 26px rgba(0,0,0,.5)) drop-shadow(0 0 22px var(--halo,rgba(77,124,255,.35)));
     }
-    .crea-flottante img{display:block;width:100%;height:auto}
+    .crea-flottante img,.crea-flottante video{display:block;width:100%;height:auto}
 
     /* Pétales tricolores */
     .petale{
@@ -510,16 +510,16 @@
              assets/creatures/ (crea-1.png à crea-4.png) et ils apparaîtront ici -->
         <div class="couche" data-profondeur="50">
           <div class="crea-flottante" style="left:6%;top:32%;width:150px;--d:9s;--halo:rgba(77,124,255,.4)">
-            <img src="assets/creatures/crea-1.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+            <video src="assets/creatures/crea-1.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
           </div>
           <div class="crea-flottante" style="right:6%;top:26%;width:130px;--d:11s;--delai:-3s;--halo:rgba(88,192,138,.45)">
-            <img src="assets/creatures/crea-2.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+            <video src="assets/creatures/crea-2.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
           </div>
           <div class="crea-flottante" style="left:12%;bottom:12%;width:110px;--d:10s;--delai:-5s;--halo:rgba(255,140,60,.5)">
-            <img src="assets/creatures/crea-3.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+            <video src="assets/creatures/crea-3.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
           </div>
           <div class="crea-flottante" style="right:14%;bottom:10%;width:120px;--d:12s;--delai:-7s;--halo:rgba(255,255,255,.35)">
-            <img src="assets/creatures/crea-4.png" alt="" loading="lazy" onerror="this.parentElement.style.display='none'">
+            <video src="assets/creatures/crea-4.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
           </div>
         </div>
 
@@ -725,6 +725,20 @@
         } else { actif = false; }
       }
     }
+
+    /* ===== Créatures : retour au PNG si le WebM n'est pas géré ===== */
+    (function(){
+      const t = document.createElement('video');
+      const ok = t.canPlayType && t.canPlayType('video/webm; codecs="vp9"') !== '';
+      if (!ok){
+        document.querySelectorAll('.crea-flottante video').forEach(v => {
+          const img = document.createElement('img');
+          img.src = v.getAttribute('src').replace('.webm', '.png');
+          img.alt = '';
+          v.replaceWith(img);
+        });
+      }
+    })();
 
     /* ===== Nav qui s'opacifie au scroll ===== */
     const nav = document.getElementById('nav');
