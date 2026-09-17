@@ -82,7 +82,28 @@ for (const fichier of pagesHtml()) {
     if (m[1] && !ids.has(m[1])) signaler(rel, `ancre introuvable → #${m[1]}`);
   }
 
-  /* --- 5. Ressources déclarées dans <link> --- */
+  /* --- 5. Identifiants uniques ---
+     Un id en double casse les ancres et les liens d'évitement, et le
+     validateur W3C le refuse. */
+  const tousIds = [...horsScript.matchAll(/\sid="([^"]+)"/g)].map((m) => m[1]);
+  const doublons = [...new Set(tousIds.filter((v, i) => tousIds.indexOf(v) !== i))];
+  for (const d of doublons) signaler(rel, `id en double → #${d}`);
+
+  /* --- 6. Hiérarchie des titres ---
+     Passer de h1 à h3 sans h2 dégrade l'accessibilité et brouille la
+     structure que les moteurs utilisent pour comprendre la page. */
+  const niveaux = [...horsScript.matchAll(/<h([1-6])[\s>]/g)].map((m) => Number(m[1]));
+  const nbH1 = niveaux.filter((n) => n === 1).length;
+  if (nbH1 === 0) signaler(rel, 'aucun <h1>');
+  if (nbH1 > 1) signaler(rel, `${nbH1} balises <h1> (il en faut exactement une)`);
+  for (let i = 1; i < niveaux.length; i++) {
+    if (niveaux[i] > niveaux[i - 1] + 1) {
+      signaler(rel, `saut de niveau de titre : h${niveaux[i - 1]} suivi de h${niveaux[i]}`);
+      break; // un signalement par page suffit
+    }
+  }
+
+  /* --- 7. Ressources déclarées dans <link> --- */
   for (const m of horsScript.matchAll(/<link[^>]+href="([^"]+)"/g)) {
     const h = m[1];
     if (/^https?:/.test(h)) continue;

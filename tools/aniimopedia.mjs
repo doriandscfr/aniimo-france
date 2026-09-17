@@ -58,11 +58,21 @@ const carte = (c) => `      <article class="crea" style="--accent:${ACCENTS[c.ty
         <p class="stats-seo">${Object.entries(c.stats).map(([k, v]) => `${k} ${v}`).join(' · ')}</p>
       </article>`;
 
-const grille = `<div class="grille-crea" id="grille">
+// Un <h2> sépare le <h1> de la page des <h3> des créatures : sans lui, la
+// hiérarchie saute un niveau (erreur d'accessibilité, et signal de structure
+// dégradé pour les moteurs).
+const grille = `<h2 class="titre-grille">Toutes les créatures d'Aniimo</h2>
+
+    <div class="grille-crea" id="grille">
 ${CREATURES.map(carte).join('\n')}
     </div>`;
 
-s = s.replace(/<div class="grille-crea" id="grille">[\s\S]*?<\/div>\n {2}<\/main>/, grille + '\n  </main>');
+// Le motif absorbe un <h2 class="titre-grille"> déjà posé : le script reste
+// rejouable sans empiler les titres.
+s = s.replace(
+  /(?:<h2 class="titre-grille">[\s\S]*?<\/h2>\s*)?<div class="grille-crea" id="grille">[\s\S]*?<\/div>\n {2}<\/main>/,
+  grille + '\n  </main>'
+);
 
 /* ---------- 4. Styles du contenu statique ---------- */
 // Descriptions et statistiques : présentes pour les robots, masquées à l'écran
@@ -74,6 +84,13 @@ if (!s.includes('.description-seo')) {
     .crea .description-seo,.crea .stats-seo{
       position:absolute;width:1px;height:1px;overflow:hidden;
       clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;
+    }
+
+    /* Titre de la grille : rétablit la hiérarchie h1 → h2 → h3 */
+    .titre-grille{
+      position:relative;z-index:1;
+      max-width:1120px;margin:0 auto 18px;padding:0 24px;
+      font-size:1.15rem;font-weight:600;color:var(--texte-doux);
     }
   </style>`);
 }

@@ -540,7 +540,7 @@ ecrire('a-propos/index.html', page({
       <p><strong>Aniimo France</strong> est un serveur Discord communautaire et un site consacrés au jeu <a href="../aniimo/">Aniimo</a>, à destination des joueurs francophones. Le projet est né avant la sortie du jeu, pour rassembler au même endroit une communauté FR jusque-là éparpillée.</p>
       <p>Nous ne sommes affiliés ni à Pawprint Studio, ni à Kingsglory, ni à aucun éditeur. Le site est indépendant, gratuit, sans publicité.</p>
 
-      <h2 id="contenu">Comment le contenu est produit</h2>
+      <h2 id="redaction">Comment le contenu est produit</h2>
       <p>Chaque page de ce site suit les mêmes règles&nbsp;:</p>
       <ul>
         <li><strong>Rédaction en français</strong>, par des joueurs francophones. Pas de traduction automatique&nbsp;;</li>
@@ -645,7 +645,8 @@ const p404 = page({
   h1: 'Cette page s\'est perdue dans Idyll',
   chapo: 'L\'adresse demandée n\'existe pas ou a été déplacée. Voici par où reprendre.',
   fil: [{ nom: 'Page introuvable', href: '404.html' }],
-  corps: `      <div class="grille-liens">
+  corps: `      <h2 id="sections">Les sections du site</h2>
+      <div class="grille-liens">
         <a class="carte-lien" href="/">
           <h3>🏠 Accueil</h3>
           <p>Le Discord de la communauté française d'Aniimo.</p>
