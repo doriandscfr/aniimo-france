@@ -3,10 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Aniimopédia — Base de données des Aniimo en français | Aniimo France</title>
+  <title>Aniimopédia — les créatures d'Aniimo en français</title>
   <meta name="description" content="L'Aniimopédia d'Aniimo France : la base de données communautaire des créatures Aniimo en français. Types, rôles, statistiques et stratégies.">
   <link rel="canonical" href="https://aniimo-france.fr/aniimopedia/">
-  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="fr" href="https://aniimo-france.fr/aniimopedia/">
+  <link rel="alternate" hreflang="x-default" href="https://aniimo-france.fr/aniimopedia/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <meta name="author" content="Aniimo France">
   <meta name="theme-color" content="#0B1230">
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
@@ -14,11 +17,401 @@
   <meta property="og:title" content="Aniimopédia — Base de données des Aniimo en français">
   <meta property="og:description" content="Types, rôles, statistiques : la base de données communautaire des créatures Aniimo, en français.">
   <meta property="og:url" content="https://aniimo-france.fr/aniimopedia/">
-  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+  <meta property="og:image" content="https://aniimo-france.fr/assets/og/banniere.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aniimo France — la communauté française du jeu Aniimo">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Aniimopédia — Base de données des Aniimo en français">
+  <meta name="twitter:description" content="L'Aniimopédia d'Aniimo France : la base de données communautaire des créatures Aniimo en français. Types, rôles, statistiques et stratégies.">
+  <meta name="twitter:image" content="https://aniimo-france.fr/assets/og/banniere.jpg">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "CollectionPage",
+        "@id": "https://aniimo-france.fr/aniimopedia/#page",
+        "name": "Aniimopédia — base de données des créatures d'Aniimo en français",
+        "description": "La base de données communautaire des créatures du jeu Aniimo, en français : types, rôles et statistiques.",
+        "url": "https://aniimo-france.fr/aniimopedia/",
+        "inLanguage": "fr-FR",
+        "isPartOf": {
+          "@id": "https://aniimo-france.fr/#site"
+        },
+        "about": {
+          "@id": "https://aniimo-france.fr/#jeu"
+        },
+        "publisher": {
+          "@id": "https://aniimo-france.fr/#organisation"
+        },
+        "primaryImageOfPage": "https://aniimo-france.fr/assets/og/banniere.jpg",
+        "mainEntity": {
+          "@type": "ItemList",
+          "name": "Créatures d'Aniimo",
+          "numberOfItems": 8,
+          "itemListOrder": "https://schema.org/ItemListUnordered",
+          "itemListElement": [
+            {
+              "@type": "ListItem",
+              "position": 1,
+              "item": {
+                "@type": "Thing",
+                "name": "Scorchhowl",
+                "description": "Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Feu"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "DPS"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "120"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "165"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "95"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "140"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 2,
+              "item": {
+                "@type": "Thing",
+                "name": "Glacy",
+                "description": "Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Glace"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Soin"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "140"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "80"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "110"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "105"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 3,
+              "item": {
+                "@type": "Thing",
+                "name": "Leafy",
+                "description": "Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Plante"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Support"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "130"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "85"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "125"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "95"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 4,
+              "item": {
+                "@type": "Thing",
+                "name": "Geoclaw",
+                "description": "Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Terre"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Tank"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "190"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "100"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "180"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "55"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 5,
+              "item": {
+                "@type": "Thing",
+                "name": "Fulminis",
+                "description": "Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Foudre"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "DPS"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "105"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "155"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "85"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "175"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 6,
+              "item": {
+                "@type": "Thing",
+                "name": "Luminelle",
+                "description": "Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Lumière"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Soin, Support"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "125"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "75"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "100"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "120"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 7,
+              "item": {
+                "@type": "Thing",
+                "name": "Droopie",
+                "description": "Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Eau"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Tank"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "175"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "90"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "150"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "70"
+                  }
+                ]
+              }
+            },
+            {
+              "@type": "ListItem",
+              "position": 8,
+              "item": {
+                "@type": "Thing",
+                "name": "Somniwing",
+                "description": "Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.",
+                "additionalProperty": [
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Élément",
+                    "value": "Ténèbres"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "Rôle",
+                    "value": "Support"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "PV",
+                    "value": "110"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "ATK",
+                    "value": "95"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "DEF",
+                    "value": "90"
+                  },
+                  {
+                    "@type": "PropertyValue",
+                    "name": "VIT",
+                    "value": "135"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Accueil",
+            "item": "https://aniimo-france.fr/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Aniimopédia",
+            "item": "https://aniimo-france.fr/aniimopedia/"
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+
   <link rel="icon" type="image/png" href="../favicon.png">
+  <link rel="apple-touch-icon" href="../apple-touch-icon.png">
+  <link rel="manifest" href="../site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"></noscript>
   <link rel="stylesheet" href="../assets/site.css">
   <style>
     .outils{position:relative;z-index:1;max-width:1120px;margin:0 auto 26px;padding:0 24px}
@@ -124,9 +517,17 @@
     .barre-stat .valeur{font-weight:800;font-size:.88rem;text-align:right}
     .piste{height:9px;border-radius:999px;background:var(--encre);overflow:hidden}
     .remplissage{height:100%;border-radius:999px;background:linear-gradient(90deg,var(--bleu-fr),var(--rouge-fr))}
+
+    /* Contenu textuel présent dans le HTML pour l'indexation ;
+       l'affichage reste assuré par la fiche détaillée au clic. */
+    .crea .description-seo,.crea .stats-seo{
+      position:absolute;width:1px;height:1px;overflow:hidden;
+      clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;
+    }
   </style>
 </head>
 <body>
+  <a class="saut-contenu" href="#contenu">Aller au contenu</a>
   <div class="lueur lueur-bleue" aria-hidden="true"></div>
   <div class="lueur lueur-rouge" aria-hidden="true"></div>
 
@@ -138,14 +539,17 @@
       </a>
       <nav class="nav-liens" aria-label="Navigation principale">
         <a href="../">Accueil</a>
+        <a href="../aniimo/">Le jeu</a>
+        <a href="../guides/">Guides</a>
+        <a href="../codes/">Codes</a>
         <a href="../patch-notes/">Patch notes</a>
-        <a href="./" class="actif">Aniimopédia</a>
+        <a href="../aniimopedia/" class="actif" aria-current="page">Aniimopédia</a>
         <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="contenu">
     <div class="entete-page">
       <p class="fil"><a href="../">Accueil</a> › Aniimopédia</p>
       <h1><span class="souligne">Aniimopédia</span></h1>
@@ -167,7 +571,88 @@
       </div>
     </div>
 
-    <div class="grille-crea" id="grille"></div>
+    <div class="grille-crea" id="grille">
+      <article class="crea" style="--accent:var(--type-feu)">
+        <div class="avatar">🔥</div>
+        <h3>Scorchhowl</h3>
+        <div class="badges">
+          <span class="type type-feu">Feu</span>
+          <span class="role">DPS</span>
+        </div>
+        <p class="description-seo">Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.</p>
+        <p class="stats-seo">PV 120 · ATK 165 · DEF 95 · VIT 140</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-glace)">
+        <div class="avatar">❄️</div>
+        <h3>Glacy</h3>
+        <div class="badges">
+          <span class="type type-glace">Glace</span>
+          <span class="role">Soin</span>
+        </div>
+        <p class="description-seo">Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.</p>
+        <p class="stats-seo">PV 140 · ATK 80 · DEF 110 · VIT 105</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-plante)">
+        <div class="avatar">🌿</div>
+        <h3>Leafy</h3>
+        <div class="badges">
+          <span class="type type-plante">Plante</span>
+          <span class="role">Support</span>
+        </div>
+        <p class="description-seo">Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.</p>
+        <p class="stats-seo">PV 130 · ATK 85 · DEF 125 · VIT 95</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-terre)">
+        <div class="avatar">🪨</div>
+        <h3>Geoclaw</h3>
+        <div class="badges">
+          <span class="type type-terre">Terre</span>
+          <span class="role">Tank</span>
+        </div>
+        <p class="description-seo">Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.</p>
+        <p class="stats-seo">PV 190 · ATK 100 · DEF 180 · VIT 55</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-foudre)">
+        <div class="avatar">⚡</div>
+        <h3>Fulminis</h3>
+        <div class="badges">
+          <span class="type type-foudre">Foudre</span>
+          <span class="role">DPS</span>
+        </div>
+        <p class="description-seo">Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.</p>
+        <p class="stats-seo">PV 105 · ATK 155 · DEF 85 · VIT 175</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-lumiere)">
+        <div class="avatar">✨</div>
+        <h3>Luminelle</h3>
+        <div class="badges">
+          <span class="type type-lumiere">Lumière</span>
+          <span class="role">Soin</span><span class="role">Support</span>
+        </div>
+        <p class="description-seo">Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.</p>
+        <p class="stats-seo">PV 125 · ATK 75 · DEF 100 · VIT 120</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-eau)">
+        <div class="avatar">💧</div>
+        <h3>Droopie</h3>
+        <div class="badges">
+          <span class="type type-eau">Eau</span>
+          <span class="role">Tank</span>
+        </div>
+        <p class="description-seo">Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.</p>
+        <p class="stats-seo">PV 175 · ATK 90 · DEF 150 · VIT 70</p>
+      </article>
+      <article class="crea" style="--accent:var(--type-tenebres)">
+        <div class="avatar">🌙</div>
+        <h3>Somniwing</h3>
+        <div class="badges">
+          <span class="type type-tenebres">Ténèbres</span>
+          <span class="role">Support</span>
+        </div>
+        <p class="description-seo">Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.</p>
+        <p class="stats-seo">PV 110 · ATK 95 · DEF 90 · VIT 135</p>
+      </article>
+    </div>
   </main>
 
   <!-- Fiche détaillée -->
@@ -176,7 +661,35 @@
   </div>
 
   <footer>
-    <p class="mention">Aniimo France est un site communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
+    <div class="footer-grille">
+      <div class="footer-col">
+        <div class="titre-col">Le jeu</div>
+        <ul>
+          <li><a href="../aniimo/">Fiche Aniimo</a></li>
+          <li><a href="../aniimopedia/">Aniimopédia FR</a></li>
+          <li><a href="../patch-notes/">Patch notes FR</a></li>
+          <li><a href="../codes/">Codes Aniimo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="titre-col">Guides</div>
+        <ul>
+          <li><a href="../guides/">Tous les guides</a></li>
+          <li><a href="../guides/bien-debuter/">Bien débuter</a></li>
+          <li><a href="../guides/types-et-faiblesses/">Types et faiblesses</a></li>
+          <li><a href="../guides/capture-anipod/">Capturer un Aniimo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="titre-col">Communauté</div>
+        <ul>
+          <li><a href="https://discord.gg/aniimofr" rel="noopener">Discord Aniimo France</a></li>
+          <li><a href="../a-propos/">À propos</a></li>
+          <li><a href="../mentions-legales/">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
+    <p class="mention">Aniimo France est un serveur communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. «&nbsp;Aniimo&nbsp;» est une marque de ses ayants droit respectifs.</p>
     <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
   </footer>
 
@@ -344,6 +857,14 @@
     if (e.target.id === "voile") fermerFiche();
   });
   document.addEventListener("keydown", e => { if (e.key === "Escape") fermerFiche(); });
+
+  // Recherche pré-remplie depuis l'URL : /aniimopedia/?q=nom
+  // C'est la cible déclarée par le SearchAction de la page d'accueil.
+  const parametreRecherche = new URLSearchParams(location.search).get("q");
+  if (parametreRecherche){
+    etat.recherche = parametreRecherche.trim().toLowerCase();
+    document.getElementById("recherche").value = parametreRecherche;
+  }
 
   rendre();
   </script>

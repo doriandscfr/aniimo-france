@@ -1,0 +1,26 @@
+{
+  "name": "Aniimo France — la communauté française d'Aniimo",
+  "short_name": "Aniimo France",
+  "description": "Guides, Aniimopédia, patch notes et codes d'Aniimo en français, par la communauté Aniimo France.",
+  "lang": "fr-FR",
+  "dir": "ltr",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0B1230",
+  "theme_color": "#0B1230",
+  "categories": ["games", "entertainment", "social"],
+  "icons": [
+    { "src": "/favicon.png", "sizes": "64x64", "type": "image/png" },
+    { "src": "/favicon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-touch-icon.png", "sizes": "180x180", "type": "image/png" },
+    { "src": "/favicon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ],
+  "shortcuts": [
+    { "name": "Guides Aniimo", "url": "/guides/", "description": "Les guides en français" },
+    { "name": "Aniimopédia", "url": "/aniimopedia/", "description": "La base de données des créatures" },
+    { "name": "Codes Aniimo", "url": "/codes/", "description": "Les codes cadeaux actifs" },
+    { "name": "Patch notes", "url": "/patch-notes/", "description": "Les mises à jour traduites" }
+  ]
+}

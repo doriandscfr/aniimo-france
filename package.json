@@ -1,0 +1,26 @@
+{
+  "name": "aniimo-france",
+  "version": "5.0.0",
+  "private": true,
+  "description": "Site communautaire francophone du jeu Aniimo — aniimo-france.fr",
+  "type": "module",
+  "scripts": {
+    "build": "node tools/pages.mjs && node tools/aniimopedia.mjs && node tools/patch-notes-seo.mjs && node tools/seo.mjs",
+    "pages": "node tools/pages.mjs",
+    "pedia": "node tools/aniimopedia.mjs",
+    "patchs": "node tools/patch-notes-seo.mjs",
+    "seo": "node tools/seo.mjs",
+    "verifier": "node tools/verifier.mjs",
+    "controle": "node tools/seo.mjs && node tools/verifier.mjs",
+    "indexnow": "node tools/indexnow.mjs",
+    "servir": "node tools/servir.mjs"
+  },
+  "keywords": [
+    "aniimo",
+    "discord",
+    "communaute",
+    "francais",
+    "jeu-video"
+  ],
+  "license": "UNLICENSED"
+}

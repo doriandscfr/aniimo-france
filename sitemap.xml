@@ -1,29 +1,125 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Généré par tools/seo.mjs — ne pas modifier à la main, relancer le script. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
   <url>
     <loc>https://aniimo-france.fr/</loc>
-    <lastmod>2026-07-06</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Discord Aniimo France — la communauté française d'Aniimo</image:title>
+    </image:image>
   </url>
   <url>
-    <loc>https://aniimo-france.fr/patch-notes/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <loc>https://aniimo-france.fr/aniimo/</loc>
+    <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Aniimo : date de sortie, plateformes, prix et config PC (2026)</image:title>
+    </image:image>
   </url>
   <url>
     <loc>https://aniimo-france.fr/aniimopedia/</loc>
-    <lastmod>2026-07-06</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Aniimopédia — Base de données des Aniimo en français</image:title>
+    </image:image>
   </url>
-  <!-- AJOUTEZ ICI CHAQUE NOUVEAU PATCH NOTE, exemple :
+  <url>
+    <loc>https://aniimo-france.fr/codes/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Codes Aniimo (septembre 2026) : tous les codes actifs</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/patch-notes/</loc>
+    <lastmod>2026-07-07</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Patch notes Aniimo en français — Aniimo France</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/guides/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Guides Aniimo en français</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/guides/bien-debuter/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Bien débuter sur Aniimo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/guides/capture-anipod/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Comment capturer un Aniimo</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/guides/types-et-faiblesses/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Aniimo : le tableau des types et des faiblesses</image:title>
+    </image:image>
+  </url>
   <url>
     <loc>https://aniimo-france.fr/patch-notes/2026-07-02-exemple.html</loc>
-    <lastmod>2026-07-02</lastmod>
+    <lastmod>2026-07-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Patch note Aniimo 1.0.2 en français — Aniimo France</image:title>
+    </image:image>
   </url>
-  -->
+  <url>
+    <loc>https://aniimo-france.fr/a-propos/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>À propos d'Aniimo France</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/mentions-legales/</loc>
+    <lastmod>2026-09-17</lastmod>
+    <changefreq>yearly</changefreq>
+    <priority>0.4</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Mentions légales</image:title>
+    </image:image>
+  </url>
 </urlset>

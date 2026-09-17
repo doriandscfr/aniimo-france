@@ -1,0 +1,152 @@
+{
+  "_lisezMoi": "Export automatique depuis aniimopedia/index.html par tools/aniimopedia.mjs. La source de vérité reste le tableau CREATURES de la page.",
+  "donneesVerifiees": false,
+  "miseAJour": "2026-09-17",
+  "creatures": [
+    {
+      "nom": "Scorchhowl",
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.",
+      "stats": {
+        "PV": 120,
+        "ATK": 165,
+        "DEF": 95,
+        "VIT": 140
+      }
+    },
+    {
+      "nom": "Glacy",
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "Soin"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.",
+      "stats": {
+        "PV": 140,
+        "ATK": 80,
+        "DEF": 110,
+        "VIT": 105
+      }
+    },
+    {
+      "nom": "Leafy",
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "Support"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.",
+      "stats": {
+        "PV": 130,
+        "ATK": 85,
+        "DEF": 125,
+        "VIT": 95
+      }
+    },
+    {
+      "nom": "Geoclaw",
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "Tank"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.",
+      "stats": {
+        "PV": 190,
+        "ATK": 100,
+        "DEF": 180,
+        "VIT": 55
+      }
+    },
+    {
+      "nom": "Fulminis",
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.",
+      "stats": {
+        "PV": 105,
+        "ATK": 155,
+        "DEF": 85,
+        "VIT": 175
+      }
+    },
+    {
+      "nom": "Luminelle",
+      "types": [
+        "Lumière"
+      ],
+      "roles": [
+        "Soin",
+        "Support"
+      ],
+      "emoji": "✨",
+      "image": "",
+      "description": "Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.",
+      "stats": {
+        "PV": 125,
+        "ATK": 75,
+        "DEF": 100,
+        "VIT": 120
+      }
+    },
+    {
+      "nom": "Droopie",
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "Tank"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.",
+      "stats": {
+        "PV": 175,
+        "ATK": 90,
+        "DEF": 150,
+        "VIT": 70
+      }
+    },
+    {
+      "nom": "Somniwing",
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "Support"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.",
+      "stats": {
+        "PV": 110,
+        "ATK": 95,
+        "DEF": 90,
+        "VIT": 135
+      }
+    }
+  ]
+}

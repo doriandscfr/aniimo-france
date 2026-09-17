@@ -64,3 +64,41 @@ Pawprint Studio / Kingsglory. Les wikis communautaires en utilisent
 généralement avec mention de la source (comme le disclaimer déjà présent
 dans le footer), mais c'est ta responsabilité d'éditeur — en cas de
 demande des ayants droit, il faudra les retirer.
+
+---
+
+## ⚙️ Nouveau depuis la v5 : les outils automatiques
+
+Le site dispose maintenant de scripts qui évitent les oublis.
+Ils demandent uniquement Node.js (déjà installé).
+
+```bash
+npm run build       # régénère guides, Aniimopédia, patch notes, sitemap et llms.txt
+npm run controle    # audit SEO + vérifie liens, images et données structurées
+npm run servir      # prévisualise le site sur http://localhost:8080
+npm run indexnow    # prévient Bing, Yandex et Seznam d'une mise à jour
+```
+
+**Le réflexe à prendre : `npm run build` puis `npm run controle` avant chaque
+`git push`.** Le sitemap se met à jour tout seul — l'étape 4 de la procédure
+patch note ci-dessus n'est plus nécessaire.
+
+### Où modifier quoi
+
+| Pour changer… | Fichier | Puis |
+|---|---|---|
+| Un guide, la page « À propos », les mentions légales | `tools/pages.mjs` | `npm run pages` |
+| Le tableau des types | objet `TABLE` dans `tools/pages.mjs` | `npm run pages` |
+| Les créatures | tableau `CREATURES` dans `aniimopedia/index.html` | `npm run pedia` |
+| Les codes cadeaux | `codes/index.html` (à la main) | `npm run seo` |
+| La fiche du jeu | `aniimo/index.html` (à la main) | `npm run seo` |
+
+⚠️ Les pages listées comme générées (`guides/`, `a-propos/`,
+`mentions-legales/`, `404.html`) sont **réécrites** par `npm run pages`.
+Modifie-les dans `tools/pages.mjs`, pas directement dans le HTML, sinon tes
+changements seront perdus au prochain build.
+
+### Priorités de référencement
+
+Voir **[SEO.md](SEO.md)** : ce qui est déjà en place, et surtout les actions
+qui restent à faire (Search Console, liens externes, vérification des données).

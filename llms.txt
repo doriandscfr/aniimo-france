@@ -1,0 +1,55 @@
+# Aniimo France
+
+> Aniimo France est la communauté francophone non officielle du jeu Aniimo,
+> un action-RPG free-to-play en monde ouvert de capture de créatures développé
+> par Pawprint Studio, sorti le 16 septembre 2026 sur PC, PlayStation 5 et
+> Xbox Series X|S, et le 23 septembre 2026 sur iOS et Android.
+> Le site publie en français : la fiche du jeu, des guides, une base de données
+> des créatures (Aniimopédia), les patch notes traduits et les codes cadeaux.
+> Il est rédigé et vérifié par des joueurs francophones, sans lien avec l'éditeur.
+
+Serveur Discord de la communauté : https://discord.gg/aniimofr
+Langue : français (fr-FR)
+Licence du contenu rédactionnel : reprise autorisée avec mention de la source et lien.
+
+## Le jeu Aniimo
+
+- [Aniimo : date de sortie, plateformes, prix et config PC (2026)](https://aniimo-france.fr/aniimo/): Aniimo est sorti le 16 septembre 2026 sur PC, PS5 et Xbox Series, le 23 septembre sur mobile. Dates, prix, crossplay et config PC : la fiche complète en français.
+- [Codes Aniimo (septembre 2026) : tous les codes actifs](https://aniimo-france.fr/codes/): Les codes cadeaux Aniimo actifs, vérifiés par la communauté française. Récompenses détaillées et tutoriel pas à pas pour échanger un code en jeu.
+
+## Guides
+
+- [Guides Aniimo en français](https://aniimo-france.fr/guides/): Tous les guides Aniimo en français : bien débuter, tableau des types et faiblesses, capture des créatures. Rédigés et vérifiés par la communauté Aniimo France.
+- [Bien débuter sur Aniimo](https://aniimo-france.fr/guides/bien-debuter/): Guide du débutant Aniimo : première équipe, capture, ressources, Tissage et Foyer. Les erreurs à éviter dès vos premières heures à Idyll.
+- [Comment capturer un Aniimo](https://aniimo-france.fr/guides/capture-anipod/): Comment capturer un Aniimo : les quatre types d'Anipods, le rôle de la jauge de Rupture, l'approche furtive et les erreurs qui font rater une capture.
+- [Aniimo : le tableau des types et des faiblesses](https://aniimo-france.fr/guides/types-et-faiblesses/): Le tableau complet des types d'Aniimo : les 9 éléments, leurs forces, leurs résistances et les multiplicateurs 1.6x et 0.625x. Plus le système de contres spatiaux.
+
+## Base de données des créatures
+
+- [Aniimopédia](https://aniimo-france.fr/aniimopedia/): L'Aniimopédia d'Aniimo France : la base de données communautaire des créatures Aniimo en français. Types, rôles, statistiques et stratégies.
+
+## Mises à jour du jeu
+
+- [Patch notes Aniimo en français](https://aniimo-france.fr/patch-notes/): Toutes les mises à jour d'Aniimo traduites et résumées en français : équilibrages, nouveautés, corrections. Les patch notes FR par la communauté Aniimo France.
+- [Patch note Aniimo 1.0.2 en français](https://aniimo-france.fr/patch-notes/2026-07-02-exemple.html): Patch note Aniimo version 1.0.2 traduit en français : équilibrage de Scorchhowl, corrections de bugs et optimisations. Résumé complet par Aniimo France.
+
+## La communauté
+
+- [Discord Aniimo France](https://aniimo-france.fr/): Le Discord francophone du jeu Aniimo : entraide, guides FR, Aniimopédia, patch notes traduits et coéquipiers en coop. Invitation : discord.gg/aniimofr
+- [À propos d'Aniimo France](https://aniimo-france.fr/a-propos/): Aniimo France est la communauté francophone non officielle du jeu Aniimo : qui rédige le site, comment les informations sont vérifiées et comment contribuer.
+- [Mentions légales](https://aniimo-france.fr/mentions-legales/): Mentions légales du site aniimo-france.fr : éditeur, hébergeur, propriété intellectuelle, données personnelles et contact.
+
+## Informations de référence sur Aniimo
+
+- Développeur : Pawprint Studio (Hangzhou), financé par FunPlus
+- Éditeur : Pawprint Interactive Entertainment (anciennement label Kingsglory)
+- Sortie PC, PS5, Xbox Series X|S : 16 septembre 2026
+- Sortie iOS et Android : 23 septembre 2026
+- Modèle économique : free-to-play, achats optionnels, ce n'est pas un gacha
+- Monde : le continent d'Idyll
+- Créatures : plus de 200 au lancement
+- Éléments : Feu, Eau, Plante, Foudre, Glace, Terre, Vent, Lumière, Ténèbres
+- Multiplicateurs de dégâts : 1,6 (super efficace), 1 (neutre), 0,625 (résisté), aucune immunité
+- Mécanique signature : le Tissage (Twining), fusion avec une créature capturée
+- Capture : Anipods (standard, Pro, Mega, Ultra) et jauge de Rupture
+- Crossplay et cross-progression : oui, via le compte Aniimo Pass, au sein d'un même serveur régional

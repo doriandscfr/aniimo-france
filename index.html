@@ -4,41 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- ===== SEO : balises principales (inchangées) ===== -->
-  <title>Discord Aniimo France — La communauté française d'Aniimo | discord.gg/aniimofr</title>
-  <meta name="description" content="Rejoignez le Discord Aniimo France, le serveur communautaire francophone du jeu Aniimo : entraide, guides FR, événements, recherche de coéquipiers et toute l'actualité du jeu. Invitation : discord.gg/aniimofr">
-  <meta name="keywords" content="discord aniimo france, discord aniimo fr, aniimo france discord, serveur discord aniimo, communauté aniimo francophone, aniimo fr, discord.gg/aniimofr">
+  <!-- ===== SEO : balises principales ===== -->
+  <title>Discord Aniimo France — la communauté française d'Aniimo</title>
+  <meta name="description" content="Le Discord francophone du jeu Aniimo : entraide, guides FR, Aniimopédia, patch notes traduits et coéquipiers en coop. Invitation : discord.gg/aniimofr">
+  <meta name="keywords" content="discord aniimo france, discord aniimo fr, aniimo france discord, serveur discord aniimo, communauté aniimo francophone, aniimo fr, aniimo français, discord.gg/aniimofr">
   <link rel="canonical" href="https://aniimo-france.fr/">
-  <meta name="robots" content="index, follow">
+  <link rel="alternate" hreflang="fr" href="https://aniimo-france.fr/">
+  <link rel="alternate" hreflang="x-default" href="https://aniimo-france.fr/">
+  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
   <meta name="theme-color" content="#0B1230">
+  <meta name="author" content="Aniimo France">
 
   <!-- ===== Open Graph ===== -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="fr_FR">
   <meta property="og:site_name" content="Aniimo France">
-  <meta property="og:title" content="Discord Aniimo France — La communauté française d'Aniimo">
-  <meta property="og:description" content="Le serveur Discord francophone du jeu Aniimo : entraide, guides, événements et recherche de coéquipiers. Rejoignez-nous sur discord.gg/aniimofr">
+  <meta property="og:title" content="Discord Aniimo France — la communauté française d'Aniimo">
+  <meta property="og:description" content="Le serveur Discord francophone du jeu Aniimo : entraide, guides, Aniimopédia et coéquipiers en coop. Rejoignez-nous sur discord.gg/aniimofr">
   <meta property="og:url" content="https://aniimo-france.fr/">
-  <meta property="og:image" content="https://aniimo-france.fr/banniere.png">
+  <meta property="og:image" content="https://aniimo-france.fr/assets/og/banniere.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Aniimo France — la communauté française du jeu Aniimo">
 
   <!-- ===== Twitter Card ===== -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Discord Aniimo France — La communauté française d'Aniimo">
+  <meta name="twitter:title" content="Discord Aniimo France — la communauté française d'Aniimo">
   <meta name="twitter:description" content="Le serveur Discord francophone du jeu Aniimo. Invitation : discord.gg/aniimofr">
-  <meta name="twitter:image" content="https://aniimo-france.fr/banniere.png">
+  <meta name="twitter:image" content="https://aniimo-france.fr/assets/og/banniere.jpg">
 
-  <!-- ===== Données structurées (inchangées) ===== -->
+  <!-- ===== Données structurées ===== -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
+        "@type": "Organization",
+        "@id": "https://aniimo-france.fr/#organisation",
+        "name": "Aniimo France",
+        "alternateName": ["Discord Aniimo France", "Discord Aniimo FR", "Aniimo FR"],
+        "url": "https://aniimo-france.fr/",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://aniimo-france.fr/favicon-512.png",
+          "width": 512,
+          "height": 512
+        },
+        "image": "https://aniimo-france.fr/assets/og/banniere.jpg",
+        "description": "Communauté francophone non officielle du jeu Aniimo : Discord d'entraide, guides en français, Aniimopédia et patch notes traduits.",
+        "foundingDate": "2026",
+        "knowsLanguage": "fr-FR",
+        "sameAs": ["https://discord.gg/aniimofr"]
+      },
+      {
         "@type": "WebSite",
+        "@id": "https://aniimo-france.fr/#site",
         "name": "Aniimo France",
         "alternateName": ["Discord Aniimo France", "Discord Aniimo FR", "Aniimo FR"],
         "url": "https://aniimo-france.fr/",
         "inLanguage": "fr-FR",
-        "description": "Serveur Discord communautaire francophone dédié au jeu Aniimo."
+        "description": "Serveur Discord et site communautaires francophones dédiés au jeu Aniimo.",
+        "publisher": { "@id": "https://aniimo-france.fr/#organisation" },
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://aniimo-france.fr/aniimopedia/?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "https://aniimo-france.fr/#page",
+        "url": "https://aniimo-france.fr/",
+        "name": "Discord Aniimo France — la communauté française d'Aniimo",
+        "isPartOf": { "@id": "https://aniimo-france.fr/#site" },
+        "about": { "@id": "https://aniimo-france.fr/#jeu" },
+        "inLanguage": "fr-FR",
+        "primaryImageOfPage": "https://aniimo-france.fr/assets/og/banniere.jpg",
+        "dateModified": "2026-09-17"
+      },
+      {
+        "@type": "VideoGame",
+        "@id": "https://aniimo-france.fr/#jeu",
+        "name": "Aniimo",
+        "url": "https://aniimo-france.fr/aniimo/",
+        "inLanguage": "fr-FR",
+        "description": "Action-RPG free-to-play en monde ouvert de capture de créatures, développé par Pawprint Studio. Le joueur explore le continent d'Idyll, capture plus de 200 Aniimo et fusionne avec elles grâce au Tissage (Twining).",
+        "genre": ["Action-RPG", "Monde ouvert", "Capture de créatures"],
+        "gamePlatform": ["PC", "PlayStation 5", "Xbox Series X|S", "iOS", "Android"],
+        "playMode": ["SinglePlayer", "CoOp", "MultiPlayer"],
+        "datePublished": "2026-09-16",
+        "author": { "@type": "Organization", "name": "Pawprint Studio" },
+        "publisher": { "@type": "Organization", "name": "Pawprint Interactive Entertainment" },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "EUR",
+          "availability": "https://schema.org/InStock",
+          "category": "Free-to-play"
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Accueil", "item": "https://aniimo-france.fr/" }
+        ]
       },
       {
         "@type": "FAQPage",
@@ -64,7 +136,7 @@
             "name": "Qu'est-ce que le jeu Aniimo ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Aniimo est un RPG free-to-play en monde ouvert de capture de créatures, développé par Pawprint Studio et édité par Kingsglory. On y explore le continent d'Idyll en tissant des liens avec des créatures appelées Aniimo. Le jeu est prévu sur PC, consoles et mobile."
+              "text": "Aniimo est un action-RPG free-to-play en monde ouvert de capture de créatures, développé par Pawprint Studio. On y explore le continent d'Idyll et on capture plus de 200 créatures appelées Aniimo. Le jeu est sorti le 16 septembre 2026 sur PC, PlayStation 5 et Xbox Series X|S, et le 23 septembre 2026 sur iOS et Android."
             }
           },
           {
@@ -77,10 +149,18 @@
           },
           {
             "@type": "Question",
-            "name": "Le Discord est-il accessible avant la sortie du jeu ?",
+            "name": "Aniimo est-il gratuit ?",
             "acceptedAnswer": {
               "@type": "Answer",
-              "text": "Oui ! Le serveur est déjà actif : on y suit les annonces, les bêtas et on s'y prépare ensemble pour le lancement d'Aniimo."
+              "text": "Oui, Aniimo est free-to-play : le téléchargement et la campagne complète sont gratuits. Les achats (cosmétiques, Manuel du Compagnon, passe mensuel, monnaie premium) sont optionnels. Ce n'est pas un gacha : les créatures se capturent dans le monde ouvert."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Sur quelles plateformes Aniimo est-il disponible ?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Aniimo est disponible sur PC (Steam, Epic Games Store, Xbox), PlayStation 5, Xbox Series X|S depuis le 16 septembre 2026, ainsi que sur iOS et Android depuis le 23 septembre 2026. Aucune version Nintendo Switch n'a été annoncée."
             }
           }
         ]
@@ -90,9 +170,13 @@
   </script>
 
   <link rel="icon" type="image/png" href="favicon.png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <link rel="manifest" href="site.webmanifest">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+  <!-- Polices chargées sans bloquer le rendu (gain de LCP / FCP). -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"></noscript>
 
   <style>
     :root{
@@ -458,12 +542,35 @@
     footer a{color:var(--bleu-fr);font-weight:800;text-decoration:none}
     footer a:hover{text-decoration:underline}
 
+    /* Footer de maillage interne : chaque page atteignable en un clic */
+    .footer-grille{
+      max-width:1120px;margin:0 auto 30px;padding:0 24px;
+      display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:26px;text-align:left;
+    }
+    .footer-col .titre-col{
+      font-family:'Fredoka',sans-serif;font-size:.76rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--blanc);margin-bottom:12px;
+    }
+    .footer-col ul{list-style:none}
+    .footer-col li{margin-bottom:7px}
+    .footer-col a{color:var(--texte-doux);font-weight:700;text-decoration:none;font-size:.88rem}
+    .footer-col a:hover{color:var(--blanc);text-decoration:underline}
+
+    /* Lien d'évitement (accessibilité clavier) */
+    .saut-contenu{
+      position:absolute;left:-9999px;top:0;z-index:100;
+      background:var(--bleu-fr);color:#fff;padding:12px 22px;border-radius:0 0 12px 0;
+      font-weight:800;text-decoration:none;
+    }
+    .saut-contenu:focus{left:0}
+
     .bouton-discord:focus-visible,.bouton-secondaire:focus-visible,.faq summary:focus-visible,footer a:focus-visible,.nav-liens a:focus-visible{
       outline:3px solid var(--rouge-fr);outline-offset:3px;border-radius:8px;
     }
   </style>
 </head>
 <body>
+  <a class="saut-contenu" href="#contenu">Aller au contenu</a>
 
   <!-- ================= NAV ================= -->
   <header class="nav" id="nav">
@@ -474,16 +581,17 @@
       </a>
       <nav class="nav-liens" aria-label="Navigation principale">
         <a href="#serveur">Le serveur</a>
-        <a href="#jeu">Le jeu</a>
+        <a href="aniimo/">Le jeu</a>
+        <a href="guides/">Guides</a>
+        <a href="codes/">Codes</a>
         <a href="patch-notes/">Patch notes</a>
         <a href="aniimopedia/">Aniimopédia</a>
-        <a href="#faq">FAQ</a>
         <a class="nav-cta" href="https://discord.gg/aniimofr" rel="noopener">Rejoindre</a>
       </nav>
     </div>
   </header>
 
-  <main>
+  <main id="contenu">
     <!-- ================= HERO : scène vivante ================= -->
     <section class="hero" id="haut">
       <div class="scene" aria-hidden="true">
@@ -510,16 +618,16 @@
              assets/creatures/ (crea-1.png à crea-4.png) et ils apparaîtront ici -->
         <div class="couche" data-profondeur="50">
           <div class="crea-flottante" style="left:6%;top:32%;width:150px;--d:9s;--halo:rgba(77,124,255,.4)">
-            <video src="assets/creatures/crea-1.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
+            <video src="assets/creatures/crea-1.webm" poster="assets/creatures/crea-1.webp" width="320" height="420" autoplay muted loop playsinline preload="none" aria-hidden="true" onerror="this.parentElement.style.display=&quot;none&quot;"></video>
           </div>
           <div class="crea-flottante" style="right:6%;top:26%;width:130px;--d:11s;--delai:-3s;--halo:rgba(88,192,138,.45)">
-            <video src="assets/creatures/crea-2.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
+            <video src="assets/creatures/crea-2.webm" poster="assets/creatures/crea-2.webp" width="320" height="420" autoplay muted loop playsinline preload="none" aria-hidden="true" onerror="this.parentElement.style.display=&quot;none&quot;"></video>
           </div>
           <div class="crea-flottante" style="left:12%;bottom:12%;width:110px;--d:10s;--delai:-5s;--halo:rgba(255,140,60,.5)">
-            <video src="assets/creatures/crea-3.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
+            <video src="assets/creatures/crea-3.webm" poster="assets/creatures/crea-3.webp" width="320" height="420" autoplay muted loop playsinline preload="none" aria-hidden="true" onerror="this.parentElement.style.display=&quot;none&quot;"></video>
           </div>
           <div class="crea-flottante" style="right:14%;bottom:10%;width:120px;--d:12s;--delai:-7s;--halo:rgba(255,255,255,.35)">
-            <video src="assets/creatures/crea-4.webm" autoplay muted loop playsinline onerror="this.parentElement.style.display='none'"></video>
+            <video src="assets/creatures/crea-4.webm" poster="assets/creatures/crea-4.webp" width="320" height="420" autoplay muted loop playsinline preload="none" aria-hidden="true" onerror="this.parentElement.style.display=&quot;none&quot;"></video>
           </div>
         </div>
 
@@ -537,9 +645,9 @@
 
       <!-- Contenu -->
       <div class="hero-contenu">
-        <span class="surtitre"><span class="drapeau" aria-hidden="true"><i></i><i></i><i></i></span> Communauté française</span>
+        <span class="surtitre"><span class="drapeau" aria-hidden="true"><i></i><i></i><i></i></span> Communauté française · Aniimo est sorti</span>
         <h1>Le Discord de la communauté <span class="grad">française</span> d'Aniimo</h1>
-        <p class="accroche">Entraide, guides en français, événements et coéquipiers : tout ce qu'il faut pour vivre l'aventure d'Idyll ensemble, de la bêta jusqu'au lancement.</p>
+        <p class="accroche"><strong>Aniimo est disponible depuis le 16 septembre 2026.</strong> Entraide, guides en français, Aniimopédia et coéquipiers en coop : tout ce qu'il faut pour explorer Idyll ensemble.</p>
         <div class="boutons">
           <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener">
             <svg viewBox="0 0 127.14 96.36" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/></svg>
@@ -598,14 +706,17 @@
         <h2 class="titre-section"><span class="souligne">Aniimo, c'est quoi ?</span></h2>
         <p class="intro-section">Le prochain grand jeu de capture de créatures.</p>
         <div class="bloc-jeu">
-          <p>Aniimo est un <strong>RPG free-to-play en monde ouvert</strong> de capture de créatures, développé par Pawprint Studio et édité par Kingsglory. Vous y incarnez un Éclaireur qui explore le continent d'Idyll, tisse des liens avec des créatures appelées Aniimo grâce au système de Tissage (Twine), et peut même prendre le contrôle de ses créatures pour explorer, nager, voler et combattre autrement.</p>
-          <p>Le jeu est attendu en <strong>2026</strong> sur PC (Steam, Epic Games Store), PlayStation, Xbox et mobile (iOS, Android), jouable en solo comme en coopération en ligne.</p>
+          <p>Aniimo est un <strong>RPG free-to-play en monde ouvert</strong> de capture de créatures, développé par Pawprint Studio. Vous y incarnez un Éclaireur qui explore le continent d'Idyll, tisse des liens avec des créatures appelées Aniimo grâce au système de Tissage (Twine), et peut même prendre le contrôle de ses créatures pour explorer, nager, voler et combattre autrement.</p>
+          <p>Le jeu est <strong>disponible depuis le 16 septembre 2026</strong> sur PC (Steam, Epic Games Store), PlayStation 5 et Xbox Series X|S, et depuis le <strong>23 septembre</strong> sur iOS et Android. Il se joue en solo comme en coopération en ligne, avec crossplay et progression partagée entre plateformes.</p>
+          <p><a href="aniimo/">Consultez la fiche complète du jeu</a> : dates de sortie détaillées, modèle économique, crossplay et configuration PC requise.</p>
           <div class="etiquettes">
             <span class="etiquette">Free-to-play</span>
             <span class="etiquette">Monde ouvert</span>
             <span class="etiquette">Capture de créatures</span>
             <span class="etiquette">Coop en ligne</span>
             <span class="etiquette">PC · Consoles · Mobile</span>
+            <span class="etiquette">Plus de 200 créatures</span>
+            <span class="etiquette">Crossplay</span>
           </div>
         </div>
       </div>
@@ -615,17 +726,37 @@
     <section id="a-venir">
       <div class="conteneur">
         <h2 class="titre-section"><span class="souligne">Explorer Aniimo France</span></h2>
-        <p class="intro-section">Le site grandit avec la communauté — découvrez les premières sections.</p>
+        <p class="intro-section">Tout le site est en français, écrit et vérifié par la communauté.</p>
         <div class="grille-venir">
-          <a class="carte-venir" href="patch-notes/" style="text-decoration:none;display:block">
-            <span class="tag">Bêta</span>
-            <h3>📋 Patch notes en français</h3>
-            <p>Toutes les mises à jour d'Aniimo traduites, résumées et archivées : équilibrages, nouveautés, corrections — consultables à tout moment.</p>
+          <a class="carte-venir" href="aniimo/" style="text-decoration:none;display:block">
+            <span class="tag">Le jeu</span>
+            <h3>🎮 Aniimo : la fiche complète</h3>
+            <p>Date de sortie par plateforme, prix et modèle économique, crossplay, cross-progression et configuration PC requise.</p>
+          </a>
+          <a class="carte-venir" href="guides/" style="text-decoration:none;display:block">
+            <span class="tag">Guides</span>
+            <h3>📚 Guides en français</h3>
+            <p>Bien débuter à Idyll, le tableau des types et faiblesses, la méthode de capture avec les Anipods et la jauge de Rupture.</p>
+          </a>
+          <a class="carte-venir" href="codes/" style="text-decoration:none;display:block">
+            <span class="tag">Mis à jour</span>
+            <h3>🎁 Codes Aniimo</h3>
+            <p>Les codes cadeaux actifs et la marche à suivre pour les échanger en jeu : Glimmer, Crédits, Anipods Pro.</p>
           </a>
           <a class="carte-venir" href="aniimopedia/" style="text-decoration:none;display:block">
-            <span class="tag">Bêta</span>
+            <span class="tag">Base de données</span>
             <h3>📖 Aniimopédia FR</h3>
-            <p>Une base de données communautaire des créatures : attributs, évolutions, localisations et stratégies, le tout en français.</p>
+            <p>Les créatures classées par type et par rôle, avec leurs statistiques et leurs descriptions, le tout en français.</p>
+          </a>
+          <a class="carte-venir" href="patch-notes/" style="text-decoration:none;display:block">
+            <span class="tag">Actualité</span>
+            <h3>📋 Patch notes en français</h3>
+            <p>Toutes les mises à jour d'Aniimo traduites, résumées et archivées : équilibrages, nouveautés, corrections.</p>
+          </a>
+          <a class="carte-venir" href="guides/types-et-faiblesses/" style="text-decoration:none;display:block">
+            <span class="tag">Le plus consulté</span>
+            <h3>⚔️ Types et faiblesses</h3>
+            <p>Les neuf éléments, leurs multiplicateurs de dégâts et le système de contres spatiaux, en un tableau.</p>
           </a>
         </div>
       </div>
@@ -646,16 +777,16 @@
           <p>Non, Aniimo France est un serveur communautaire créé par des fans. Il n'est affilié ni à Pawprint Studio ni à Kingsglory. C'est un espace d'entraide et de partage entre joueurs francophones.</p>
         </details>
         <details>
-          <summary>Le Discord est-il déjà actif avant la sortie du jeu ?</summary>
-          <p>Oui ! Le serveur est déjà en place : on y suit les annonces et les bêtas, on partage les découvertes et on se prépare ensemble au lancement d'Aniimo.</p>
+          <summary>Aniimo est-il gratuit ?</summary>
+          <p>Oui, Aniimo est free-to-play : le téléchargement et la campagne complète sont gratuits. Les achats (cosmétiques, Manuel du Compagnon, passe mensuel) restent optionnels, et ce n'est pas un gacha — les créatures se capturent dans le monde ouvert. <a href="aniimo/">Voir le détail du modèle économique</a>.</p>
         </details>
         <details>
           <summary>Que trouve-t-on sur le serveur ?</summary>
           <p>De l'entraide entre joueurs, des guides en français, l'actualité du jeu traduite, des événements communautaires, des concours et des salons pour trouver des coéquipiers en coopération.</p>
         </details>
         <details>
-          <summary>Sur quelles plateformes Aniimo sera-t-il disponible ?</summary>
-          <p>Aniimo est annoncé sur PC (Steam et Epic Games Store), PlayStation, Xbox ainsi que sur mobile (iOS et Android), en free-to-play.</p>
+          <summary>Sur quelles plateformes Aniimo est-il disponible ?</summary>
+          <p>Sur PC (Steam, Epic Games Store, Xbox), PlayStation 5 et Xbox Series X|S depuis le 16 septembre 2026, et sur iOS et Android depuis le 23 septembre 2026. Aucune version Nintendo Switch n'a été annoncée. <a href="aniimo/">Toutes les dates de sortie</a>.</p>
         </details>
       </div>
     </section>
@@ -676,6 +807,34 @@
   </main>
 
   <footer>
+    <div class="footer-grille">
+      <div class="footer-col">
+        <div class="titre-col">Le jeu</div>
+        <ul>
+          <li><a href="aniimo/">Fiche Aniimo</a></li>
+          <li><a href="aniimopedia/">Aniimopédia FR</a></li>
+          <li><a href="patch-notes/">Patch notes FR</a></li>
+          <li><a href="codes/">Codes Aniimo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="titre-col">Guides</div>
+        <ul>
+          <li><a href="guides/">Tous les guides</a></li>
+          <li><a href="guides/bien-debuter/">Bien débuter</a></li>
+          <li><a href="guides/types-et-faiblesses/">Types et faiblesses</a></li>
+          <li><a href="guides/capture-anipod/">Capturer un Aniimo</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="titre-col">Communauté</div>
+        <ul>
+          <li><a href="https://discord.gg/aniimofr" rel="noopener">Discord Aniimo France</a></li>
+          <li><a href="a-propos/">À propos</a></li>
+          <li><a href="mentions-legales/">Mentions légales</a></li>
+        </ul>
+      </div>
+    </div>
     <p class="mention">Aniimo France est un serveur communautaire non officiel, créé par des fans. Il n'est affilié ni à Pawprint Studio, ni à Kingsglory. « Aniimo » est une marque de ses ayants droit respectifs.</p>
     <p>© 2026 Aniimo France · <a href="https://discord.gg/aniimofr" rel="noopener">Rejoindre le Discord</a></p>
   </footer>

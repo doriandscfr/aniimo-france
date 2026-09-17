@@ -1,0 +1,7 @@
+# Dépendances npm (aucune n'est nécessaire au site : les outils utilisent Node seul)
+node_modules/
+package-lock.json
+
+# Fichiers système
+Thumbs.db
+.DS_Store
