@@ -183,7 +183,8 @@ mise à jour chaque semaine battra un concurrent mieux établi mais périmé.
 
 ```bash
 npm run build       # régénère tout (pages, Aniimopédia, patch notes, sitemap, llms.txt)
-npm run controle    # audit SEO + vérification des liens et du JSON-LD
+npm run controle    # audit SEO + vérification des liens et du JSON-LD (local)
+npm run enligne     # vérifie le site réellement publié, après un push
 npm run servir      # prévisualisation sur http://localhost:8080
 npm run indexnow    # signale les URL aux moteurs
 ```

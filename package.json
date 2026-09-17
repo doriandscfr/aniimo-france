@@ -13,7 +13,8 @@
     "verifier": "node tools/verifier.mjs",
     "controle": "node tools/seo.mjs && node tools/verifier.mjs",
     "indexnow": "node tools/indexnow.mjs",
-    "servir": "node tools/servir.mjs"
+    "servir": "node tools/servir.mjs",
+    "enligne": "node tools/verifier-ligne.mjs"
   },
   "keywords": [
     "aniimo",

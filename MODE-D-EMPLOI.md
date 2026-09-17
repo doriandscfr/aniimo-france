@@ -76,6 +76,7 @@ Ils demandent uniquement Node.js (déjà installé).
 npm run build       # régénère guides, Aniimopédia, patch notes, sitemap et llms.txt
 npm run controle    # audit SEO + vérifie liens, images et données structurées
 npm run servir      # prévisualise le site sur http://localhost:8080
+npm run enligne     # après un git push : vérifie le site réellement publié
 npm run indexnow    # prévient Bing, Yandex et Seznam d'une mise à jour
 ```
 
