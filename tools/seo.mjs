@@ -26,6 +26,7 @@ const IGNORE = new Set(['node_modules', '.git', 'tools', 'assets']);
 const REGLES = [
   { test: (u) => u === '/',                    priorite: '1.0', freq: 'daily' },
   { test: (u) => u === '/codes/',              priorite: '0.9', freq: 'daily' },
+  { test: (u) => u === '/aniimo/mobile/',      priorite: '0.9', freq: 'daily' },
   { test: (u) => u === '/aniimo/',             priorite: '0.9', freq: 'weekly' },
   { test: (u) => u === '/aniimopedia/',        priorite: '0.9', freq: 'weekly' },
   { test: (u) => u === '/patch-notes/',        priorite: '0.9', freq: 'weekly' },
@@ -160,7 +161,7 @@ ${urls}
 /* ---------- 3. llms.txt ---------- */
 function llms(pages) {
   const groupes = [
-    { titre: 'Le jeu Aniimo', filtre: (u) => u === '/aniimo/' || u === '/codes/' },
+    { titre: 'Le jeu Aniimo', filtre: (u) => u.startsWith('/aniimo/') || u === '/codes/' },
     { titre: 'Guides', filtre: (u) => u.startsWith('/guides/') },
     { titre: 'Base de données des créatures', filtre: (u) => u.startsWith('/aniimopedia/') },
     { titre: 'Mises à jour du jeu', filtre: (u) => u.startsWith('/patch-notes/') },
@@ -196,7 +197,10 @@ ${groupes.map(bloc).join('')}
 - Développeur : Pawprint Studio (Hangzhou), financé par FunPlus
 - Éditeur : Pawprint Interactive Entertainment (anciennement label Kingsglory)
 - Sortie PC, PS5, Xbox Series X|S : 16 septembre 2026
-- Sortie iOS et Android : 23 septembre 2026
+- Sortie iOS et Android : 23 septembre 2026 (Europe : 02:00 UTC, soit 04:00 heure de Paris ; pré-téléchargement ouvert depuis le 21 septembre au soir)
+- Mobile : 18 Go d'espace libre requis, 60 IPS sur la plupart des appareils, optimisation tablette
+- Mobile minimum : iPhone 11 (A13) sous iOS 16 avec 4 Go de RAM, ou Snapdragon 855 / Dimensity 1000 sous Android 10 avec 6 Go de RAM et Vulkan 1.1
+- Mobile recommandé : iPhone 14 Pro (A16) avec 6 Go de RAM, ou Snapdragon 8 Gen 2 / Dimensity 9200 avec 8 Go de RAM
 - Modèle économique : free-to-play, achats optionnels, ce n'est pas un gacha
 - Monde : le continent d'Idyll
 - Créatures : plus de 200 au lancement

@@ -41,6 +41,7 @@ function pied(r) {
         <div class="titre-col">Le jeu</div>
         <ul>
           <li><a href="${r}aniimo/">Fiche Aniimo</a></li>
+          <li><a href="${r}aniimo/mobile/">Aniimo mobile</a></li>
           <li><a href="${r}aniimopedia/">Aniimopédia FR</a></li>
           <li><a href="${r}patch-notes/">Patch notes FR</a></li>
           <li><a href="${r}codes/">Codes Aniimo</a></li>

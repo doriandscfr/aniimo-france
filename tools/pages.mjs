@@ -66,6 +66,10 @@ const GUIDES = [
     href: 'capture-anipod/', emoji: '🎯', titre: 'Capturer un Aniimo : la méthode',
     desc: 'Les quatre types d\'Anipods, la jauge de Rupture et la façon de ne plus rater une capture.',
   },
+  {
+    href: 'aniimo-mobile-compatibilite/', emoji: '📱', titre: 'Quels téléphones font tourner Aniimo ?',
+    desc: 'La liste des iPhone et des puces Android compatibles, avec un vérificateur immédiat.',
+  },
 ];
 
 ecrire('guides/index.html', page({

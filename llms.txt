@@ -14,12 +14,14 @@ Licence du contenu rédactionnel : reprise autorisée avec mention de la source 
 
 ## Le jeu Aniimo
 
-- [Aniimo : date de sortie, plateformes, prix et config PC (2026)](https://aniimo-france.fr/aniimo/): Aniimo est sorti le 16 septembre 2026 sur PC, PS5 et Xbox Series, le 23 septembre sur mobile. Dates, prix, crossplay et config PC : la fiche complète en français.
+- [Aniimo : date de sortie, plateformes, prix et config PC (2026)](https://aniimo-france.fr/aniimo/): Aniimo est sorti le 16 septembre 2026 sur PC, PS5 et Xbox Series ; la version mobile sort le 23 septembre. Dates, prix, crossplay et config PC en français.
+- [Aniimo mobile : date de sortie, configuration et téléchargement](https://aniimo-france.fr/aniimo/mobile/): Aniimo sort sur iOS et Android le 23 septembre 2026, à 4 h du matin en France. Horaires par région, configuration requise, 18 Go et cross-progression.
 - [Codes Aniimo (septembre 2026) : tous les codes actifs](https://aniimo-france.fr/codes/): Les codes cadeaux Aniimo actifs, vérifiés par la communauté française. Récompenses détaillées et tutoriel pas à pas pour échanger un code en jeu.
 
 ## Guides
 
 - [Guides Aniimo en français](https://aniimo-france.fr/guides/): Tous les guides Aniimo en français : bien débuter, tableau des types et faiblesses, capture des créatures. Rédigés et vérifiés par la communauté Aniimo France.
+- [Quels téléphones font tourner Aniimo ?](https://aniimo-france.fr/guides/aniimo-mobile-compatibilite/): Votre téléphone fait-il tourner Aniimo ? La liste des iPhone et des puces Android compatibles, du minimum au confort maximal, et un vérificateur immédiat.
 - [Bien débuter sur Aniimo](https://aniimo-france.fr/guides/bien-debuter/): Guide du débutant Aniimo : première équipe, capture, ressources, Tissage et Foyer. Les erreurs à éviter dès vos premières heures à Idyll.
 - [Comment capturer un Aniimo](https://aniimo-france.fr/guides/capture-anipod/): Comment capturer un Aniimo : les quatre types d'Anipods, le rôle de la jauge de Rupture, l'approche furtive et les erreurs qui font rater une capture.
 - [Aniimo : le tableau des types et des faiblesses](https://aniimo-france.fr/guides/types-et-faiblesses/): Le tableau complet des types d'Aniimo : les 9 éléments, leurs forces, leurs résistances et les multiplicateurs 1.6x et 0.625x. Plus le système de contres spatiaux.
@@ -44,7 +46,10 @@ Licence du contenu rédactionnel : reprise autorisée avec mention de la source 
 - Développeur : Pawprint Studio (Hangzhou), financé par FunPlus
 - Éditeur : Pawprint Interactive Entertainment (anciennement label Kingsglory)
 - Sortie PC, PS5, Xbox Series X|S : 16 septembre 2026
-- Sortie iOS et Android : 23 septembre 2026
+- Sortie iOS et Android : 23 septembre 2026 (Europe : 02:00 UTC, soit 04:00 heure de Paris ; pré-téléchargement ouvert depuis le 21 septembre au soir)
+- Mobile : 18 Go d'espace libre requis, 60 IPS sur la plupart des appareils, optimisation tablette
+- Mobile minimum : iPhone 11 (A13) sous iOS 16 avec 4 Go de RAM, ou Snapdragon 855 / Dimensity 1000 sous Android 10 avec 6 Go de RAM et Vulkan 1.1
+- Mobile recommandé : iPhone 14 Pro (A16) avec 6 Go de RAM, ou Snapdragon 8 Gen 2 / Dimensity 9200 avec 8 Go de RAM
 - Modèle économique : free-to-play, achats optionnels, ce n'est pas un gacha
 - Monde : le continent d'Idyll
 - Créatures : plus de 200 au lancement

@@ -23,6 +23,16 @@
     </image:image>
   </url>
   <url>
+    <loc>https://aniimo-france.fr/aniimo/mobile/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Aniimo mobile : date de sortie, configuration et téléchargement</image:title>
+    </image:image>
+  </url>
+  <url>
     <loc>https://aniimo-france.fr/aniimopedia/</loc>
     <lastmod>2026-09-17</lastmod>
     <changefreq>weekly</changefreq>
@@ -60,6 +70,16 @@
     <image:image>
       <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
       <image:title>Guides Aniimo en français</image:title>
+    </image:image>
+  </url>
+  <url>
+    <loc>https://aniimo-france.fr/guides/aniimo-mobile-compatibilite/</loc>
+    <lastmod>2026-09-22</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://aniimo-france.fr/assets/og/banniere.jpg</image:loc>
+      <image:title>Quels téléphones font tourner Aniimo ?</image:title>
     </image:image>
   </url>
   <url>

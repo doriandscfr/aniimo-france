@@ -5,7 +5,7 @@
   "description": "Site communautaire francophone du jeu Aniimo — aniimo-france.fr",
   "type": "module",
   "scripts": {
-    "build": "node tools/pages.mjs && node tools/aniimopedia.mjs && node tools/patch-notes-seo.mjs && node tools/seo.mjs",
+    "build": "node tools/pages.mjs && node tools/pages-mobile.mjs && node tools/aniimopedia.mjs && node tools/patch-notes-seo.mjs && node tools/seo.mjs",
     "pages": "node tools/pages.mjs",
     "pedia": "node tools/aniimopedia.mjs",
     "patchs": "node tools/patch-notes-seo.mjs",
@@ -14,7 +14,8 @@
     "controle": "node tools/seo.mjs && node tools/verifier.mjs",
     "indexnow": "node tools/indexnow.mjs",
     "servir": "node tools/servir.mjs",
-    "enligne": "node tools/verifier-ligne.mjs"
+    "enligne": "node tools/verifier-ligne.mjs",
+    "mobile": "node tools/pages-mobile.mjs"
   },
   "keywords": [
     "aniimo",
