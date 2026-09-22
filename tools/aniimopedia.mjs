@@ -28,15 +28,22 @@ const bloc = s.match(/const CREATURES = (\[[\s\S]*?\n {2}\]);/);
 if (!bloc) throw new Error('Tableau CREATURES introuvable dans ' + FICHIER);
 const CREATURES = eval(bloc[1]); // source de confiance : notre propre page
 
-/* ---------- 2. Export des données ---------- */
-mkdirSync('data', { recursive: true });
-writeFileSync('data/creatures.json', JSON.stringify({
-  _lisezMoi: 'Export automatique depuis aniimopedia/index.html par tools/aniimopedia.mjs. '
-    + 'La source de vérité reste le tableau CREATURES de la page.',
-  donneesVerifiees: false,
-  miseAJour: new Date().toISOString().slice(0, 10),
-  creatures: CREATURES,
-}, null, 2) + '\n', 'utf8');
+/* ---------- 2. Export des données ----------
+   Une base vide n'écrase jamais l'archive : les exemples retirés le
+   22 septembre 2026 doivent rester consultables tant que les vraies
+   valeurs n'ont pas été relevées. */
+if (CREATURES.length) {
+  mkdirSync('data', { recursive: true });
+  writeFileSync('data/creatures.json', JSON.stringify({
+    _lisezMoi: 'Export automatique depuis aniimopedia/index.html par tools/aniimopedia.mjs. '
+      + 'La source de vérité reste le tableau CREATURES de la page.',
+    donneesVerifiees: false,
+    miseAJour: new Date().toISOString().slice(0, 10),
+    creatures: CREATURES,
+  }, null, 2) + '\n', 'utf8');
+} else {
+  console.log('  · base vide : data/creatures.json laissé intact');
+}
 
 /* ---------- 3. Grille statique (mêmes classes que le rendu JS) ---------- */
 const classeType = (t) => 'type-' + t.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
@@ -60,12 +67,15 @@ const carte = (c) => `      <article class="crea" style="--accent:${ACCENTS[c.ty
 
 // Un <h2> sépare le <h1> de la page des <h3> des créatures : sans lui, la
 // hiérarchie saute un niveau (erreur d'accessibilité, et signal de structure
-// dégradé pour les moteurs).
-const grille = `<h2 class="titre-grille">Toutes les créatures d'Aniimo</h2>
+// dégradé pour les moteurs). Tant que la base est vide, ni titre ni grille :
+// afficher une section « Toutes les créatures » sans créature serait trompeur.
+const grille = CREATURES.length
+  ? `<h2 class="titre-grille">Toutes les créatures d'Aniimo</h2>
 
     <div class="grille-crea" id="grille">
 ${CREATURES.map(carte).join('\n')}
-    </div>`;
+    </div>`
+  : `<div class="grille-crea" id="grille"></div>`;
 
 // Le motif absorbe un <h2 class="titre-grille"> déjà posé : le script reste
 // rejouable sans empiler les titres.
@@ -165,6 +175,6 @@ if (!s.includes('URLSearchParams')) {
 
 writeFileSync(FICHIER, s, 'utf8');
 console.log(`  ✓ ${CREATURES.length} créatures rendues en HTML statique`);
-console.log('  ✓ data/creatures.json écrit');
+console.log(CREATURES.length ? '  ✓ data/creatures.json mis à jour' : '  · data/creatures.json inchangé (archive préservée)');
 console.log('  ✓ JSON-LD CollectionPage + ItemList injecté');
 console.log('  ✓ recherche ?q= activée');

@@ -26,10 +26,6 @@ Licence du contenu rédactionnel : reprise autorisée avec mention de la source 
 - [Comment capturer un Aniimo](https://aniimo-france.fr/guides/capture-anipod/): Comment capturer un Aniimo : les quatre types d'Anipods, le rôle de la jauge de Rupture, l'approche furtive et les erreurs qui font rater une capture.
 - [Aniimo : le tableau des types et des faiblesses](https://aniimo-france.fr/guides/types-et-faiblesses/): Le tableau complet des types d'Aniimo : les 9 éléments, leurs forces, leurs résistances et les multiplicateurs 1.6x et 0.625x. Plus le système de contres spatiaux.
 
-## Base de données des créatures
-
-- [Aniimopédia](https://aniimo-france.fr/aniimopedia/): L'Aniimopédia d'Aniimo France : la base de données communautaire des créatures Aniimo en français. Types, rôles, statistiques et stratégies.
-
 ## Mises à jour du jeu
 
 - [Patch notes Aniimo en français](https://aniimo-france.fr/patch-notes/): Toutes les mises à jour d'Aniimo traduites et résumées en français : équilibrages, nouveautés, corrections. Les patch notes FR par la communauté Aniimo France.

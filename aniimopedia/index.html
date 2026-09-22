@@ -8,7 +8,10 @@
   <link rel="canonical" href="https://aniimo-france.fr/aniimopedia/">
   <link rel="alternate" hreflang="fr" href="https://aniimo-france.fr/aniimopedia/">
   <link rel="alternate" hreflang="x-default" href="https://aniimo-france.fr/aniimopedia/">
-  <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
+  <!-- noindex temporaire : la base est en cours de constitution.
+       Repasser en "index, follow, max-snippet:-1, max-image-preview:large"
+       dès que le tableau CREATURES contient de vraies données. -->
+  <meta name="robots" content="noindex, follow">
   <meta name="author" content="Aniimo France">
   <meta name="theme-color" content="#0B1230">
   <meta property="og:type" content="website">
@@ -524,6 +527,29 @@
       position:absolute;width:1px;height:1px;overflow:hidden;
       clip:rect(0 0 0 0);clip-path:inset(50%);white-space:nowrap;
     }
+
+    /* Bandeau affiché tant que la base est vide. Les outils de filtrage
+       restent dans le HTML (masqués) pour éviter de casser le JavaScript. */
+    .avis-construction{
+      position:relative;z-index:1;max-width:820px;margin:0 auto 40px;
+      padding:30px 32px;text-align:left;
+      background:linear-gradient(135deg,var(--carte),var(--encre));
+      border:1px solid rgba(255,201,77,.35);border-radius:var(--radius);
+    }
+    .avis-construction .etiq{
+      font-family:'Fredoka',sans-serif;font-size:.74rem;font-weight:600;
+      letter-spacing:.1em;text-transform:uppercase;color:var(--or);margin-bottom:12px;
+    }
+    .avis-construction p{color:var(--texte-doux);font-weight:600;margin-bottom:12px}
+    .avis-construction strong{color:var(--blanc)}
+    .avis-construction .bouton-discord{
+      display:inline-flex;align-items:center;gap:11px;
+      background:var(--blurple);color:#fff;text-decoration:none;
+      font-family:'Fredoka',sans-serif;font-weight:600;font-size:.95rem;
+      padding:13px 26px;border-radius:999px;
+      box-shadow:0 8px 26px rgba(88,101,242,.45);
+    }
+    .avis-construction .bouton-discord:hover{transform:translateY(-2px)}
   </style>
 </head>
 <body>
@@ -556,6 +582,16 @@
       <p>La base de données communautaire des créatures d'Idyll — types, rôles et statistiques, le tout en français.</p>
     </div>
 
+    <div class="avis-construction">
+      <div class="etiq">Base en cours de constitution</div>
+      <p>Cette page ne contient pas encore de données. Les fiches qui s'y trouvaient jusqu'au 22 septembre étaient des <strong>exemples de démonstration</strong>, créés avant la sortie du jeu pour valider l'affichage. Nous les avons retirées plutôt que de laisser en ligne des statistiques inexactes.</p>
+      <p>Le relevé des vraies valeurs est en cours avec la communauté. <strong>Vous jouez et vous voulez aider&nbsp;?</strong> Le relevé se coordonne sur le Discord.</p>
+      <a class="bouton-discord" href="https://discord.gg/aniimofr" rel="noopener" style="margin-top:8px">Participer au relevé</a>
+    </div>
+
+    <div style="display:none">
+    </div>
+
     <div class="outils">
       <div class="barre-outils">
         <input type="search" id="recherche" class="champ-recherche" placeholder="🔍 Rechercher un Aniimo par son nom..." aria-label="Rechercher un Aniimo">
@@ -571,90 +607,7 @@
       </div>
     </div>
 
-    <h2 class="titre-grille">Toutes les créatures d'Aniimo</h2>
-
-    <div class="grille-crea" id="grille">
-      <article class="crea" style="--accent:var(--type-feu)">
-        <div class="avatar">🔥</div>
-        <h3>Scorchhowl</h3>
-        <div class="badges">
-          <span class="type type-feu">Feu</span>
-          <span class="role">DPS</span>
-        </div>
-        <p class="description-seo">Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.</p>
-        <p class="stats-seo">PV 120 · ATK 165 · DEF 95 · VIT 140</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-glace)">
-        <div class="avatar">❄️</div>
-        <h3>Glacy</h3>
-        <div class="badges">
-          <span class="type type-glace">Glace</span>
-          <span class="role">Soin</span>
-        </div>
-        <p class="description-seo">Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.</p>
-        <p class="stats-seo">PV 140 · ATK 80 · DEF 110 · VIT 105</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-plante)">
-        <div class="avatar">🌿</div>
-        <h3>Leafy</h3>
-        <div class="badges">
-          <span class="type type-plante">Plante</span>
-          <span class="role">Support</span>
-        </div>
-        <p class="description-seo">Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.</p>
-        <p class="stats-seo">PV 130 · ATK 85 · DEF 125 · VIT 95</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-terre)">
-        <div class="avatar">🪨</div>
-        <h3>Geoclaw</h3>
-        <div class="badges">
-          <span class="type type-terre">Terre</span>
-          <span class="role">Tank</span>
-        </div>
-        <p class="description-seo">Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.</p>
-        <p class="stats-seo">PV 190 · ATK 100 · DEF 180 · VIT 55</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-foudre)">
-        <div class="avatar">⚡</div>
-        <h3>Fulminis</h3>
-        <div class="badges">
-          <span class="type type-foudre">Foudre</span>
-          <span class="role">DPS</span>
-        </div>
-        <p class="description-seo">Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.</p>
-        <p class="stats-seo">PV 105 · ATK 155 · DEF 85 · VIT 175</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-lumiere)">
-        <div class="avatar">✨</div>
-        <h3>Luminelle</h3>
-        <div class="badges">
-          <span class="type type-lumiere">Lumière</span>
-          <span class="role">Soin</span><span class="role">Support</span>
-        </div>
-        <p class="description-seo">Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.</p>
-        <p class="stats-seo">PV 125 · ATK 75 · DEF 100 · VIT 120</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-eau)">
-        <div class="avatar">💧</div>
-        <h3>Droopie</h3>
-        <div class="badges">
-          <span class="type type-eau">Eau</span>
-          <span class="role">Tank</span>
-        </div>
-        <p class="description-seo">Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.</p>
-        <p class="stats-seo">PV 175 · ATK 90 · DEF 150 · VIT 70</p>
-      </article>
-      <article class="crea" style="--accent:var(--type-tenebres)">
-        <div class="avatar">🌙</div>
-        <h3>Somniwing</h3>
-        <div class="badges">
-          <span class="type type-tenebres">Ténèbres</span>
-          <span class="role">Support</span>
-        </div>
-        <p class="description-seo">Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.</p>
-        <p class="stats-seo">PV 110 · ATK 95 · DEF 90 · VIT 135</p>
-      </article>
-    </div>
+    <div class="grille-crea" id="grille"></div>
   </main>
 
   <!-- Fiche détaillée -->
@@ -698,61 +651,38 @@
 
   <script>
   /* ============================================================
-     BASE DE DONNÉES DES ANIIMO
-     Pour ajouter une créature : copiez un bloc {...}, et remplissez.
-     - types : Feu, Eau, Plante, Terre, Glace, Vent, Foudre, Ténèbres, Lumière
-     - roles : DPS, Tank, Soin, Support
-     - emoji : utilisé tant qu'il n'y a pas d'image (champ image: "nom-fichier.png"
-       à placer dans le dossier aniimopedia/images/)
-     - stats sur 200
-     Les données ci-dessous sont des EXEMPLES à remplacer par les vraies valeurs.
+     BASE DE DONNÉES DES ANIIMO — VIDE POUR L'INSTANT
+
+     Les 8 créatures qui figuraient ici étaient des EXEMPLES INVENTÉS.
+     Elles ont été retirées le 22 septembre 2026 : de fausses statistiques
+     sur un site communautaire font plus de mal que pas de données du tout.
+     Elles restent archivées dans data/creatures.json.
+
+     POUR REMPLIR LA BASE, ajoutez un bloc par créature :
+
+       {
+         nom: "Scorchhowl",
+         types: ["Feu"],              // Feu, Eau, Plante, Terre, Glace,
+                                      // Vent, Foudre, Ténèbres, Lumière
+         roles: ["DPS"],              // DPS, BREAK, SUPPORT, REGEN, HEAL
+         emoji: "🔥",                 // affiché tant qu'il n'y a pas d'image
+         image: "",                   // fichier dans aniimopedia/images/
+         description: "…",
+         stats: { PV: 120, ATK: 165, DEF: 95, VIT: 140 }
+       },
+
+     Puis relancez :  npm run pedia
+     Et repassez la balise robots du <head> en "index, follow".
      ============================================================ */
   const CREATURES = [
-    {
-      nom: "Scorchhowl", types: ["Feu"], roles: ["DPS"], emoji: "🔥", image: "",
-      description: "Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.",
-      stats: { PV: 120, ATK: 165, DEF: 95, VIT: 140 }
-    },
-    {
-      nom: "Glacy", types: ["Glace"], roles: ["Soin"], emoji: "❄️", image: "",
-      description: "Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.",
-      stats: { PV: 140, ATK: 80, DEF: 110, VIT: 105 }
-    },
-    {
-      nom: "Leafy", types: ["Plante"], roles: ["Support"], emoji: "🌿", image: "",
-      description: "Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.",
-      stats: { PV: 130, ATK: 85, DEF: 125, VIT: 95 }
-    },
-    {
-      nom: "Geoclaw", types: ["Terre"], roles: ["Tank"], emoji: "🪨", image: "",
-      description: "Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.",
-      stats: { PV: 190, ATK: 100, DEF: 180, VIT: 55 }
-    },
-    {
-      nom: "Fulminis", types: ["Foudre"], roles: ["DPS"], emoji: "⚡", image: "",
-      description: "Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.",
-      stats: { PV: 105, ATK: 155, DEF: 85, VIT: 175 }
-    },
-    {
-      nom: "Luminelle", types: ["Lumière"], roles: ["Soin", "Support"], emoji: "✨", image: "",
-      description: "Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.",
-      stats: { PV: 125, ATK: 75, DEF: 100, VIT: 120 }
-    },
-    {
-      nom: "Droopie", types: ["Eau"], roles: ["Tank"], emoji: "💧", image: "",
-      description: "Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.",
-      stats: { PV: 175, ATK: 90, DEF: 150, VIT: 70 }
-    },
-    {
-      nom: "Somniwing", types: ["Ténèbres"], roles: ["Support"], emoji: "🌙", image: "",
-      description: "Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.",
-      stats: { PV: 110, ATK: 95, DEF: 90, VIT: 135 }
-    }
+
   ];
+
   /* ===================== FIN DE LA BASE ===================== */
 
   const TYPES = ["Feu","Eau","Plante","Terre","Glace","Vent","Foudre","Ténèbres","Lumière"];
-  const ROLES = ["DPS","Tank","Soin","Support"];
+  // Rôles réels d'Aniimo (et non Tank/Soin, qui n'existent pas dans le jeu).
+  const ROLES = ["DPS","BREAK","SUPPORT","REGEN","HEAL"];
   const ACCENTS = {
     "Feu":"var(--type-feu)","Eau":"var(--type-eau)","Plante":"var(--type-plante)",
     "Terre":"var(--type-terre)","Glace":"var(--type-glace)","Vent":"var(--type-vent)",

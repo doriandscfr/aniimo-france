@@ -73,18 +73,26 @@ genre d'erreur qui ruine la crédibilité d'un site communautaire.
 👉 Vérifie quelques matchups en jeu. Pour corriger, modifie l'objet `TABLE`
 dans `tools/pages.mjs` (une ligne par élément), puis `npm run pages`.
 
-### Remplacer les données de l'Aniimopédia
+### Remplir l'Aniimopédia — le blocage numéro un
 
-Les 8 créatures actuelles sont des **exemples inventés** (c'était déjà noté
-dans `MODE-D-EMPLOI.md`). Elles sont maintenant écrites en dur dans le HTML
-et donc indexables — ce qui amplifie le problème.
+Les 8 créatures inventées ont été **retirées le 22 septembre 2026**. La page
+est passée en `noindex`, sortie du sitemap, et affiche un bandeau « base en
+cours de constitution ». Les exemples restent archivés dans
+`data/creatures.json`.
 
-👉 Remplace-les par de vraies données dans le tableau `CREATURES` de
-`aniimopedia/index.html`, puis `npm run pedia`.
+**Pourquoi c'est le blocage principal :** le concurrent qui occupe la
+première place sur « aniimo france » (aniimofrance.com) publie **98 fiches
+avec de vraies statistiques** — ATK, PV, D.P, D.M, BRK, RGN — plus une Tier
+List et une carte interactive. Tant que ta base est vide, l'écart de contenu
+reste infranchissable, quelle que soit la qualité technique du site.
 
-Note aussi que les rôles réels du jeu sont **DPS, Rupture, Soigneur, Support
-et Régénération** — les filtres actuels affichent « Tank » et « Soin », à
-corriger.
+👉 Relève les vraies valeurs, remplis le tableau `CREATURES` dans
+`aniimopedia/index.html`, lance `npm run pedia`, puis **repasse la balise
+robots du `<head>` en `index, follow`**. Le format attendu est documenté
+en commentaire juste au-dessus du tableau.
+
+Les rôles ont été corrigés : **DPS, BREAK, SUPPORT, REGEN, HEAL** (et non
+plus Tank/Soin, qui n'existent pas dans le jeu).
 
 ### Compléter les mentions légales
 
