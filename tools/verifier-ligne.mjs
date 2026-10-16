@@ -84,6 +84,26 @@ try {
     : gris(`  Publié il y a ${Math.round(age / 60)} h. Si vous venez de pousser, attendez 1 à 2 min et relancez.`));
 } catch { /* sans importance */ }
 
+/* ---------- Déploiement très récent : les 404 sont suspects ----------
+   GitHub Pages distribue les fichiers sur son CDN progressivement, pas d'un
+   bloc. Juste après un push, une partie des pages peut encore répondre 404
+   alors que tout est correct. Inutile d'alarmer : on le dit, et on invite à
+   relancer plutôt qu'à chercher un bug qui n'existe pas. */
+let recent = false;
+try {
+  const r = await fetch(SITE + '/', { method: 'HEAD' });
+  const maj = new Date(r.headers.get('last-modified')).getTime();
+  recent = (Date.now() - maj) / 60000 < 5;
+} catch { /* sans importance */ }
+
+if (erreurs && recent) {
+  console.log(gris(`\n${erreurs} page(s) pas encore servie(s).`));
+  console.log(gris('Le déploiement date de moins de 5 minutes : GitHub distribue'));
+  console.log(gris('ses fichiers progressivement. Attendez 2 minutes et relancez'));
+  console.log(gris('`npm run enligne` avant de conclure à un problème.'));
+  process.exit(0);
+}
+
 console.log(erreurs
   ? rouge(`\n${erreurs} problème(s) en ligne.`)
   : vert('\nTout est en ligne et conforme.'));

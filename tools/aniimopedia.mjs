@@ -110,9 +110,13 @@ const ordreRoles = ['DPS', 'BREAK', 'SUPPORT', 'HEAL', 'REGEN'];
 const trier = (l, ordre) => ordre.filter((x) => l.includes(x)).concat(l.filter((x) => !ordre.includes(x)));
 
 s = s.replace(/const TYPES = \[[^\]]*\];/, 'const TYPES = ' + JSON.stringify(trier(typesPresents, ordreTypes)) + ';');
+
+// Le motif absorbe les lignes de commentaire qui précèdent déjà la
+// déclaration, y compris celle que ce script vient d'écrire. Sans cela,
+// chaque exécution empilait un commentaire de plus.
 s = s.replace(
-  /(?:\/\/ Rôles réels[\s\S]*?\n {2})?const ROLES = \[[^\]]*\];/,
-  '// Rôles tels qu\'ils apparaissent dans le jeu.\n  const ROLES = ' + JSON.stringify(trier(rolesPresents, ordreRoles)) + ';'
+  /(?:[ \t]*\/\/[^\n]*\n)*[ \t]*const ROLES = \[[^\]]*\];/,
+  '  // Rôles tels qu\'ils apparaissent dans le jeu.\n  const ROLES = ' + JSON.stringify(trier(rolesPresents, ordreRoles)) + ';'
 );
 
 /* ---------- 7. Styles propres aux nouveautés ---------- */
