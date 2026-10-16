@@ -30,6 +30,8 @@ const REGLES = [
   { test: (u) => u === '/aniimo/',             priorite: '0.9', freq: 'weekly' },
   { test: (u) => u === '/aniimopedia/',        priorite: '0.9', freq: 'weekly' },
   { test: (u) => u === '/patch-notes/',        priorite: '0.9', freq: 'weekly' },
+  { test: (u) => u === '/guides/types-et-faiblesses/', priorite: '0.9', freq: 'weekly' },
+  { test: (u) => u.startsWith('/guides/types-et-faiblesses/'), priorite: '0.8', freq: 'monthly' },
   { test: (u) => u === '/guides/',             priorite: '0.8', freq: 'weekly' },
   { test: (u) => u.startsWith('/guides/'),     priorite: '0.8', freq: 'monthly' },
   { test: (u) => u.startsWith('/patch-notes/'),priorite: '0.7', freq: 'monthly' },
@@ -162,20 +164,34 @@ ${urls}
 function llms(pages) {
   const groupes = [
     { titre: 'Le jeu Aniimo', filtre: (u) => u.startsWith('/aniimo/') || u === '/codes/' },
-    { titre: 'Guides', filtre: (u) => u.startsWith('/guides/') },
-    { titre: 'Base de données des créatures', filtre: (u) => u.startsWith('/aniimopedia/') },
+    { titre: 'Guides', filtre: (u) => u.startsWith('/guides/'),
+      motif: SITE + '/guides/types-et-faiblesses/<element>/' },
+    { titre: 'Base de données des créatures', filtre: (u) => u.startsWith('/aniimopedia/'),
+      motif: SITE + '/aniimopedia/<nom-de-la-creature>/' },
     { titre: 'Mises à jour du jeu', filtre: (u) => u.startsWith('/patch-notes/') },
     { titre: 'La communauté', filtre: (u) => u === '/' || u === '/a-propos/' || u === '/mentions-legales/' },
   ];
 
+  // llms.txt doit rester une carte lisible, pas un annuaire : au-delà de
+  // quelques entrées (les 98 fiches de créature, par exemple), on cite les
+  // premières et on décrit le motif d'URL plutôt que de tout énumérer.
+  const PLAFOND = 12;
+
   const bloc = (g) => {
     const l = pages.filter((p) => g.filtre(p.url));
     if (!l.length) return '';
-    const lignes = l.map((p) => {
+
+    const ligne = (p) => {
       const t = (p.ogTitre || p.titre || '').split('—')[0].split('|')[0].trim();
       return `- [${t}](${SITE}${p.url}): ${p.description || ''}`;
-    }).join('\n');
-    return `\n## ${g.titre}\n\n${lignes}\n`;
+    };
+
+    if (l.length <= PLAFOND) {
+      return `\n## ${g.titre}\n\n${l.map(ligne).join('\n')}\n`;
+    }
+    const reste = l.length - PLAFOND;
+    return `\n## ${g.titre}\n\n${l.slice(0, PLAFOND).map(ligne).join('\n')}\n`
+      + `- … et ${reste} autres pages de la même section${g.motif ? `, sur le modèle ${g.motif}` : ''}.\n`;
   };
 
   writeFileSync('llms.txt', `# Aniimo France

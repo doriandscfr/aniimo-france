@@ -1,122 +1,95 @@
-# Guide de déploiement — Site Aniimo France
+# 🚀 Déploiement — aniimo-france.fr
 
-Objectif : mettre en ligne le site sur **GitHub Pages**, le brancher sur le domaine **aniimo-france.fr** (acheté chez OVH), et le faire indexer par Google le plus vite possible.
+> **En une phrase : `git push` est le déploiement. Il n'y a rien d'autre à faire.**
+>
+> Pas de VPS, pas de SSH, pas de Certbot, pas de FTP. Le site est hébergé sur
+> **GitHub Pages**, qui reconstruit et republie automatiquement à chaque push.
+>
+> *(Si vous vous souvenez d'un VPS avec Certbot : c'était un autre projet.
+> L'ancienne version de ce guide l'évoquait en comparaison, ce qui prêtait à
+> confusion. Vérifié le 16 octobre 2026 : le domaine pointe vers les IP de
+> GitHub Pages et les en-têtes HTTP renvoient `Server: GitHub.com`.)*
 
 ---
 
-## Étape 1 — Créer le dépôt GitHub et publier le site
+## L'architecture, en trois lignes
 
-1. Connecte-toi sur github.com avec ton compte (doriandscfr).
-2. Crée un nouveau dépôt **public** nommé par exemple `aniimo-france`.
-3. Sur ton PC, dans PowerShell :
-
-```powershell
-cd C:\chemin\vers\le\dossier\aniimo-france-site
-git init
-git add .
-git commit -m "Site Aniimo France - version initiale"
-git branch -M main
-git remote add origin https://github.com/doriandscfr/aniimo-france.git
-git push -u origin main
+```
+Votre PC  ──git push──▶  GitHub (dépôt doriandscfr/aniimo-france)
+                              │
+                              ▼  « pages build and deployment », ~1 à 2 min
+                         GitHub Pages
+                              │
+                              ▼  DNS OVH : 4 enregistrements A
+                      https://aniimo-france.fr
 ```
 
-4. Sur GitHub : **Settings → Pages** :
-   - Source : `Deploy from a branch`
-   - Branch : `main` / dossier `/ (root)` → **Save**
-5. Attends 1 à 2 minutes : le site est en ligne sur
-   `https://doriandscfr.github.io/aniimo-france/`
-
-> Le fichier `CNAME` (déjà inclus) contient `aniimo-france.fr` : GitHub
-> l'utilisera automatiquement dès que le domaine sera configuré.
-
 ---
 
-## Étape 2 — Acheter le domaine aniimo-france.fr chez OVH
-
-1. Va sur ovhcloud.com → **Domaines** → recherche `aniimo-france.fr`.
-2. Ajoute-le au panier (~7 €/an pour un .fr). Pas besoin d'hébergement,
-   GitHub Pages héberge gratuitement — prends uniquement le domaine.
-3. Pendant la commande, OVH propose des options (hébergement, e-mails…) :
-   tu peux tout refuser.
-
-⚠️ C'est toi qui effectues l'achat et le paiement directement sur OVH.
-
----
-
-## Étape 3 — Configurer les DNS chez OVH (pointer vers GitHub Pages)
-
-Dans l'espace client OVH → ton domaine → **Zone DNS** :
-
-### 3a. Supprimer les enregistrements par défaut
-Supprime les enregistrements **A** et **CNAME** existants qui pointent
-vers les serveurs OVH (redirection page en construction).
-
-### 3b. Ajouter les 4 enregistrements A (domaine racine → GitHub)
-
-| Type | Sous-domaine | Cible           |
-|------|--------------|-----------------|
-| A    | (vide)       | 185.199.108.153 |
-| A    | (vide)       | 185.199.109.153 |
-| A    | (vide)       | 185.199.110.153 |
-| A    | (vide)       | 185.199.111.153 |
-
-### 3c. Ajouter le CNAME pour www
-
-| Type  | Sous-domaine | Cible                       |
-|-------|--------------|-----------------------------|
-| CNAME | www          | doriandscfr.github.io.      |
-
-(le point final est important chez OVH)
-
-### 3d. Déclarer le domaine côté GitHub
-Retour sur GitHub → **Settings → Pages** :
-- Champ **Custom domain** : `aniimo-france.fr` → Save
-- Attends la vérification DNS (peut prendre de 10 min à 24 h)
-- Coche **Enforce HTTPS** dès que la case devient disponible
-  (GitHub génère un certificat Let's Encrypt automatiquement,
-  comme tu l'as fait avec Certbot sur ton VPS).
-
----
-
-## Étape 4 — Google Search Console (indexation rapide)
-
-1. Va sur search.google.com/search-console
-2. Ajoute une propriété → type **Domaine** → `aniimo-france.fr`
-3. Google demande une vérification par **enregistrement TXT** :
-   copie la valeur fournie, et chez OVH → Zone DNS → ajoute :
-
-| Type | Sous-domaine | Cible                          |
-|------|--------------|--------------------------------|
-| TXT  | (vide)       | google-site-verification=XXXX  |
-
-4. Une fois vérifié :
-   - **Sitemaps** → soumets `https://aniimo-france.fr/sitemap.xml`
-   - **Inspection d'URL** → colle `https://aniimo-france.fr/` →
-     clique **Demander une indexation** (force Google à passer sous 24-72 h)
-
----
-
-## Étape 5 — Après la mise en ligne (checklist SEO)
-
-- [ ] Ajouter `banniere.png` (1200×630 px) à la racine du dépôt —
-      c'est l'image utilisée dans les balises Open Graph pour les
-      aperçus de partage (Discord, Twitter…). Ton logo Aniimo France
-      sur fond ciel fonctionne parfaitement.
-- [ ] Ajouter `favicon.png` (64×64 px) à la racine.
-- [ ] Mettre le lien `https://aniimo-france.fr` dans la description
-      du serveur Discord et sur toutes tes fiches d'annuaires
-      (Disboard, Discadia, etc.) → chaque lien entrant = un backlink.
-- [ ] Vérifier l'aperçu de partage : colle l'URL dans un salon Discord
-      et regarde si le titre/description/image s'affichent.
-- [ ] Dans 1 semaine : taper `site:aniimo-france.fr` sur Google pour
-      vérifier l'indexation.
-
-## Pour mettre à jour le site plus tard
+## Publier une modification
 
 ```powershell
-# modifier index.html, puis :
+npm run build       # régénère toutes les pages, le sitemap et llms.txt
+npm run controle    # audit SEO + liens + JSON-LD — doit finir sans erreur
 git add .
-git commit -m "Mise à jour du site"
+git commit -m "Décrivez ce qui change"
 git push
 ```
-GitHub Pages redéploie automatiquement en ~1 minute.
+
+Puis, **après 1 à 2 minutes** (le temps que GitHub reconstruise) :
+
+```powershell
+npm run enligne     # vérifie le site réellement publié
+npm run indexnow    # prévient Bing, Yandex, Seznam
+```
+
+> ⚠️ Lancer `npm run enligne` juste après le `git push` renvoie des 404 et une
+> date ancienne : le déploiement n'est pas terminé. C'est normal — attendez et
+> relancez.
+
+---
+
+## La configuration, déjà en place
+
+Rien de tout cela n'est à refaire. C'est documenté pour le jour où ce serait
+nécessaire.
+
+### GitHub Pages
+**Settings → Pages** : source `Deploy from a branch`, branche `main`, dossier
+`/ (root)`. Le fichier `CNAME` à la racine contient `aniimo-france.fr` — **ne
+le supprimez jamais**, c'est lui qui rattache le domaine.
+
+### DNS chez OVH
+| Type | Sous-domaine | Cible |
+|---|---|---|
+| A | *(vide)* | 185.199.108.153 |
+| A | *(vide)* | 185.199.109.153 |
+| A | *(vide)* | 185.199.110.153 |
+| A | *(vide)* | 185.199.111.153 |
+| CNAME | www | doriandscfr.github.io. |
+| TXT | *(vide)* | google-site-verification=… |
+
+Le HTTPS est géré par GitHub (certificat Let's Encrypt automatique), avec
+**Enforce HTTPS** activé.
+
+---
+
+## En cas de problème
+
+| Symptôme | Cause probable | Que faire |
+|---|---|---|
+| Le site ne change pas après un push | Déploiement encore en cours | Attendre 2 min, relancer `npm run enligne` |
+| 404 sur une nouvelle page | Idem | Idem |
+| Le site entier tombe en 404 | `CNAME` supprimé | Le recréer avec `aniimo-france.fr` |
+| Avertissement de certificat | Domaine personnalisé décoché | GitHub → Settings → Pages → recocher |
+| `npm run controle` échoue | Lien mort, JSON-LD cassé, titre en double | Corriger avant de pousser |
+
+Pour voir l'état d'un déploiement : onglet **Actions** du dépôt GitHub,
+workflow « pages build and deployment ».
+
+---
+
+## Aller plus loin
+
+- **[MODE-D-EMPLOI.md](MODE-D-EMPLOI.md)** — comment ajouter du contenu
+- **[SEO.md](SEO.md)** — référencement : ce qui est fait, ce qui reste

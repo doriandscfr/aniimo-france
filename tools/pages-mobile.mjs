@@ -107,16 +107,16 @@ ${lignes.map(([c, m, r]) => `            <tr><td><strong>${c}</strong></td><td>$
    ============================================================ */
 ecrire('aniimo/mobile/index.html', page({
   url: 'aniimo/mobile/', actif: 'jeu',
-  titre: 'Aniimo mobile : date de sortie, config et téléchargement',
-  description: 'Aniimo sort sur iOS et Android le 23 septembre 2026, à 4 h du matin en France. Horaires par région, configuration requise, 18 Go et cross-progression.',
+  titre: 'Aniimo mobile : télécharger sur iOS et Android + config',
+  description: 'Aniimo est disponible sur iOS et Android depuis le 23 septembre 2026. Téléchargement, configuration requise, 18 Go d\'espace et cross-progression avec le PC.',
   motsCles: 'aniimo mobile, aniimo android, aniimo ios, aniimo telephone, aniimo mobile date de sortie, aniimo apk, aniimo play store, aniimo app store, aniimo mobile configuration',
-  h1: 'Aniimo mobile&nbsp;: date de sortie, configuration et téléchargement',
-  chapo: 'Aniimo arrive sur <strong>iOS et Android le 23 septembre 2026</strong>. Pour la France, c\'est à <strong>4&nbsp;h du matin</strong> — et le pré-téléchargement est <strong>déjà ouvert</strong>, ce qui vous évitera d\'attendre 18&nbsp;Go au réveil.',
+  h1: 'Aniimo mobile&nbsp;: télécharger, configuration et compatibilité',
+  chapo: 'Aniimo est <strong>disponible sur iOS et Android depuis le 23 septembre 2026</strong>, gratuitement. Comptez <strong>18&nbsp;Go d\'espace libre</strong> et une puce récente. Votre progression PC vous suit sur téléphone.',
   fil: [{ nom: 'Le jeu Aniimo', href: 'aniimo/' }, { nom: 'Aniimo mobile', href: 'aniimo/mobile/' }],
-  maj: '2026-09-22',
+  maj: '2026-10-16',
   sommaire: [
-    { id: 'quand', nom: 'Quand exactement ?' },
-    { id: 'pre-telechargement', nom: 'Le pré-téléchargement' },
+    { id: 'quand', nom: 'Les dates de sortie' },
+    { id: 'pre-telechargement', nom: 'Télécharger le jeu' },
     { id: 'config', nom: 'Configuration requise' },
     { id: 'espace', nom: 'Espace et connexion' },
     { id: 'progression', nom: 'Retrouver sa partie PC' },
@@ -124,26 +124,7 @@ ecrire('aniimo/mobile/index.html', page({
     { id: 'apk', nom: 'Attention aux APK' },
     { id: 'faq', nom: 'Questions fréquentes' },
   ],
-  styles: `    .compte-a-rebours{
-      background:linear-gradient(135deg,var(--carte),var(--encre));
-      border:1px solid rgba(77,124,255,.4);border-radius:var(--radius);
-      padding:26px 24px;margin:24px 0;text-align:center;
-    }
-    .compte-a-rebours .etiq{
-      font-family:'Fredoka',sans-serif;font-size:.74rem;font-weight:600;
-      letter-spacing:.1em;text-transform:uppercase;color:var(--bleu-fr);margin-bottom:14px;
-    }
-    .cadrans{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
-    .cadran{min-width:74px}
-    .cadran .n{
-      font-family:'Fredoka',sans-serif;font-size:2rem;font-weight:700;color:var(--blanc);
-      line-height:1;font-variant-numeric:tabular-nums;
-    }
-    .cadran .l{
-      font-size:.72rem;font-weight:800;letter-spacing:.08em;
-      text-transform:uppercase;color:var(--texte-doux);margin-top:6px;
-    }
-    .boutiques{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0}
+  styles: `    .boutiques{display:flex;gap:14px;flex-wrap:wrap;margin:22px 0}
     .boutique{
       flex:1;min-width:200px;display:block;text-decoration:none;
       background:var(--carte);border:1px solid var(--bordure);border-radius:16px;
@@ -155,10 +136,10 @@ ecrire('aniimo/mobile/index.html', page({
   ld: [
     {
       '@type': 'Article',
-      headline: 'Aniimo mobile : date de sortie, configuration requise et téléchargement',
-      description: 'Tout sur la version mobile d\'Aniimo : horaires de lancement par région, configuration iOS et Android, pré-téléchargement et cross-progression.',
+      headline: 'Aniimo mobile : télécharger sur iOS et Android, configuration requise',
+      description: 'Tout sur la version mobile d\'Aniimo : téléchargement, configuration iOS et Android, espace requis et cross-progression.',
       inLanguage: 'fr-FR',
-      datePublished: '2026-09-22', dateModified: '2026-09-22',
+      datePublished: '2026-09-22', dateModified: '2026-10-16',
       image: SITE + '/assets/og/banniere.jpg',
       author: { '@type': 'Organization', name: 'Aniimo France', url: SITE + '/' },
       publisher: { '@id': SITE + '/#organisation' },
@@ -176,17 +157,17 @@ ecrire('aniimo/mobile/index.html', page({
       softwareRequirements: 'iOS : iPhone 11 (A13) minimum, 4 Go de RAM. Android : Snapdragon 855 ou Dimensity 1000 minimum, 6 Go de RAM, Vulkan 1.1. 18 Go d\'espace libre.',
       offers: {
         '@type': 'Offer', price: '0', priceCurrency: 'EUR',
-        availability: 'https://schema.org/PreOrder', category: 'Free-to-play',
+        availability: 'https://schema.org/InStock', category: 'Free-to-play',
       },
       author: { '@type': 'Organization', name: 'Pawprint Studio' },
     },
     {
       '@type': 'FAQPage',
       mainEntity: [
-        { '@type': 'Question', name: 'Quand sort Aniimo sur mobile ?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Aniimo sort sur iOS et Android le 23 septembre 2026. Pour l\'Europe, le lancement a lieu à 2 h UTC, soit 4 h du matin heure de Paris. Les Amériques y ont accès dès le 22 septembre à 22 h heure de l\'Est, et l\'Asie-Pacifique le 23 septembre à 10 h UTC+8.' } },
-        { '@type': 'Question', name: 'Peut-on pré-télécharger Aniimo sur mobile ?',
-          acceptedAnswer: { '@type': 'Answer', text: 'Oui. Le pré-téléchargement est ouvert depuis le 22 septembre 2026 à 00 h UTC+8, soit le 21 septembre au soir en France. Il suffit de chercher Aniimo sur le Google Play Store ou l\'App Store et de lancer le téléchargement pour pouvoir jouer dès l\'ouverture des serveurs.' } },
+        { '@type': 'Question', name: 'Aniimo est-il disponible sur mobile ?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Oui. Aniimo est sorti sur iOS et Android le 23 septembre 2026, une semaine après la version PC et consoles. Le jeu se télécharge gratuitement sur le Google Play Store et l\'App Store.' } },
+        { '@type': 'Question', name: 'Comment télécharger Aniimo sur son téléphone ?',
+          acceptedAnswer: { '@type': 'Answer', text: 'Ouvrez le Google Play Store sur Android ou l\'App Store sur iOS, cherchez Aniimo et lancez le téléchargement. Prévoyez 18 Go d\'espace libre et une connexion Wi-Fi stable. Le jeu est gratuit.' } },
         { '@type': 'Question', name: 'Quelle configuration faut-il pour jouer à Aniimo sur téléphone ?',
           acceptedAnswer: { '@type': 'Answer', text: 'Sur iOS : un iPhone 11 (puce A13) minimum sous iOS 16 avec 4 Go de RAM ; un iPhone 14 Pro (A16) ou plus récent avec 6 Go de RAM est recommandé. Sur Android : un Snapdragon 855 ou Dimensity 1000 minimum sous Android 10 avec 6 Go de RAM et Vulkan 1.1 ; un Snapdragon 8 Gen 2 ou Dimensity 9200 avec 8 Go de RAM est recommandé. Dans tous les cas, 18 Go d\'espace libre.' } },
         { '@type': 'Question', name: 'Combien d\'espace prend Aniimo sur mobile ?',
@@ -200,18 +181,13 @@ ecrire('aniimo/mobile/index.html', page({
       ],
     },
   ],
-  corps: `      <div class="compte-a-rebours" id="rebours" hidden>
-        <div class="etiq">Sortie mobile en Europe</div>
-        <div class="cadrans">
-          <div class="cadran"><div class="n" id="r-j">–</div><div class="l">jours</div></div>
-          <div class="cadran"><div class="n" id="r-h">–</div><div class="l">heures</div></div>
-          <div class="cadran"><div class="n" id="r-m">–</div><div class="l">minutes</div></div>
-          <div class="cadran"><div class="n" id="r-s">–</div><div class="l">secondes</div></div>
-        </div>
+  corps: `      <div class="encadre succes">
+        <span class="etiq">Disponible</span>
+        <p>Aniimo est sorti sur <strong>iOS et Android le 23 septembre 2026</strong>, une semaine après la version PC et consoles. Le téléchargement est gratuit sur les deux boutiques.</p>
       </div>
 
-      <h2 id="quand">Quand exactement&nbsp;?</h2>
-      <p>Le lancement est <strong>échelonné par région</strong>, et c'est une source de confusion : beaucoup de sites annoncent «&nbsp;le 23 septembre&nbsp;» sans préciser l'heure. Voici les horaires réels&nbsp;:</p>
+      <h2 id="quand">Les dates de sortie mobile</h2>
+      <p>Le lancement s'est fait <strong>par région</strong>, ce qui explique les dates divergentes qu'on trouve encore en ligne&nbsp;:</p>
       <div class="tableau-enveloppe">
         <table class="tbl">
           <caption>Horaires de lancement d'Aniimo mobile par région</caption>
@@ -221,13 +197,8 @@ ${HORAIRES.map(([r, d, h, f], i) => `            <tr${i === 0 ? ' style="backgro
           </tbody>
         </table>
       </div>
-      <div class="encadre">
-        <span class="etiq">Pour la France</span>
-        <p>Rendez-vous le <strong>23 septembre à 4&nbsp;h du matin</strong>. Autant dire que la plupart d'entre nous découvriront le jeu au réveil — d'où l'intérêt de pré-télécharger dès ce soir.</p>
-      </div>
-
-      <h2 id="pre-telechargement">Le pré-téléchargement est déjà ouvert</h2>
-      <p>Inutile d'attendre l'ouverture des serveurs pour lancer les 18&nbsp;Go. Le pré-téléchargement est accessible <strong>depuis le 21 septembre au soir</strong> en France&nbsp;:</p>
+      <h2 id="pre-telechargement">Télécharger le jeu</h2>
+      <p>Aniimo se télécharge uniquement depuis les deux boutiques officielles. Comptez <strong>18&nbsp;Go</strong> et un Wi-Fi stable&nbsp;:</p>
       <div class="boutiques">
         <a class="boutique" href="https://play.google.com/store/search?q=aniimo&c=apps" rel="noopener nofollow">
           <div class="n">Google Play</div>
@@ -238,7 +209,7 @@ ${HORAIRES.map(([r, d, h, f], i) => `            <tr${i === 0 ? ' style="backgro
           <div class="d">iOS — chercher «&nbsp;Aniimo&nbsp;»</div>
         </a>
       </div>
-      <p>Une fois le téléchargement terminé, l'application reste en attente jusqu'à l'ouverture des serveurs. Vous pourrez jouer immédiatement, sans file d'attente de téléchargement au moment où tout le monde se connecte.</p>
+      <p>Le jeu étant <strong>free-to-play</strong>, il n'y a rien à acheter pour commencer. Au premier lancement, choisissez bien votre serveur régional&nbsp;: c'est lui qui conditionne la cross-progression avec le PC, et il n'est pas modifiable ensuite.</p>
 
       <h2 id="config">Configuration requise</h2>
       <h3>Sur iPhone et iPad</h3>
@@ -291,8 +262,8 @@ ${tableSpecs('Configuration Android pour Aniimo', SPECS_ANDROID)}
       <h2 id="faq">Questions fréquentes</h2>
       <div class="bloc-faq">
         <details>
-          <summary>Quand sort Aniimo sur mobile en France&nbsp;?</summary>
-          <p>Le 23 septembre 2026 à 4&nbsp;h du matin (2&nbsp;h UTC). Le pré-téléchargement est déjà ouvert.</p>
+          <summary>Aniimo est-il disponible sur mobile&nbsp;?</summary>
+          <p>Oui, depuis le 23 septembre 2026 sur iOS et Android, gratuitement.</p>
         </details>
         <details>
           <summary>Mon iPhone est-il compatible&nbsp;?</summary>
@@ -345,30 +316,7 @@ ${ctaDiscord('Vous jouez sur mobile&nbsp;?', 'Retrouvez les joueurs FR sur le Di
         </a>
       </div>
 
-      <script>
-      (function(){
-        // Compte à rebours jusqu'à l'ouverture européenne. Masqué une fois
-        // l'échéance passée : mieux vaut aucun compteur qu'un compteur faux.
-        var cible = new Date('${LANCEMENT_UTC}').getTime();
-        var bloc = document.getElementById('rebours');
-        var champs = {
-          j: document.getElementById('r-j'), h: document.getElementById('r-h'),
-          m: document.getElementById('r-m'), s: document.getElementById('r-s')
-        };
-        function battre(){
-          var reste = cible - Date.now();
-          if (reste <= 0){ bloc.hidden = true; return; }
-          bloc.hidden = false;
-          var s = Math.floor(reste / 1000);
-          champs.j.textContent = Math.floor(s / 86400);
-          champs.h.textContent = String(Math.floor(s / 3600) % 24).padStart(2, '0');
-          champs.m.textContent = String(Math.floor(s / 60) % 60).padStart(2, '0');
-          champs.s.textContent = String(s % 60).padStart(2, '0');
-          setTimeout(battre, 1000);
-        }
-        battre();
-      })();
-      </script>`,
+`,
 }));
 
 /* ============================================================
@@ -392,7 +340,7 @@ ecrire('guides/aniimo-mobile-compatibilite/index.html', page({
   h1: 'Quels téléphones font tourner Aniimo&nbsp;?',
   chapo: 'Aniimo demande <strong>18&nbsp;Go d\'espace</strong> et une puce assez récente. Voici, modèle par modèle, ce qui passe et ce qui ne passe pas — avec un vérificateur pour trancher en deux clics.',
   fil: [{ nom: 'Guides', href: 'guides/' }, { nom: 'Compatibilité mobile', href: 'guides/aniimo-mobile-compatibilite/' }],
-  maj: '2026-09-22',
+  maj: '2026-10-16',
   sommaire: [
     { id: 'verificateur', nom: 'Le vérificateur' },
     { id: 'iphone', nom: 'iPhone compatibles' },

@@ -52,7 +52,7 @@ function pied(r) {
         <ul>
           <li><a href="${r}guides/">Tous les guides</a></li>
           <li><a href="${r}guides/bien-debuter/">Bien débuter</a></li>
-          <li><a href="${r}guides/types-et-faiblesses/">Types et faiblesses</a></li>
+          <li><a href="${r}guides/types-et-faiblesses/">Faiblesses et types</a></li>
           <li><a href="${r}guides/capture-anipod/">Capturer un Aniimo</a></li>
         </ul>
       </div>

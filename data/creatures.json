@@ -1,10 +1,365 @@
 {
-  "_lisezMoi": "Export automatique depuis aniimopedia/index.html par tools/aniimopedia.mjs. La source de vérité reste le tableau CREATURES de la page.",
-  "donneesVerifiees": false,
-  "miseAJour": "2026-09-22",
+  "_lisezMoi": "Base des créatures d'Aniimo pour aniimo-france.fr.\nAmorcée le 16 octobre 2026 par recoupement de deux index indépendants\n(tools/creatures-fusion.mjs). Ce fichier est désormais la SOURCE DE VÉRITÉ :\néditez-le directement, puis lancez « npm run pedia ».\n\nchamp confiance :\n  confirme      = élément et rôle identiques dans les deux index\n  divergent     = les index se contredisent, affiché avec une réserve\n  source-unique = vu dans un seul index, affiché avec une réserve\n\nLes champs description et stats sont vides : aucune source publique ne les\ndonne de façon fiable. Ils se relèvent en jeu, créature par créature.",
+  "miseAJour": "2026-10-16",
+  "total": 98,
+  "repartition": {
+    "confirme": 82,
+    "divergent": 0,
+    "source-unique": 16
+  },
   "creatures": [
     {
-      "nom": "Scorchhowl",
+      "nom": "Bailite",
+      "num": 76,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Baleetle",
+      "num": 56,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Besauce",
+      "num": 82,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Blazen",
+      "num": 46,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Bolty",
+      "num": 45,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Bonesky",
+      "num": 42,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Bouldus",
+      "num": 58,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Bubbeep",
+      "num": 88,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Budclaw",
+      "num": 23,
+      "types": [
+        "Terre",
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Budsquire",
+      "num": 33,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Bulbly",
+      "num": 77,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Celestis",
+      "num": 5,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Cheekie",
+      "num": 86,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Chirpi",
+      "num": 7,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Coraliz",
+      "num": 85,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Cornet",
+      "num": 9,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Cozite",
+      "num": 75,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Cubbo",
+      "num": 68,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Dazmand",
+      "num": 10002,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Dewy",
+      "num": 38,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Dreaple",
+      "num": 19,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Eklue",
+      "num": 32,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Eko",
+      "num": 31,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Emberpup",
+      "num": 1,
       "types": [
         "Feu"
       ],
@@ -13,70 +368,43 @@
       ],
       "emoji": "🔥",
       "image": "",
-      "description": "Le loup incandescent des Hautes Terres. Ses hurlements embrasent le champ de bataille et ses crocs marquent les cibles de brûlures persistantes.",
-      "stats": {
-        "PV": 120,
-        "ATK": 165,
-        "DEF": 95,
-        "VIT": 140
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     },
     {
-      "nom": "Glacy",
+      "nom": "Erlath",
+      "num": 81,
       "types": [
-        "Glace"
+        "Eau"
       ],
       "roles": [
-        "Soin"
+        "REGEN"
       ],
-      "emoji": "❄️",
+      "emoji": "💧",
       "image": "",
-      "description": "Esprit des glaces cristallines. Glacy apaise les blessures de ses alliés grâce aux éclats de givre régénérants qu'il fait pleuvoir.",
-      "stats": {
-        "PV": 140,
-        "ATK": 80,
-        "DEF": 110,
-        "VIT": 105
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     },
     {
-      "nom": "Leafy",
+      "nom": "Fahloo",
+      "num": 80,
       "types": [
-        "Plante"
+        "Eau"
       ],
       "roles": [
-        "Support"
+        "REGEN"
       ],
-      "emoji": "🌿",
+      "emoji": "💧",
       "image": "",
-      "description": "Petit gardien des sous-bois d'Idyll. Ses spores renforcent les défenses de l'équipe et ralentissent les assaillants.",
-      "stats": {
-        "PV": 130,
-        "ATK": 85,
-        "DEF": 125,
-        "VIT": 95
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     },
     {
-      "nom": "Geoclaw",
-      "types": [
-        "Terre"
-      ],
-      "roles": [
-        "Tank"
-      ],
-      "emoji": "🪨",
-      "image": "",
-      "description": "Colosse de roche des Russet Highlands. Sa carapace minérale absorbe les assauts les plus violents pour protéger ses alliés.",
-      "stats": {
-        "PV": 190,
-        "ATK": 100,
-        "DEF": 180,
-        "VIT": 55
-      }
-    },
-    {
-      "nom": "Fulminis",
+      "nom": "Fenmane",
+      "num": 60,
       "types": [
         "Foudre"
       ],
@@ -85,68 +413,1094 @@
       ],
       "emoji": "⚡",
       "image": "",
-      "description": "Vif comme l'éclair, Fulminis enchaîne les charges électriques et paralyse ses cibles avant qu'elles n'aient pu réagir.",
-      "stats": {
-        "PV": 105,
-        "ATK": 155,
-        "DEF": 85,
-        "VIT": 175
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     },
     {
-      "nom": "Luminelle",
+      "nom": "Fennelun",
+      "num": 9997,
       "types": [
         "Lumière"
       ],
       "roles": [
-        "Soin",
-        "Support"
+        "DPS"
       ],
       "emoji": "✨",
       "image": "",
-      "description": "Luciole céleste dont la lueur ranime les Éclaireurs. Une présence rassurante dans les nuits les plus sombres d'Idyll.",
-      "stats": {
-        "PV": 125,
-        "ATK": 75,
-        "DEF": 100,
-        "VIT": 120
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
     },
     {
-      "nom": "Droopie",
+      "nom": "Fenrier",
+      "num": 43,
       "types": [
-        "Eau"
+        "Glace"
       ],
       "roles": [
-        "Tank"
+        "DPS"
       ],
-      "emoji": "💧",
+      "emoji": "❄️",
       "image": "",
-      "description": "Blob aquatique à l'apparence trompeusement placide. Son corps gélatineux encaisse et disperse les dégâts.",
-      "stats": {
-        "PV": 175,
-        "ATK": 90,
-        "DEF": 150,
-        "VIT": 70
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     },
     {
-      "nom": "Somniwing",
+      "nom": "Fentuft",
+      "num": 59,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Flamerion",
+      "num": 27,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Flameruff",
+      "num": 2,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Flutternym",
+      "num": 28,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Fragrancier",
+      "num": 39,
       "types": [
         "Ténèbres"
       ],
       "roles": [
-        "Support"
+        "SUPPORT"
       ],
       "emoji": "🌙",
       "image": "",
-      "description": "Papillon nocturne dont la poudre plonge les ennemis dans un sommeil profond. Redoutable en début d'affrontement.",
-      "stats": {
-        "PV": 110,
-        "ATK": 95,
-        "DEF": 90,
-        "VIT": 135
-      }
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Fulmintis",
+      "num": 10003,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Gachapus",
+      "num": 91,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Geoclaw",
+      "num": 25,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Geodeback",
+      "num": 73,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Glacy",
+      "num": 15,
+      "types": [
+        "Eau",
+        "Glace"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Glameep",
+      "num": 89,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Glynsera",
+      "num": 44,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Gracewing",
+      "num": 29,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Grizbo",
+      "num": 69,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Helgon",
+      "num": 66,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Helion",
+      "num": 99998,
+      "types": [
+        "Lumière"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "✨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Helmut",
+      "num": 61,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Helmwhelp",
+      "num": 65,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Hummin",
+      "num": 20,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Ignitis",
+      "num": 41,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Infergon",
+      "num": 67,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Inferlupa",
+      "num": 4,
+      "types": [
+        "Feu",
+        "Ténèbres"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Iris",
+      "num": 11,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Irisal",
+      "num": 12,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Jawling",
+      "num": 64,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Lavazar",
+      "num": 71,
+      "types": [
+        "Feu",
+        "Terre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Leafy",
+      "num": 16,
+      "types": [
+        "Plante",
+        "Eau"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Little Fire Spirit",
+      "num": 11001,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Luminelle",
+      "num": 79,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Lunara",
+      "num": 99996,
+      "types": [
+        "Lumière"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "✨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Magmarex",
+      "num": 72,
+      "types": [
+        "Feu",
+        "Terre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Malangel",
+      "num": 92,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Malevsera",
+      "num": 93,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Melloblum",
+      "num": 35,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Minespine",
+      "num": 74,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Nimbi",
+      "num": 17,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Panpanta",
+      "num": 52,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Pawney",
+      "num": 62,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Pebbling",
+      "num": 70,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Piopiota",
+      "num": 51,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Pomawk",
+      "num": 37,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Pomegg",
+      "num": 36,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Popapus",
+      "num": 90,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Popota",
+      "num": 50,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Pranky",
+      "num": 14,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Reefish",
+      "num": 84,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Rookey",
+      "num": 63,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Scorchhowl",
+      "num": 3,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Sheldon",
+      "num": 54,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Shelly",
+      "num": 53,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Sherro",
+      "num": 55,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Shrubclaw",
+      "num": 24,
+      "types": [
+        "Terre",
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Skippy",
+      "num": 13,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "HEAL"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Somniwing",
+      "num": 31,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Sparki",
+      "num": 26,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Squarrel",
+      "num": 47,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Squashel",
+      "num": 48,
+      "types": [
+        "Feu"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🔥",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Stellarys",
+      "num": 6,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Susuta",
+      "num": 49,
+      "types": [
+        "Eau"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "💧",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Thornblade",
+      "num": 34,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Tromber",
+      "num": 8,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Tubster",
+      "num": 10,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Tuckin",
+      "num": 22,
+      "types": [
+        "Plante"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "🌿",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Turbo",
+      "num": 18,
+      "types": [
+        "Vent"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "🍃",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Veilfloat",
+      "num": 78,
+      "types": [
+        "Foudre"
+      ],
+      "roles": [
+        "SUPPORT"
+      ],
+      "emoji": "⚡",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Waleetle",
+      "num": 57,
+      "types": [
+        "Terre"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🪨",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Wavwal",
+      "num": 87,
+      "types": [
+        "Glace"
+      ],
+      "roles": [
+        "BREAK"
+      ],
+      "emoji": "❄️",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "source-unique",
+      "note": "Vue dans un seul des deux index relevés. À confirmer en jeu."
+    },
+    {
+      "nom": "Wisptis",
+      "num": 40,
+      "types": [
+        "Ténèbres"
+      ],
+      "roles": [
+        "DPS"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
+    },
+    {
+      "nom": "Witchin",
+      "num": 21,
+      "types": [
+        "Ténèbres",
+        "Plante"
+      ],
+      "roles": [
+        "REGEN"
+      ],
+      "emoji": "🌙",
+      "image": "",
+      "description": "",
+      "stats": {},
+      "confiance": "confirme"
     }
   ]
 }

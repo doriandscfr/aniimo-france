@@ -198,3 +198,75 @@ npm run indexnow    # signale les URL aux moteurs
 ```
 
 `npm run controle` doit toujours finir sans erreur avant un `git push`.
+
+---
+
+# 3. Mise à jour du 16 octobre 2026
+
+## Ce que disait la Search Console
+
+Après un mois en ligne, **8 des 9 requêtes qui amènent du trafic portent sur
+les faiblesses élémentaires** — 122 clics, contre 23 pour le Discord :
+
+| Requête | Clics |
+|---|---|
+| faiblesse aniimo | 32 |
+| discord aniimo fr | 23 |
+| aniimo faiblesse | 18 |
+| aniimo faiblesse elementaire | 14 |
+| aniimo contre | 14 |
+| tableau type aniimo | 13 |
+| tableau element aniimo | 11 |
+| tableau faiblesse aniimo | 10 |
+| aniimo tableau élémentaire | 10 |
+
+Deux enseignements : les joueurs cherchent **« faiblesse »**, pas « types », et
+ils veulent un **tableau**. Le site a été réaligné là-dessus.
+
+## Ce qui a été fait
+
+- **Tableau des types corrigé.** Revérifié contre deux sources concordantes.
+  La version de septembre était incomplète : le Feu est bien fort contre la
+  Glace, et plusieurs résistances manquaient. Les données vivent désormais
+  dans `tools/elements.mjs`, partagées par toutes les pages concernées.
+- **9 fiches par élément** créées sous `/guides/types-et-faiblesses/<élément>/`,
+  chacune visant « faiblesse <élément> aniimo ». Le sitemap passe de 13 à 22 URL.
+- **Page pivot réoptimisée** : titre et H1 mènent désormais par « Faiblesses ».
+- **Page codes refondue** : 2 codes périmés → 15 codes d'octobre, pilotés par
+  une liste dans `tools/pages-codes.mjs` (mise à jour en deux minutes).
+- **Page mobile remise au présent** : elle annonçait encore un pré-téléchargement
+  pour un jeu sorti depuis un mois.
+- **Rôles alignés sur le jeu** : DPS, BREAK, SUPPORT, REGEN, HEAL.
+
+## Entretien renforcé
+
+| Fréquence | Action |
+|---|---|
+| **Chaque semaine** | Vérifier `/codes/` : éditer `CODES` dans `tools/pages-codes.mjs`, puis `npm run codes && npm run indexnow /codes/` |
+| Après chaque patch | Vérifier que le tableau des types n'a pas bougé (`tools/elements.mjs`) |
+| Chaque mois | Relire la Search Console : les requêtes dictent les prochaines pages |
+
+## L'Aniimopédia est remplie
+
+**98 créatures** ont été reconstituées le 16 octobre par recoupement de deux
+index indépendants : 82 sont confirmées par les deux sources, 16 n'ont été
+vues que dans une seule et portent une réserve visible.
+
+La base de données du concurrent n'a **pas** été recopiée : en Europe, une
+compilation de ce type est protégée par le droit sui generis des bases de
+données, et les mentions légales du site s'engagent sur le respect de la PI.
+
+- `data/creatures.json` est la source de vérité. On l'édite, puis `npm run pedia`.
+- Chaque créature a sa page indexable : `/aniimopedia/<nom>/` — 98 pages.
+- Les faiblesses ne sont pas saisies, elles sont **déduites** de
+  `tools/elements.mjs`. Corriger le tableau des éléments corrige les 98 fiches.
+
+### Ce qui manque encore
+
+**Les statistiques chiffrées et les descriptions.** Aucune source publique ne
+les donne de façon concordante : elles se relèvent en jeu. Les champs
+`stats` et `description` de chaque entrée les attendent.
+
+**La tier list.** Requête à fort volume, mais les quatre classements publics
+consultés se contredisent franchement. À construire sur des relevés propres.
+

@@ -15,16 +15,40 @@ Licence du contenu rédactionnel : reprise autorisée avec mention de la source 
 ## Le jeu Aniimo
 
 - [Aniimo : date de sortie, plateformes, prix et config PC (2026)](https://aniimo-france.fr/aniimo/): Aniimo est sorti le 16 septembre 2026 sur PC, PS5 et Xbox Series ; la version mobile sort le 23 septembre. Dates, prix, crossplay et config PC en français.
-- [Aniimo mobile : date de sortie, configuration et téléchargement](https://aniimo-france.fr/aniimo/mobile/): Aniimo sort sur iOS et Android le 23 septembre 2026, à 4 h du matin en France. Horaires par région, configuration requise, 18 Go et cross-progression.
-- [Codes Aniimo (septembre 2026) : tous les codes actifs](https://aniimo-france.fr/codes/): Les codes cadeaux Aniimo actifs, vérifiés par la communauté française. Récompenses détaillées et tutoriel pas à pas pour échanger un code en jeu.
+- [Aniimo mobile : télécharger, configuration et compatibilité](https://aniimo-france.fr/aniimo/mobile/): Aniimo est disponible sur iOS et Android depuis le 23 septembre 2026. Téléchargement, configuration requise, 18 Go d'espace et cross-progression avec le PC.
+- [Codes Aniimo : 15 codes actifs en octobre 2026](https://aniimo-france.fr/codes/): Les 15 codes cadeaux Aniimo actifs en octobre 2026, avec leurs récompenses détaillées et le tutoriel pour les échanger en jeu. Liste vérifiée par la communauté FR.
 
 ## Guides
 
+- [Faiblesses Aniimo : le tableau complet des types et éléments](https://aniimo-france.fr/guides/types-et-faiblesses/): Le tableau des faiblesses élémentaires d'Aniimo : quel élément contre quel autre, les multiplicateurs 1,6 et 0,625, et une fiche détaillée par élément.
 - [Guides Aniimo en français](https://aniimo-france.fr/guides/): Tous les guides Aniimo en français : bien débuter, tableau des types et faiblesses, capture des créatures. Rédigés et vérifiés par la communauté Aniimo France.
 - [Quels téléphones font tourner Aniimo ?](https://aniimo-france.fr/guides/aniimo-mobile-compatibilite/): Votre téléphone fait-il tourner Aniimo ? La liste des iPhone et des puces Android compatibles, du minimum au confort maximal, et un vérificateur immédiat.
 - [Bien débuter sur Aniimo](https://aniimo-france.fr/guides/bien-debuter/): Guide du débutant Aniimo : première équipe, capture, ressources, Tissage et Foyer. Les erreurs à éviter dès vos premières heures à Idyll.
 - [Comment capturer un Aniimo](https://aniimo-france.fr/guides/capture-anipod/): Comment capturer un Aniimo : les quatre types d'Anipods, le rôle de la jauge de Rupture, l'approche furtive et les erreurs qui font rater une capture.
-- [Aniimo : le tableau des types et des faiblesses](https://aniimo-france.fr/guides/types-et-faiblesses/): Le tableau complet des types d'Aniimo : les 9 éléments, leurs forces, leurs résistances et les multiplicateurs 1.6x et 0.625x. Plus le système de contres spatiaux.
+- [Faiblesses de l'Eau dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/eau/): Quelles sont les faiblesses de l'Eau dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses du Feu dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/feu/): Quelles sont les faiblesses du Feu dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses de la Foudre dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/foudre/): Quelles sont les faiblesses de la Foudre dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses de la Glace dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/glace/): Quelles sont les faiblesses de la Glace dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses de la Lumière dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/lumiere/): Quelles sont les faiblesses de la Lumière dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses de la Plante dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/plante/): Quelles sont les faiblesses de la Plante dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- [Faiblesses des Ténèbres dans Aniimo](https://aniimo-france.fr/guides/types-et-faiblesses/tenebres/): Quelles sont les faiblesses des Ténèbres dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.
+- … et 2 autres pages de la même section, sur le modèle https://aniimo-france.fr/guides/types-et-faiblesses/<element>/.
+
+## Base de données des créatures
+
+- [Aniimopédia : les 98 créatures d'Aniimo en français](https://aniimo-france.fr/aniimopedia/): La liste des 98 créatures d'Aniimo en français : élément, rôle et faiblesses de chaque Aniimo, avec recherche et filtres par type et par rôle.
+- [Bailite](https://aniimo-france.fr/aniimopedia/bailite/): Bailite est un Aniimo de type Terre et de rôle SUPPORT. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Baleetle](https://aniimo-france.fr/aniimopedia/baleetle/): Baleetle est un Aniimo de type Terre et de rôle DPS. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Besauce](https://aniimo-france.fr/aniimopedia/besauce/): Besauce est un Aniimo de type Foudre et de rôle REGEN. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Blazen](https://aniimo-france.fr/aniimopedia/blazen/): Blazen est un Aniimo de type Foudre et de rôle BREAK. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Bolty](https://aniimo-france.fr/aniimopedia/bolty/): Bolty est un Aniimo de type Foudre et de rôle BREAK. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Bonesky](https://aniimo-france.fr/aniimopedia/bonesky/): Bonesky est un Aniimo de type Glace et de rôle DPS. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Bouldus](https://aniimo-france.fr/aniimopedia/bouldus/): Bouldus est un Aniimo de type Terre et de rôle SUPPORT. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Bubbeep](https://aniimo-france.fr/aniimopedia/bubbeep/): Bubbeep est un Aniimo de type Plante et de rôle HEAL. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Budclaw](https://aniimo-france.fr/aniimopedia/budclaw/): Budclaw est un Aniimo de type Terre et Plante et de rôle BREAK. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Budsquire](https://aniimo-france.fr/aniimopedia/budsquire/): Budsquire est un Aniimo de type Plante et de rôle DPS. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- [Bulbly](https://aniimo-france.fr/aniimopedia/bulbly/): Bulbly est un Aniimo de type Foudre et de rôle SUPPORT. Ses faiblesses élémentaires, ce qu'il écrase, et le tableau complet de ses affrontements.
+- … et 87 autres pages de la même section, sur le modèle https://aniimo-france.fr/aniimopedia/<nom-de-la-creature>/.
 
 ## Mises à jour du jeu
 

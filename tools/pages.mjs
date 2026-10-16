@@ -9,6 +9,7 @@
 import { mkdirSync, writeFileSync } from 'fs';
 import { dirname } from 'path';
 import { page, ctaDiscord, SITE, DISCORD } from './gabarit.mjs';
+import { ELEMENTS, TABLE, PROFILS, slug, badge, badges, menaces } from './elements.mjs';
 
 const ecrire = (chemin, html) => {
   mkdirSync(dirname(chemin), { recursive: true });
@@ -17,32 +18,9 @@ const ecrire = (chemin, html) => {
 };
 
 /* ============================================================
-   Tableau des types — établi à partir des relevés communautaires
-   du 17 septembre 2026. Multiplicateurs : 1.6 / 1 / 0.625.
+   Tableau des types — les données vivent dans tools/elements.mjs,
+   partagées avec les neuf fiches par élément.
    ============================================================ */
-const ELEMENTS = ['Feu', 'Eau', 'Plante', 'Foudre', 'Glace', 'Terre', 'Vent', 'Lumière', 'Ténèbres'];
-const CLASSE = {
-  Feu: 'feu', Eau: 'eau', Plante: 'plante', Foudre: 'foudre', Glace: 'glace',
-  Terre: 'terre', Vent: 'vent', Lumière: 'lumiere', Ténèbres: 'tenebres',
-};
-const TABLE = {
-  Feu:      { fort: ['Plante'],                     resiste: ['Feu', 'Eau', 'Terre'] },
-  Eau:      { fort: ['Feu', 'Terre'],               resiste: ['Eau', 'Plante'] },
-  Plante:   { fort: ['Eau', 'Terre'],               resiste: ['Feu', 'Plante', 'Vent'] },
-  Foudre:   { fort: ['Vent', 'Eau'],                resiste: ['Foudre', 'Terre'] },
-  Glace:    { fort: ['Foudre', 'Eau'],              resiste: ['Glace', 'Feu', 'Terre'] },
-  Terre:    { fort: ['Glace', 'Feu'],               resiste: ['Eau', 'Plante'] },
-  Vent:     { fort: ['Ténèbres', 'Plante'],         resiste: ['Vent', 'Foudre'] },
-  Lumière:  { fort: ['Ténèbres', 'Vent'],           resiste: ['Lumière', 'Foudre'] },
-  Ténèbres: { fort: ['Lumière', 'Foudre', 'Plante'], resiste: ['Vent', 'Eau'] },
-};
-
-const badge = (e) => `<span class="type type-${CLASSE[e]}">${e}</span>`;
-const badges = (l) => (l.length ? l.map(badge).join(' ') : '<span style="color:var(--texte-doux)">—</span>');
-
-/** Qui frappe fort contre cet élément ? (vue défensive, déduite) */
-const menaces = (cible) => ELEMENTS.filter((a) => TABLE[a].fort.includes(cible));
-
 const ligneTable = (e) => `            <tr>
               <th scope="row">${badge(e)}</th>
               <td>${badges(TABLE[e].fort)}</td>
@@ -80,6 +58,7 @@ ecrire('guides/index.html', page({
   h1: 'Guides Aniimo en français',
   chapo: 'Des guides clairs, vérifiés et tenus à jour par la communauté francophone. Pas de traduction automatique : tout est rédigé en français par des joueurs.',
   fil: [{ nom: 'Guides', href: 'guides/' }],
+  maj: '2026-10-16',
   ld: [{
     '@type': 'CollectionPage',
     name: 'Guides Aniimo en français',
@@ -143,15 +122,20 @@ ${ctaDiscord('Une question sur le jeu&nbsp;?', 'Le plus rapide reste de demander
    ============================================================ */
 ecrire('guides/types-et-faiblesses/index.html', page({
   url: 'guides/types-et-faiblesses/', actif: 'guides',
-  titre: 'Aniimo : tableau des types et faiblesses des 9 éléments (2026)',
-  description: 'Le tableau complet des types d\'Aniimo : les 9 éléments, leurs forces, leurs résistances et les multiplicateurs 1.6x et 0.625x. Plus le système de contres spatiaux.',
-  motsCles: 'aniimo types, aniimo faiblesses, tableau des types aniimo, aniimo elements, aniimo type chart français, aniimo forces faiblesses',
-  h1: 'Aniimo&nbsp;: le tableau des types et des faiblesses',
-  chapo: 'Les combats d\'Aniimo reposent sur <strong>neuf éléments</strong> et un second système de contres basé sur la position. Bien lire ces deux tableaux, c\'est diviser par deux la durée de la plupart des combats.',
+  // Intitulés calés sur les requêtes réelles de la Search Console :
+  // « faiblesse aniimo » domine, devant « tableau type/element aniimo »
+  // et « aniimo contre ».
+  titre: 'Faiblesses Aniimo : tableau complet des types et éléments',
+  description: 'Le tableau des faiblesses élémentaires d\'Aniimo : quel élément contre quel autre, les multiplicateurs 1,6 et 0,625, et une fiche détaillée par élément.',
+  motsCles: 'faiblesse aniimo, aniimo faiblesse, aniimo faiblesse elementaire, aniimo contre, tableau type aniimo, tableau element aniimo, tableau faiblesse aniimo, aniimo tableau élémentaire, aniimo types',
+  h1: 'Faiblesses Aniimo&nbsp;: le tableau complet des types et éléments',
+  maj: '2026-10-16',
+  chapo: 'Les combats d\'Aniimo reposent sur <strong>neuf éléments</strong> et un second système de contres basé sur la position. Voici le tableau complet des faiblesses, vérifié, plus une <strong>fiche détaillée par élément</strong>.',
   fil: [{ nom: 'Guides', href: 'guides/' }, { nom: 'Types et faiblesses', href: 'guides/types-et-faiblesses/' }],
   sommaire: [
     { id: 'multiplicateurs', nom: 'Les multiplicateurs' },
     { id: 'tableau', nom: 'Le tableau des 9 éléments' },
+    { id: 'fiches', nom: 'Une fiche par élément' },
     { id: 'lecture', nom: 'Comment lire le tableau' },
     { id: 'spatial', nom: 'Les contres spatiaux' },
     { id: 'pratique', nom: 'En pratique' },
@@ -160,10 +144,11 @@ ecrire('guides/types-et-faiblesses/index.html', page({
   ld: [
     {
       '@type': 'Article',
-      headline: 'Aniimo : tableau des types et faiblesses des 9 éléments',
-      description: 'Tableau complet des types d\'Aniimo, multiplicateurs de dégâts et système de contres spatiaux.',
+      '@id': SITE + '/guides/types-et-faiblesses/#page',
+      headline: 'Faiblesses Aniimo : tableau complet des types et éléments',
+      description: 'Tableau complet des faiblesses élémentaires d\'Aniimo, multiplicateurs de dégâts et système de contres spatiaux.',
       inLanguage: 'fr-FR',
-      datePublished: '2026-09-17', dateModified: '2026-09-17',
+      datePublished: '2026-09-17', dateModified: '2026-10-16',
       author: { '@type': 'Organization', name: 'Aniimo France', url: SITE + '/' },
       publisher: { '@id': SITE + '/#organisation' },
       mainEntityOfPage: SITE + '/guides/types-et-faiblesses/',
@@ -212,9 +197,19 @@ ${ELEMENTS.map(ligneTable).join('\n')}
           </tbody>
         </table>
       </div>
-      <div class="encadre alerte">
-        <span class="etiq">Tableau communautaire</span>
-        <p>Ce tableau est établi à partir des relevés de la communauté au lendemain du lancement. Si vous constatez un écart en jeu, signalez-le sur le <a href="${DISCORD}" rel="noopener">Discord Aniimo France</a>&nbsp;: la page est corrigée dans la foulée, avec la date de mise à jour.</p>
+      <div class="encadre succes">
+        <span class="etiq">Tableau revérifié le 16 octobre 2026</span>
+        <p>Cette matrice a été recoupée contre <strong>deux sources indépendantes qui concordent intégralement</strong>. Elle corrige une version antérieure incomplète — le Feu, notamment, est bien fort contre la Glace. Un écart constaté en jeu&nbsp;? Signalez-le sur le <a href="${DISCORD}" rel="noopener">Discord Aniimo France</a>&nbsp;: la page est corrigée dans la foulée.</p>
+      </div>
+
+      <h2 id="fiches">Une fiche détaillée par élément</h2>
+      <p>Chaque élément a sa page&nbsp;: ses faiblesses, ce qu'il écrase, et le détail de ses neuf affrontements en attaque comme en défense.</p>
+      <div class="grille-liens">
+${ELEMENTS.map((e) => `        <a class="carte-lien" href="${slug(e)}/">
+          <h3>${PROFILS[e].emoji} Faiblesses&nbsp;: ${e}</h3>
+          <p>${PROFILS[e].accroche}</p>
+          <span class="fleche">Consulter →</span>
+        </a>`).join('\n')}
       </div>
 
       <h2 id="lecture">Comment lire le tableau</h2>
@@ -299,6 +294,7 @@ ecrire('guides/capture-anipod/index.html', page({
   h1: 'Comment capturer un Aniimo',
   chapo: 'Lancer un Anipod au hasard sur une créature, c\'est le meilleur moyen de gâcher ses ressources. La capture dans Aniimo repose sur une préparation simple mais obligatoire&nbsp;: <strong>affaiblir, briser, puis lancer</strong>.',
   fil: [{ nom: 'Guides', href: 'guides/' }, { nom: 'Capturer un Aniimo', href: 'guides/capture-anipod/' }],
+  maj: '2026-10-16',
   sommaire: [
     { id: 'anipods', nom: 'Les quatre Anipods' },
     { id: 'methode', nom: 'La méthode en 4 étapes' },
@@ -364,7 +360,7 @@ ecrire('guides/capture-anipod/index.html', page({
 
       <h2 id="rupture">Pourquoi la jauge de Rupture change tout</h2>
       <p>La jauge de Rupture (<em>Break</em>) est une barre de posture distincte des points de vie. La vider étourdit la créature&nbsp;: elle cesse d'agir pendant quelques secondes, et <strong>son taux de capture augmente significativement</strong>.</p>
-      <p>C'est pour cette raison qu'une équipe équilibrée inclut au moins un Aniimo de <strong>rôle Rupture</strong>, dont la spécialité est précisément de casser cette jauge. Sans lui, vous videz la barre de vie bien plus vite que la barre de posture — et vous finissez par tuer la créature que vous vouliez attraper.</p>
+      <p>C'est pour cette raison qu'une équipe équilibrée inclut au moins un Aniimo de <strong>rôle Rupture</strong> (<em>BREAK</em> dans l'interface du jeu), dont la spécialité est précisément de casser cette jauge. Sans lui, vous videz la barre de vie bien plus vite que la barre de posture — et vous finissez par tuer la créature que vous vouliez attraper.</p>
 
       <h2 id="erreurs">Les erreurs qui font rater une capture</h2>
       <ul>
@@ -409,6 +405,7 @@ ecrire('guides/bien-debuter/index.html', page({
   h1: 'Bien débuter sur Aniimo',
   chapo: 'Idyll est vaste et le jeu explique peu de choses. Voici ce qu\'il faut comprendre dès vos premières heures pour ne pas avoir à tout recommencer plus tard.',
   fil: [{ nom: 'Guides', href: 'guides/' }, { nom: 'Bien débuter', href: 'guides/bien-debuter/' }],
+  maj: '2026-10-16',
   sommaire: [
     { id: 'serveur', nom: 'Choisir son serveur' },
     { id: 'equipe', nom: 'Composer son équipe' },
@@ -443,10 +440,11 @@ ecrire('guides/bien-debuter/index.html', page({
       <p>Visez ces trois rôles en priorité&nbsp;:</p>
       <ul>
         <li><strong>DPS</strong> — celui qui inflige les dégâts&nbsp;;</li>
-        <li><strong>Rupture</strong> — celui qui casse la jauge de posture adverse. Indispensable pour capturer&nbsp;;</li>
-        <li><strong>Soigneur</strong> — celui qui vous maintient en vie sur les combats longs.</li>
+        <li><strong>Rupture</strong> <em>(BREAK en jeu)</em> — celui qui casse la jauge de posture adverse. Indispensable pour capturer&nbsp;;</li>
+        <li><strong>Soigneur</strong> <em>(HEAL)</em> — celui qui vous maintient en vie sur les combats longs.</li>
       </ul>
-      <p>Les rôles <strong>Support</strong> et <strong>Régénération</strong> viennent compléter ce noyau une fois qu'il tourne.</p>
+      <p>Les rôles <strong>Support</strong> <em>(SUPPORT)</em> et <strong>Régénération</strong> <em>(REGEN)</em> viennent compléter ce noyau une fois qu'il tourne.</p>
+      <p>Les cinq rôles du jeu sont donc&nbsp;: <strong>DPS, BREAK, SUPPORT, REGEN et HEAL</strong>. C'est sous ces noms anglais qu'ils apparaissent dans l'interface.</p>
       <p>Côté éléments, cherchez la couverture plutôt que la perfection&nbsp;: trois ou quatre éléments différents suffisent à répondre à presque tout. Le <a href="../types-et-faiblesses/">tableau des types</a> vous dit lesquels.</p>
 
       <h2 id="capture">3. Capturer efficacement dès le début</h2>
