@@ -38,6 +38,28 @@ export const TABLE = {
 /** Identifiant utilisable en URL et en classe CSS : « Ténèbres » → « tenebres ». */
 export const slug = (e) => e.normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase();
 
+/**
+ * Noms anglais, tels qu'ils apparaissent dans l'interface du jeu.
+ * Utiles à deux titres : les joueurs francophones voient ces libellés en
+ * jouant, et les moteurs de réponse sont très majoritairement interrogés
+ * en anglais sur ce sujet (« aniimo element chart », « elemental types »).
+ * Certains éléments circulent sous deux noms selon les relevés.
+ */
+export const EN = {
+  Feu: ['Fire'],
+  Eau: ['Water'],
+  Plante: ['Grass'],
+  Foudre: ['Lightning', 'Electric'],
+  Glace: ['Ice'],
+  Terre: ['Rock', 'Earth'],
+  Vent: ['Wind'],
+  Lumière: ['Light', 'Holy'],
+  'Ténèbres': ['Dark'],
+};
+
+/** « Feu » → « Feu (Fire) ». */
+export const avecEn = (e) => `${e} (${EN[e][0]})`;
+
 /** Badge coloré d'un élément. */
 export const badge = (e) => `<span class="type type-${slug(e)}">${e}</span>`;
 

@@ -61,6 +61,62 @@ Licence du contenu rédactionnel : reprise autorisée avec mention de la source 
 - [À propos d'Aniimo France](https://aniimo-france.fr/a-propos/): Aniimo France est la communauté francophone non officielle du jeu Aniimo : qui rédige le site, comment les informations sont vérifiées et comment contribuer.
 - [Mentions légales](https://aniimo-france.fr/mentions-legales/): Mentions légales du site aniimo-france.fr : éditeur, hébergeur, propriété intellectuelle, données personnelles et contact.
 
+## Tableau des types et faiblesses (Aniimo element / type chart)
+
+Multiplicateurs : 1,6 (super efficace) · 1 (neutre) · 0,625 (résisté).
+Aucune immunité dans le jeu. Les noms entre parenthèses sont ceux de
+l'interface anglaise. Matrice recoupée le 16 octobre 2026 contre deux
+sources indépendantes et concordantes.
+
+### Feu (Fire)
+- Super efficace contre (x1,6) : Glace (Ice), Plante (Grass)
+- Résisté par (x0,625) : Lumière (Light), Feu (Fire), Terre (Rock), Eau (Water)
+- Vulnérable à (subit x1,6) : Eau (Water), Terre (Rock)
+
+### Eau (Water)
+- Super efficace contre (x1,6) : Feu (Fire), Terre (Rock)
+- Résisté par (x0,625) : Glace (Ice), Eau (Water), Plante (Grass), Lumière (Light)
+- Vulnérable à (subit x1,6) : Plante (Grass), Foudre (Lightning), Glace (Ice)
+
+### Plante (Grass)
+- Super efficace contre (x1,6) : Terre (Rock), Eau (Water)
+- Résisté par (x0,625) : Lumière (Light), Feu (Fire), Plante (Grass)
+- Vulnérable à (subit x1,6) : Feu (Fire), Vent (Wind), Ténèbres (Dark)
+
+### Foudre (Lightning)
+- Super efficace contre (x1,6) : Eau (Water), Vent (Wind)
+- Résisté par (x0,625) : Glace (Ice), Foudre (Lightning), Terre (Rock)
+- Vulnérable à (subit x1,6) : Glace (Ice), Ténèbres (Dark)
+
+### Glace (Ice)
+- Super efficace contre (x1,6) : Foudre (Lightning), Eau (Water)
+- Résisté par (x0,625) : Glace (Ice), Feu (Fire), Terre (Rock)
+- Vulnérable à (subit x1,6) : Feu (Fire), Terre (Rock)
+
+### Terre (Rock)
+- Super efficace contre (x1,6) : Glace (Ice), Feu (Fire)
+- Résisté par (x0,625) : Ténèbres (Dark), Terre (Rock), Eau (Water), Plante (Grass)
+- Vulnérable à (subit x1,6) : Eau (Water), Plante (Grass)
+
+### Vent (Wind)
+- Super efficace contre (x1,6) : Ténèbres (Dark), Plante (Grass)
+- Résisté par (x0,625) : Vent (Wind), Foudre (Lightning)
+- Vulnérable à (subit x1,6) : Foudre (Lightning), Lumière (Light)
+
+### Lumière (Light)
+- Super efficace contre (x1,6) : Ténèbres (Dark), Vent (Wind)
+- Résisté par (x0,625) : Lumière (Light), Foudre (Lightning)
+- Vulnérable à (subit x1,6) : Ténèbres (Dark)
+
+### Ténèbres (Dark)
+- Super efficace contre (x1,6) : Lumière (Light), Foudre (Lightning), Plante (Grass)
+- Résisté par (x0,625) : Eau (Water), Vent (Wind)
+- Vulnérable à (subit x1,6) : Vent (Wind), Lumière (Light)
+
+### Contres spatiaux (second système, indépendant des éléments)
+Distance (Ranged) bat Vol (Fly) · Vol bat Frappe (Pound) ·
+Frappe bat Fouissement (Tunnel) · Fouissement bat Distance.
+
 ## Informations de référence sur Aniimo
 
 - Développeur : Pawprint Studio (Hangzhou), financé par FunPlus

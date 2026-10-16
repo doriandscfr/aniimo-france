@@ -17,6 +17,7 @@
 import { readFileSync, writeFileSync, readdirSync, statSync } from 'fs';
 import { execSync } from 'child_process';
 import { join, relative, sep } from 'path';
+import { ELEMENTS, TABLE, EN, menaces } from './elements.mjs';
 
 const SITE = 'https://aniimo-france.fr';
 const RACINE = process.cwd();
@@ -160,6 +161,40 @@ ${urls}
   return indexables;
 }
 
+/* ---------- Matrice des éléments, destinée à llms.txt ----------
+   C'est le sujet sur lequel le site est le plus sollicité, et les moteurs de
+   réponse sont interrogés très majoritairement en anglais dessus
+   (« aniimo element chart », « elemental types »). On publie donc la matrice
+   complète avec les deux nomenclatures, pour qu'ils puissent s'y appuyer
+   directement sans avoir à parcourir les pages. */
+function matriceElements() {
+  const en = (e) => EN[e][0];
+  const paire = (x) => x + ' (' + en(x) + ')';
+  const liste = (l) => (l.length ? l.map(paire).join(', ') : 'aucun');
+
+  const lignes = ELEMENTS.map((e) => [
+    '### ' + paire(e),
+    '- Super efficace contre (x1,6) : ' + liste(TABLE[e].fort),
+    '- Résisté par (x0,625) : ' + liste(TABLE[e].resiste),
+    '- Vulnérable à (subit x1,6) : ' + liste(menaces(e)),
+  ].join('\n')).join('\n\n');
+
+  return [
+    '## Tableau des types et faiblesses (Aniimo element / type chart)',
+    '',
+    'Multiplicateurs : 1,6 (super efficace) · 1 (neutre) · 0,625 (résisté).',
+    'Aucune immunité dans le jeu. Les noms entre parenthèses sont ceux de',
+    "l'interface anglaise. Matrice recoupée le 16 octobre 2026 contre deux",
+    'sources indépendantes et concordantes.',
+    '',
+    lignes,
+    '',
+    '### Contres spatiaux (second système, indépendant des éléments)',
+    'Distance (Ranged) bat Vol (Fly) · Vol bat Frappe (Pound) ·',
+    'Frappe bat Fouissement (Tunnel) · Fouissement bat Distance.',
+  ].join('\n');
+}
+
 /* ---------- 3. llms.txt ---------- */
 function llms(pages) {
   const groupes = [
@@ -208,6 +243,8 @@ Serveur Discord de la communauté : ${'https://discord.gg/aniimofr'}
 Langue : français (fr-FR)
 Licence du contenu rédactionnel : reprise autorisée avec mention de la source et lien.
 ${groupes.map(bloc).join('')}
+${matriceElements()}
+
 ## Informations de référence sur Aniimo
 
 - Développeur : Pawprint Studio (Hangzhou), financé par FunPlus

@@ -21,7 +21,7 @@
 import { mkdirSync, writeFileSync } from 'fs';
 import { dirname } from 'path';
 import { page, ctaDiscord, SITE } from './gabarit.mjs';
-import { ELEMENTS, TABLE, PROFILS, slug, badge, badges, menaces, neutres, encaisse } from './elements.mjs';
+import { ELEMENTS, TABLE, PROFILS, EN, slug, badge, badges, menaces, neutres, encaisse } from './elements.mjs';
 
 const ecrire = (chemin, html) => {
   mkdirSync(dirname(chemin), { recursive: true });
@@ -98,7 +98,14 @@ for (const e of ELEMENTS) {
     url, actif: 'guides',
     titre: `Faiblesse ${ARTICLE[e]} dans Aniimo : tableau et contres`,
     description: `Quelles sont les faiblesses ${ARTICLE[e]} dans Aniimo ? Les éléments qui le battent, ceux qu'il écrase, et le tableau complet des dégâts infligés et subis.`,
-    motsCles: `faiblesse ${s} aniimo, aniimo ${s} faiblesse, contre ${s} aniimo, aniimo ${s} counter, tableau ${s} aniimo, battre aniimo ${s}`,
+    // Les noms anglais figurent aussi : c'est ceux de l'interface du jeu,
+    // et les moteurs de réponse sont surtout interrogés en anglais dessus.
+    motsCles: [
+      `faiblesse ${s} aniimo`, `aniimo ${s} faiblesse`, `contre ${s} aniimo`,
+      `tableau ${s} aniimo`, `battre aniimo ${s}`,
+      ...EN[e].map((a) => `aniimo ${a.toLowerCase()} weakness`),
+      ...EN[e].map((a) => `aniimo ${a.toLowerCase()} element`),
+    ].join(', '),
     h1: `Faiblesses ${ARTICLE[e]} dans Aniimo`,
     chapo: `${p.emoji} ${p.accroche} Voici ce qui bat un Aniimo ${DE[e]}, ce qu'il bat en retour, et le détail des neuf affrontements.`,
     fil: [
@@ -127,6 +134,14 @@ for (const e of ELEMENTS) {
         mainEntityOfPage: `${SITE}/${url}`,
         about: { '@id': SITE + '/#jeu' },
         isPartOf: { '@id': `${SITE}/guides/types-et-faiblesses/#page` },
+        // Les noms anglais aident les moteurs à relier cette page aux
+        // requêtes formulées dans la langue de l'interface du jeu.
+        mentions: {
+          '@type': 'Thing',
+          name: `Élément ${e}`,
+          alternateName: EN[e].map((a) => `${a} element`),
+          description: `Élément ${e} (${EN[e].join(', ')}) du jeu Aniimo.`,
+        },
       },
       {
         '@type': 'FAQPage',
@@ -162,7 +177,12 @@ for (const e of ELEMENTS) {
         ],
       },
     ],
-    corps: `      <h2 id="resume">En bref</h2>
+    corps: `      <div class="encadre">
+        <span class="etiq">Nom dans le jeu</span>
+        <p>L'interface d'Aniimo est en anglais&nbsp;: cet élément y apparaît sous le nom <strong>${EN[e].join('</strong> ou <strong>')}</strong>. Les deux appellations désignent la même chose.</p>
+      </div>
+
+      <h2 id="resume">En bref</h2>
       <div class="fiche-rapide">
         <div class="item">
           <div class="k">Vulnérable à (×1,6 subis)</div>
