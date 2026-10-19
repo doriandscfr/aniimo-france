@@ -14,7 +14,8 @@ import { readFileSync, readdirSync, existsSync, statSync } from 'fs';
 import { join, dirname, resolve, relative, sep } from 'path';
 
 const RACINE = process.cwd();
-const IGNORE = new Set(['node_modules', '.git', 'tools', 'data']);
+// « _brouillons » : notes de veille en attente de relecture, hors site publié.
+const IGNORE = new Set(['node_modules', '.git', 'tools', 'data', '_brouillons']);
 let erreurs = 0;
 const signaler = (f, m) => { console.log(`  ✗ ${f} — ${m}`); erreurs++; };
 

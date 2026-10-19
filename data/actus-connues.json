@@ -1,0 +1,18 @@
+{
+  "_lisezMoi": "Identifiants des actualités officielles déjà repérées par tools/veille.mjs. Supprimer une entrée fait réapparaître l'article comme nouveau.",
+  "miseAJour": "2026-10-18",
+  "ids": [
+    "100055",
+    "100072",
+    "100094",
+    "100105",
+    "100120",
+    "100130",
+    "100142",
+    "100152",
+    "100180",
+    "100202",
+    "100213",
+    "100224"
+  ]
+}

@@ -18,7 +18,9 @@
     "mobile": "node tools/pages-mobile.mjs",
     "elements": "node tools/pages-elements.mjs",
     "codes": "node tools/pages-codes.mjs",
-    "creatures": "node tools/pages-creatures.mjs"
+    "creatures": "node tools/pages-creatures.mjs",
+    "veille": "node tools/veille.mjs",
+    "veille:ecrire": "node tools/veille.mjs --ecrire"
   },
   "keywords": [
     "aniimo",

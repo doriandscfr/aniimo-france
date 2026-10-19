@@ -1,0 +1,107 @@
+# ============================================================
+#  Veille des actualités officielles d'Aniimo
+#
+#  Tourne sur les serveurs de GitHub, toutes les 3 heures. Votre PC n'a
+#  pas besoin d'être allumé.
+#
+#  À chaque passage :
+#    1. compare le sitemap officiel aux articles déjà connus ;
+#    2. s'il y a du nouveau, crée un brouillon par article ;
+#    3. commite les brouillons sur la branche principale ;
+#    4. ouvre une issue GitHub pour vous prévenir.
+#
+#  Les brouillons sont en noindex et rangés dans patch-notes/_brouillons/ :
+#  rien n'est publié sans relecture. Voir l'en-tête de tools/veille.mjs
+#  pour les raisons.
+# ============================================================
+name: Veille actualités Aniimo
+
+on:
+  schedule:
+    # Toutes les 3 heures (heure UTC). GitHub peut décaler de quelques minutes.
+    - cron: '0 */3 * * *'
+  # Permet aussi de la lancer à la main depuis l'onglet Actions.
+  workflow_dispatch:
+
+# Autorise le workflow à commiter et à ouvrir une issue.
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  veille:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Récupérer le dépôt
+        uses: actions/checkout@v4
+
+      - name: Installer Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Chercher les nouvelles actualités
+        id: veille
+        run: |
+          set +e
+          node tools/veille.mjs --ecrire | tee sortie.txt
+          code=$?
+          set -e
+          # Le script sort en 10 quand il a trouvé du nouveau.
+          if [ "$code" = "10" ]; then
+            echo "nouveautes=oui" >> "$GITHUB_OUTPUT"
+          else
+            echo "nouveautes=non" >> "$GITHUB_OUTPUT"
+          fi
+          # Le résumé sert de corps à l'issue.
+          {
+            echo 'resume<<FIN'
+            cat sortie.txt
+            echo 'FIN'
+          } >> "$GITHUB_OUTPUT"
+          rm sortie.txt
+
+      - name: Enregistrer les brouillons
+        if: steps.veille.outputs.nouveautes == 'oui'
+        run: |
+          git config user.name "Veille Aniimo France"
+          git config user.email "actions@github.com"
+          git add data/actus-connues.json patch-notes/_brouillons/ 2>/dev/null || true
+          if git diff --staged --quiet; then
+            echo "Rien à commiter."
+          else
+            git commit -m "Veille : nouvelles actualités officielles détectées"
+            git push
+          fi
+
+      - name: Prévenir par une issue
+        if: steps.veille.outputs.nouveautes == 'oui'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const resume = `${{ steps.veille.outputs.resume }}`;
+            await github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: `Nouvelles actualités officielles — ${new Date().toISOString().slice(0, 10)}`,
+              labels: ['veille'],
+              body: [
+                "La veille a repéré des actualités publiées par l'éditeur.",
+                '',
+                '```',
+                resume.trim(),
+                '```',
+                '',
+                '### Marche à suivre',
+                '',
+                "1. `git pull` pour récupérer les brouillons (`patch-notes/_brouillons/`).",
+                "2. Lire l'article officiel et le **résumer** avec vos mots — ne pas recopier :",
+                "   la version française officielle existe déjà, la dupliquer n'apporterait rien.",
+                '3. Lier les créatures et les éléments cités vers vos fiches.',
+                '4. Déplacer le fichier dans `patch-notes/`, passer la balise robots en `index, follow`,',
+                '   ajouter l\'entrée dans `patch-notes/index.html`.',
+                '5. `npm run build && npm run controle`, puis pousser.',
+                '6. `npm run indexnow` une fois en ligne.',
+              ].join('\n'),
+            });

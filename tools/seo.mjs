@@ -21,7 +21,8 @@ import { ELEMENTS, TABLE, EN, menaces } from './elements.mjs';
 
 const SITE = 'https://aniimo-france.fr';
 const RACINE = process.cwd();
-const IGNORE = new Set(['node_modules', '.git', 'tools', 'assets']);
+// « _brouillons » : notes de veille en attente de relecture, hors site publié.
+const IGNORE = new Set(['node_modules', '.git', 'tools', 'assets', '_brouillons']);
 
 /* ---------- Priorités et fréquences par section ---------- */
 const REGLES = [

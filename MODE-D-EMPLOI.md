@@ -103,3 +103,46 @@ changements seront perdus au prochain build.
 
 Voir **[SEO.md](SEO.md)** : ce qui est déjà en place, et surtout les actions
 qui restent à faire (Search Console, liens externes, vérification des données).
+
+---
+
+## 📡 Veille des actualités officielles
+
+Une automatisation GitHub Actions surveille le site officiel **toutes les
+3 heures**, sans que ton PC soit allumé. Dès qu'une actualité paraît, elle
+crée un brouillon et t'ouvre une **issue GitHub** pour te prévenir.
+
+```bash
+npm run veille          # voir s'il y a du nouveau, sans rien écrire
+npm run veille:ecrire   # créer les brouillons et mémoriser les articles
+```
+
+### Pourquoi un brouillon et pas une publication directe
+
+**L'éditeur publie déjà ses actualités en français.** Les recopier
+produirait du contenu strictement dupliqué : Google n'aurait aucune raison
+de te classer devant la source officielle, et tu t'exposerais juridiquement.
+
+Ta valeur ajoutée est ailleurs, et elle est réelle :
+
+- **résumer** en format court, lisible en trente secondes ;
+- **mettre en forme** avec tes composants de patch note ;
+- **lier** chaque créature et chaque élément cités vers tes fiches —
+  ça, le site officiel ne le fera jamais.
+
+### Publier une note depuis un brouillon
+
+1. `git pull` pour récupérer `patch-notes/_brouillons/`
+2. Ouvrir l'article officiel (le lien est dans le brouillon), le lire
+3. **Résumer avec tes mots** — ne jamais recopier
+4. Lier les créatures (`/aniimopedia/<nom>/`) et les éléments
+   (`/guides/types-et-faiblesses/<élément>/`)
+5. Déplacer le fichier dans `patch-notes/` avec un nom parlant
+6. Passer la balise robots en `index, follow`
+7. Ajouter l'entrée dans `patch-notes/index.html`
+8. `npm run build && npm run controle`, pousser, puis `npm run indexnow`
+
+> Un code cadeau annoncé ? Ajoute-le aussi dans `tools/pages-codes.mjs`.
+
+Le dossier `_brouillons/` est exclu des audits et du sitemap : les
+brouillons ne sont jamais indexés tant que tu ne les as pas publiés.
